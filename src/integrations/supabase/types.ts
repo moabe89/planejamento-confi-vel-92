@@ -14,6 +14,33 @@ export type Database = {
   }
   public: {
     Tables: {
+      formularios_submetidos: {
+        Row: {
+          cpf: string
+          created_at: string
+          dados_completos: Json
+          email_cliente: string
+          id: string
+          nome_completo: string
+        }
+        Insert: {
+          cpf: string
+          created_at?: string
+          dados_completos: Json
+          email_cliente: string
+          id?: string
+          nome_completo: string
+        }
+        Update: {
+          cpf?: string
+          created_at?: string
+          dados_completos?: Json
+          email_cliente?: string
+          id?: string
+          nome_completo?: string
+        }
+        Relationships: []
+      }
       planejamento_previdenciario: {
         Row: {
           bombeiro_militar: boolean
