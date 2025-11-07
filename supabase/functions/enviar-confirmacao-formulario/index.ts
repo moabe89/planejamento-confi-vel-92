@@ -28,6 +28,16 @@ interface FormularioData {
   tempoContribuicao?: any;
 }
 
+const escapeHtml = (unsafe: string | undefined): string => {
+  if (!unsafe) return '';
+  return unsafe
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+};
+
 const formatarBooleano = (valor: boolean): string => {
   return valor ? "Sim" : "Não";
 };
@@ -125,27 +135,27 @@ const gerarEmailHTML = (data: FormularioData): string => {
       </div>
       
       <div class="content">
-        <p style="font-size: 16px; margin-bottom: 20px;">Olá, <strong>${data.nome_completo}</strong>!</p>
+        <p style="font-size: 16px; margin-bottom: 20px;">Olá, <strong>${escapeHtml(data.nome_completo)}</strong>!</p>
         <p style="margin-bottom: 20px;">Seu planejamento será realizado em breve conforme os dados abaixo:</p>
         
         <div class="section">
           <div class="section-title">Dados Pessoais</div>
-          <div class="field"><span class="field-label">Nome Completo:</span> <span class="field-value">${data.nome_completo}</span></div>
-          <div class="field"><span class="field-label">CPF:</span> <span class="field-value">${data.cpf}</span></div>
-          <div class="field"><span class="field-label">Email:</span> <span class="field-value">${data.email_cliente}</span></div>
-          <div class="field"><span class="field-label">Sexo:</span> <span class="field-value">${data.sexo}</span></div>
-          <div class="field"><span class="field-label">Data de Nascimento:</span> <span class="field-value">${data.data_nascimento}</span></div>
-          <div class="field"><span class="field-label">Vínculo:</span> <span class="field-value">${data.vinculo}</span></div>
-          ${data.uf ? `<div class="field"><span class="field-label">UF:</span> <span class="field-value">${data.uf}</span></div>` : ''}
-          ${data.municipio ? `<div class="field"><span class="field-label">Município:</span> <span class="field-value">${data.municipio}</span></div>` : ''}
+          <div class="field"><span class="field-label">Nome Completo:</span> <span class="field-value">${escapeHtml(data.nome_completo)}</span></div>
+          <div class="field"><span class="field-label">CPF:</span> <span class="field-value">${escapeHtml(data.cpf)}</span></div>
+          <div class="field"><span class="field-label">Email:</span> <span class="field-value">${escapeHtml(data.email_cliente)}</span></div>
+          <div class="field"><span class="field-label">Sexo:</span> <span class="field-value">${escapeHtml(data.sexo)}</span></div>
+          <div class="field"><span class="field-label">Data de Nascimento:</span> <span class="field-value">${escapeHtml(data.data_nascimento)}</span></div>
+          <div class="field"><span class="field-label">Vínculo:</span> <span class="field-value">${escapeHtml(data.vinculo)}</span></div>
+          ${data.uf ? `<div class="field"><span class="field-label">UF:</span> <span class="field-value">${escapeHtml(data.uf)}</span></div>` : ''}
+          ${data.municipio ? `<div class="field"><span class="field-label">Município:</span> <span class="field-value">${escapeHtml(data.municipio)}</span></div>` : ''}
         </div>
 
         <div class="section">
           <div class="section-title">Informações Específicas</div>
           <div class="field"><span class="field-label">É ou foi professor:</span> <span class="field-value">${formatarBooleano(data.professor)}</span></div>
-          ${data.professor && data.professorTipo ? `<div class="field"><span class="field-label">Tipo de professor:</span> <span class="field-value">${data.professorTipo}</span></div>` : ''}
+          ${data.professor && data.professorTipo ? `<div class="field"><span class="field-label">Tipo de professor:</span> <span class="field-value">${escapeHtml(data.professorTipo)}</span></div>` : ''}
           <div class="field"><span class="field-label">Pessoa com Deficiência:</span> <span class="field-value">${formatarBooleano(data.pessoaComDeficiencia)}</span></div>
-          ${data.pessoaComDeficiencia && data.grauDeficiencia ? `<div class="field"><span class="field-label">Grau de Deficiência:</span> <span class="field-value">${data.grauDeficiencia}</span></div>` : ''}
+          ${data.pessoaComDeficiencia && data.grauDeficiencia ? `<div class="field"><span class="field-label">Grau de Deficiência:</span> <span class="field-value">${escapeHtml(data.grauDeficiencia)}</span></div>` : ''}
           <div class="field"><span class="field-label">Atividade Insalubre ou Especial:</span> <span class="field-value">${formatarBooleano(data.insalubridadeOuEspecial)}</span></div>
           <div class="field"><span class="field-label">Policial:</span> <span class="field-value">${formatarBooleano(data.policial)}</span></div>
           <div class="field"><span class="field-label">Bombeiro Militar:</span> <span class="field-value">${formatarBooleano(data.bombeiroMilitar)}</span></div>
@@ -154,8 +164,8 @@ const gerarEmailHTML = (data: FormularioData): string => {
         ${data.servicoPublico && data.vinculo === "Servidor Público" ? `
           <div class="section">
             <div class="section-title">Serviço Público</div>
-            <div class="field"><span class="field-label">Origem:</span> <span class="field-value">${data.servicoPublico.origem || "Não informado"}</span></div>
-            <div class="field"><span class="field-label">Data de Ingresso:</span> <span class="field-value">${data.servicoPublico.dataIngressoServicoPublico || "Não informado"}</span></div>
+            <div class="field"><span class="field-label">Origem:</span> <span class="field-value">${escapeHtml(data.servicoPublico.origem) || "Não informado"}</span></div>
+            <div class="field"><span class="field-label">Data de Ingresso:</span> <span class="field-value">${escapeHtml(data.servicoPublico.dataIngressoServicoPublico) || "Não informado"}</span></div>
             <div class="field"><span class="field-label">Tempo na Carreira:</span> <span class="field-value">${formatarTempo(data.servicoPublico.tempoCarreira)}</span></div>
             <div class="field"><span class="field-label">Tempo no Cargo:</span> <span class="field-value">${formatarTempo(data.servicoPublico.tempoCargo)}</span></div>
             <div class="field"><span class="field-label">Tempo de Afastamento:</span> <span class="field-value">${formatarTempo(data.servicoPublico.tempoAfastamento)}</span></div>
@@ -205,7 +215,7 @@ const handler = async (req: Request): Promise<Response> => {
     const emailEscritorio = await resend.emails.send({
       from: "Planejamento Previdenciário <onboarding@resend.dev>",
       to: ["clientealvesefreire@gmail.com"],
-      subject: `Novo Formulário - ${data.nome_completo}`,
+      subject: `Novo Formulário - ${escapeHtml(data.nome_completo)}`,
       text: emailTexto,
     });
 
