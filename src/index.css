@@ -8,88 +8,61 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Cores institucionais - Azul Gov.br + Verde esperança */
-    --background: 210 20% 98%;
-    --foreground: 220 16% 22%;
-
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
-    --card-foreground: 220 16% 22%;
-
+    --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
-    --popover-foreground: 220 16% 22%;
-
-    /* Azul institucional forte (Gov.br inspired) */
-    --primary: 214 84% 38%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 221.2 83.2% 53.3%;
     --primary-foreground: 0 0% 100%;
-    --primary-hover: 214 84% 32%;
-
-    /* Verde esperança/futuro */
-    --secondary: 158 64% 42%;
-    --secondary-foreground: 0 0% 100%;
-    --secondary-hover: 158 64% 36%;
-
-    /* Tons neutros */
-    --muted: 210 20% 94%;
-    --muted-foreground: 220 10% 50%;
-
-    --accent: 214 50% 92%;
-    --accent-foreground: 214 84% 38%;
-
-    --destructive: 0 72% 51%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 220 13% 88%;
-    --input: 220 13% 88%;
-    --ring: 214 84% 38%;
-
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 221.2 83.2% 53.3%;
     --radius: 0.75rem;
 
-    /* Gradientes institucionais */
-    --gradient-institutional: linear-gradient(135deg, hsl(214, 84%, 38%) 0%, hsl(214, 84%, 48%) 100%);
-    --gradient-success: linear-gradient(135deg, hsl(158, 64%, 42%) 0%, hsl(158, 64%, 52%) 100%);
-    --gradient-subtle: linear-gradient(180deg, hsl(210, 20%, 98%) 0%, hsl(210, 20%, 96%) 100%);
-
-    /* Sombras suaves */
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-
-    /* Transições suaves */
-    --transition-base: all 0.2s ease-in-out;
-    --transition-slow: all 0.3s ease-in-out;
+    /* Modern design tokens */
+    --gradient-hero: linear-gradient(135deg, hsl(221.2 83.2% 53.3%) 0%, hsl(262.1 83.3% 57.8%) 100%);
+    --shadow-soft: 0 1px 3px 0 hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+    --shadow-medium: 0 4px 6px -1px hsl(0 0% 0% / 0.1), 0 2px 4px -2px hsl(0 0% 0% / 0.1);
+    --shadow-large: 0 20px 25px -5px hsl(0 0% 0% / 0.1), 0 8px 10px -6px hsl(0 0% 0% / 0.1);
+    --transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .dark {
-    --background: 222 47% 11%;
-    --foreground: 210 40% 98%;
-
-    --card: 222 47% 14%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222 47% 14%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 214 84% 56%;
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 221.2 83.2% 53.3%;
     --primary-foreground: 0 0% 100%;
-    --primary-hover: 214 84% 48%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 221.2 83.2% 53.3%;
 
-    --secondary: 158 64% 52%;
-    --secondary-foreground: 0 0% 100%;
-    --secondary-hover: 158 64% 46%;
-
-    --muted: 217 32% 17%;
-    --muted-foreground: 215 20% 65%;
-
-    --accent: 217 32% 20%;
-    --accent-foreground: 214 84% 56%;
-
-    --destructive: 0 72% 61%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 217 32% 20%;
-    --input: 217 32% 20%;
-    --ring: 214 84% 56%;
+    /* Modern design tokens for dark mode */
+    --gradient-hero: linear-gradient(135deg, hsl(221.2 83.2% 53.3%) 0%, hsl(262.1 83.3% 57.8%) 100%);
+    --shadow-soft: 0 1px 3px 0 hsl(0 0% 0% / 0.3), 0 1px 2px -1px hsl(0 0% 0% / 0.3);
+    --shadow-medium: 0 4px 6px -1px hsl(0 0% 0% / 0.3), 0 2px 4px -2px hsl(0 0% 0% / 0.3);
+    --shadow-large: 0 20px 25px -5px hsl(0 0% 0% / 0.3), 0 8px 10px -6px hsl(0 0% 0% / 0.3);
   }
 }
 
@@ -100,30 +73,29 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
   }
 
-  /* Melhorias de acessibilidade e UX */
-  button,
-  a {
-    @apply transition-all duration-200;
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
   }
 
-  input:focus,
-  textarea:focus,
-  select:focus {
-    @apply outline-none ring-2 ring-ring ring-offset-2;
+  input::placeholder,
+  textarea::placeholder {
+    @apply text-muted-foreground;
   }
 
-  /* Estilo para progress bar */
   .progress-bar {
-    @apply h-2 bg-muted rounded-full overflow-hidden;
+    @apply w-full bg-muted rounded-full h-2.5 overflow-hidden shadow-inner;
   }
 
-  .progress-fill {
-    @apply h-full bg-gradient-to-r from-primary to-secondary transition-all duration-500 ease-out;
+  .progress-bar-fill {
+    @apply h-full bg-gradient-to-r from-primary via-[hsl(var(--primary)_/_0.8)] to-primary transition-all duration-700 ease-out shadow-[0_0_10px_hsl(var(--primary)_/_0.5)];
   }
 
-  /* Animações suaves */
   @keyframes fadeIn {
     from {
       opacity: 0;

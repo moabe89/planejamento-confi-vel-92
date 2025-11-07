@@ -127,21 +127,21 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-accent to-background py-8 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-background via-muted/30 to-background py-12 px-4">
       <div className="max-w-3xl mx-auto">
-        <header className="text-center mb-8 animate-fade-in">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-primary to-secondary mb-4">
-            <Shield className="w-8 h-8 text-white" />
+        <header className="text-center mb-10 animate-fade-in">
+          <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-primary to-[hsl(262.1_83.3%_57.8%)] mb-6 shadow-lg">
+            <Shield className="w-10 h-10 text-white" />
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-3 bg-clip-text">
             Planejamento Previdenciário
           </h1>
-          <p className="text-muted-foreground">
-            Preencha o formulário para receber seu planejamento personalizado
+          <p className="text-muted-foreground text-lg">
+            Preencha o formulário e receba seu planejamento personalizado
           </p>
         </header>
 
-        <div className="bg-card rounded-xl shadow-xl p-6 md:p-8 mb-6 animate-fade-in">
+        <div className="bg-card rounded-2xl shadow-[0_20px_50px_-12px_hsl(var(--primary)_/_0.15)] border border-border/50 p-8 md:p-10 mb-6 animate-fade-in backdrop-blur-sm">
           <ProgressBar currentStep={etapaAtual} totalSteps={totalEtapas} className="mb-8" />
 
           {etapaAtual === 1 && (
@@ -189,9 +189,9 @@ const Index = () => {
             />
           )}
 
-          <div className="flex justify-between items-center mt-8 pt-6 border-t">
+          <div className="flex justify-between items-center mt-10 pt-8 border-t border-border/50">
             {etapaAtual > 1 ? (
-              <Button onClick={handleBack} variant="outline" size="lg">
+              <Button onClick={handleBack} variant="outline" size="lg" className="rounded-lg">
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Voltar
               </Button>
@@ -200,12 +200,12 @@ const Index = () => {
             )}
 
             {etapaAtual < totalEtapas ? (
-              <Button onClick={handleNext} size="lg">
+              <Button onClick={handleNext} size="lg" className="rounded-lg shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 transition-all">
                 Próxima Etapa
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             ) : (
-              <Button onClick={handleSubmit} disabled={isSubmitting} size="lg">
+              <Button onClick={handleSubmit} disabled={isSubmitting} size="lg" className="rounded-lg shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 transition-all">
                 <CheckCircle className="w-4 h-4 mr-2" />
                 {isSubmitting ? 'Enviando...' : 'Confirmo os Dados'}
               </Button>

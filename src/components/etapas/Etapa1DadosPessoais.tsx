@@ -19,10 +19,10 @@ export const Etapa1DadosPessoais: React.FC<Etapa1Props> = ({
   onValidate,
 }) => {
   return (
-    <div className="space-y-6 animate-fade-in">
-      <div>
-        <h2 className="text-2xl font-bold text-foreground mb-2">Dados Pessoais</h2>
-        <p className="text-muted-foreground">
+    <div className="space-y-7 animate-fade-in">
+      <div className="pb-4 border-b border-border/50">
+        <h2 className="text-3xl font-bold text-foreground mb-2">Dados Pessoais</h2>
+        <p className="text-muted-foreground text-base">
           Preencha seus dados pessoais com atenção. Campos marcados com * são obrigatórios.
         </p>
       </div>
@@ -37,6 +37,31 @@ export const Etapa1DadosPessoais: React.FC<Etapa1Props> = ({
         required
         placeholder="Digite seu nome completo"
         maxLength={200}
+      />
+
+      <FormField
+        label="E-mail"
+        name="emailCliente"
+        type="email"
+        value={data.emailCliente}
+        onChange={(v) => onChange('emailCliente', v)}
+        onBlur={() => onValidate('emailCliente')}
+        error={errors.emailCliente}
+        required
+        placeholder="seu@email.com"
+        helpText="Receberá o Planejamento Previdenciário neste e-mail"
+      />
+
+      <FormField
+        label="CPF"
+        name="cpf"
+        value={data.cpf}
+        onChange={(v) => onChange('cpf', maskCpf(v))}
+        onBlur={() => onValidate('cpf')}
+        error={errors.cpf}
+        required
+        placeholder="000.000.000-00"
+        maxLength={14}
       />
 
       <RadioGroup
@@ -159,31 +184,6 @@ export const Etapa1DadosPessoais: React.FC<Etapa1Props> = ({
         ]}
         error={errors.bombeiroMilitar}
         required
-      />
-
-      <FormField
-        label="E-mail"
-        name="emailCliente"
-        type="email"
-        value={data.emailCliente}
-        onChange={(v) => onChange('emailCliente', v)}
-        onBlur={() => onValidate('emailCliente')}
-        error={errors.emailCliente}
-        required
-        placeholder="seu@email.com"
-        helpText="Receberá o Planejamento Previdenciário neste e-mail"
-      />
-
-      <FormField
-        label="CPF"
-        name="cpf"
-        value={data.cpf}
-        onChange={(v) => onChange('cpf', maskCpf(v))}
-        onBlur={() => onValidate('cpf')}
-        error={errors.cpf}
-        required
-        placeholder="000.000.000-00"
-        maxLength={14}
       />
     </div>
   );

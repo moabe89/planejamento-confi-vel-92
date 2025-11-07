@@ -37,8 +37,8 @@ export const FormField: React.FC<FormFieldProps> = ({
   const inputId = `field-${name}`;
 
   return (
-    <div className={cn('space-y-2', className)}>
-      <Label htmlFor={inputId} className="text-sm font-medium text-foreground">
+    <div className={cn('space-y-2.5', className)}>
+      <Label htmlFor={inputId} className="text-sm font-semibold text-foreground">
         {label}
         {required && <span className="text-destructive ml-1" aria-label="obrigatório">*</span>}
       </Label>
@@ -60,12 +60,12 @@ export const FormField: React.FC<FormFieldProps> = ({
         )}
       />
       {helpText && !error && (
-        <p id={`${inputId}-help`} className="text-xs text-muted-foreground">
+        <p id={`${inputId}-help`} className="text-sm text-muted-foreground">
           {helpText}
         </p>
       )}
       {error && (
-        <p id={`${inputId}-error`} className="text-xs text-destructive animate-slide-in" role="alert">
+        <p id={`${inputId}-error`} className="text-sm text-destructive animate-slide-in font-medium" role="alert">
           {error}
         </p>
       )}
