@@ -9,7 +9,7 @@ import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, Command
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { Button } from '@/components/ui/button';
-import { Check, ChevronsUpDown, HelpCircle, AlertTriangle } from 'lucide-react';
+import { Check, ChevronsUpDown, HelpCircle, AlertTriangle, AlertCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Label } from '@/components/ui/label';
 
@@ -250,12 +250,20 @@ export const Etapa2ServicoPublico: React.FC<Etapa2Props> = ({
         </div>
       )}
 
-      <TempoInput
-        label="Tempo de Afastamento Não Remunerado (opcional)"
-        name="tempoAfastamentoNaoRemunerado"
-        value={data.tempoAfastamentoNaoRemunerado}
-        onChange={(v) => onChange('tempoAfastamentoNaoRemunerado', v)}
-      />
+      <div className="space-y-2">
+        <TempoInput
+          label="Tempo de Afastamento Não Remunerado (opcional)"
+          name="tempoAfastamentoNaoRemunerado"
+          value={data.tempoAfastamentoNaoRemunerado}
+          onChange={(v) => onChange('tempoAfastamentoNaoRemunerado', v)}
+        />
+        <div className="flex items-start gap-2 text-sm text-muted-foreground">
+          <AlertCircle className="h-4 w-4 mt-0.5 flex-shrink-0" />
+          <p>
+            Exemplo: licença por interesse particular e licença não remunerada. OBS: <strong>Licença médica e auxílio-doença é considerado remunerado</strong>, se esse for o caso, <strong>não preencha</strong>.
+          </p>
+        </div>
+      </div>
     </div>
   );
 };

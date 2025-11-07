@@ -113,9 +113,9 @@ const Index = () => {
           .single();
         
         if (existingForm) {
-          newErrors.dadosPessoais.cpf = 'Este CPF já possui um formulário enviado';
+          newErrors.dadosPessoais.cpf = 'CPF já cadastrado';
           toast({
-            title: 'Formulário já enviado',
+            title: 'CPF já cadastrado',
             description: 'Já existe um formulário enviado com este CPF.',
             variant: 'destructive',
           });

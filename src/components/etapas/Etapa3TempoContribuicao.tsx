@@ -79,8 +79,8 @@ export const Etapa3TempoContribuicao: React.FC<Etapa3Props> = ({
           <div className="space-y-1 text-sm text-muted-foreground mt-2">
             <p>• Se não tiver, pode deixar em branco.</p>
             <p>• Inclua apenas tempo comuns.</p>
-            <p>• Some todos os seus tempos comuns que tiver para incluir.</p>
-            <p>• Veja se tem <strong>tempos a averbar</strong> e inclua (INSS, RPPS).</p>
+            <p>• Some todos os seus tempos comuns, inclusive os <strong>anteriores ao concurso</strong>.</p>
+            <p>• Veja se tem <strong>tempos para averbar</strong> (INSS, RPPS) inclusive os <em>anteriores ao concurso</em>.</p>
           </div>
         </CardContent>
       </Card>
@@ -124,9 +124,12 @@ export const Etapa3TempoContribuicao: React.FC<Etapa3Props> = ({
                 error={errors.remuneradoForaMagisterio}
                 className="text-base"
               />
-              <p className="text-sm text-muted-foreground">
-                Preencha o campo apenas se <strong>estava no cargo de professor, mas ficou fora do magistério</strong>.
-              </p>
+              <div className="flex items-start gap-2 text-sm text-muted-foreground">
+                <AlertCircle className="h-4 w-4 mt-0.5 flex-shrink-0" />
+                <p>
+                  Preencha o campo apenas se <strong>estava no cargo de professor, mas ficou fora do magistério</strong>.
+                </p>
+              </div>
             </div>
           </CardContent>
         </Card>
