@@ -72,12 +72,8 @@ export const Etapa2ServicoPublico: React.FC<Etapa2Props> = ({
     if (data.dataIngressoServicoPublico && data.dataIngressoServicoPublico.length === 10) {
       const tempo = calcularTempo(data.dataIngressoServicoPublico);
       if (tempo) {
-        // Atualizar ambos os campos com o mesmo valor calculado
-        const novoTempo = { anos: tempo.anos, meses: tempo.meses, dias: tempo.dias };
-        onChange('tempoCarreira', novoTempo);
-        setTimeout(() => {
-          onChange('tempoCargo', { ...novoTempo });
-        }, 0);
+        onChange('tempoCarreira', tempo);
+        onChange('tempoCargo', tempo);
         setShowTempoFields(true);
       }
     }
@@ -187,7 +183,7 @@ export const Etapa2ServicoPublico: React.FC<Etapa2Props> = ({
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
-                <HelpCircle className="w-4 h-4 text-muted-foreground cursor-help" />
+                <HelpCircle className="w-4 h-4 text-amber-600 hover:text-amber-700 cursor-help" />
               </TooltipTrigger>
               <TooltipContent className="max-w-xs">
                 <p>Se teve mais de um concurso, coloque a <strong>data do primeiro concurso</strong> se <strong>não houve interrupção de trabalho</strong> superior a 02 meses de um concurso para o outro. Se houve interrupção, coloque a data do segundo concurso.</p>
@@ -214,13 +210,26 @@ export const Etapa2ServicoPublico: React.FC<Etapa2Props> = ({
             {errors.dataIngressoServicoPublico}
           </p>
         )}
+        <div className="flex items-center gap-2 text-sm text-amber-700 mt-1">
+          <span>Teve mais de um concurso? Veja aqui -&gt;</span>
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <HelpCircle className="w-4 h-4 text-amber-600 hover:text-amber-700 cursor-help" />
+              </TooltipTrigger>
+              <TooltipContent className="max-w-xs">
+                <p>Se teve mais de um concurso, coloque a <strong>data do primeiro concurso</strong> se <strong>não houve interrupção de trabalho</strong> superior a 02 meses de um concurso para o outro. Se houve interrupção, coloque a data do segundo concurso.</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+        </div>
       </div>
 
       {showTempoFields && (
         <div className="space-y-4 p-4 bg-muted/30 rounded-lg border border-border/50">
           <div className="flex items-start gap-2">
             <AlertTriangle className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-amber-700">
               O Tempo na Carreira e no Cargo foram presumidos a partir da sua data de ingresso no concurso. Se você mudou carreira ou cargo após o concurso, altere os dados abaixo:
             </p>
           </div>
