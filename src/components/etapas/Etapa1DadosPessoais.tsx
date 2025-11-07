@@ -118,20 +118,23 @@ export const Etapa1DadosPessoais: React.FC<Etapa1Props> = ({
       />
 
       {data.pessoaComDeficiencia && (
-        <SelectField
-          label="Grau de Deficiência"
-          name="grauDeficiencia"
-          value={data.grauDeficiencia}
-          onChange={(v) => onChange('grauDeficiencia', v)}
-          options={[
-            { value: 'Leve', label: 'Leve' },
-            { value: 'Moderado', label: 'Moderado' },
-            { value: 'Grave', label: 'Grave' },
-          ]}
-          error={errors.grauDeficiencia}
-          required
-          placeholder="Selecione o grau"
-        />
+        <div>
+          <SelectField
+            label="Grau de Deficiência"
+            name="grauDeficiencia"
+            value={data.grauDeficiencia || 'Moderado'}
+            onChange={(v) => onChange('grauDeficiencia', v)}
+            options={[
+              { value: 'Leve', label: 'Leve' },
+              { value: 'Moderado', label: 'Moderado' },
+              { value: 'Grave', label: 'Grave' },
+            ]}
+            error={errors.grauDeficiencia}
+            required
+            placeholder="Selecione o grau"
+          />
+          <p className="text-sm text-muted-foreground mt-1">Se não souber, deixe moderado.</p>
+        </div>
       )}
 
       <RadioGroup

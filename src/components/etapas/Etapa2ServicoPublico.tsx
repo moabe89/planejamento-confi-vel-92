@@ -181,6 +181,19 @@ export const Etapa2ServicoPublico: React.FC<Etapa2Props> = ({
             <span className="text-destructive ml-1" aria-label="obrigatório">*</span>
           </Label>
         </div>
+        <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
+          <span>Teve mais de um concurso? Saiba ao lado</span>
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <HelpCircle className="w-4 h-4 text-amber-600 hover:text-amber-700 cursor-help" />
+              </TooltipTrigger>
+              <TooltipContent className="max-w-xs">
+                <p>Se teve mais de um concurso e <strong>não houve interrupção</strong> de trabalho superior a 2 meses de um concurso para o outro, coloque a <strong>data do primeiro concurso</strong>. Se houve interrupção, coloque a data do segundo concurso.</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+        </div>
         <input
           id="field-dataIngressoServicoPublico"
           name="dataIngressoServicoPublico"
@@ -200,19 +213,6 @@ export const Etapa2ServicoPublico: React.FC<Etapa2Props> = ({
             {errors.dataIngressoServicoPublico}
           </p>
         )}
-        <div className="flex items-center gap-2 text-sm text-muted-foreground mt-1">
-          <span>Teve mais de um concurso? Saiba ao lado</span>
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <HelpCircle className="w-4 h-4 text-amber-600 hover:text-amber-700 cursor-help" />
-              </TooltipTrigger>
-              <TooltipContent className="max-w-xs">
-                <p>Se teve mais de um concurso e <strong>não houve interrupção</strong> de trabalho superior a 2 meses de um concurso para o outro, coloque a <strong>data do primeiro concurso</strong>. Se houve interrupção, coloque a data do segundo concurso.</p>
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
-        </div>
       </div>
 
       {showTempoFields && (

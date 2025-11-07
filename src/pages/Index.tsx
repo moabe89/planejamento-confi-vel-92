@@ -40,6 +40,19 @@ const Index = () => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
   }, [formData]);
 
+  // Definir valor padrão "Moderado" quando PcD é selecionado
+  useEffect(() => {
+    if (formData.dadosPessoais.pessoaComDeficiencia && !formData.dadosPessoais.grauDeficiencia) {
+      setFormData(prev => ({
+        ...prev,
+        dadosPessoais: {
+          ...prev.dadosPessoais,
+          grauDeficiencia: 'Moderado'
+        }
+      }));
+    }
+  }, [formData.dadosPessoais.pessoaComDeficiencia]);
+
   const totalEtapas = formData.dadosPessoais.vinculo === 'Servidor Público' ? 4 : 3;
 
   const handleNext = () => {
