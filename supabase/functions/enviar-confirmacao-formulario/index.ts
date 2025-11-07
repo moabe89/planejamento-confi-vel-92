@@ -214,7 +214,7 @@ const handler = async (req: Request): Promise<Response> => {
     const emailEscritorio = await resend.emails.send({
       from: "Planejamento Previdenciário <onboarding@resend.dev>",
       to: "moabe.a.sousa@gmail.com", // Mudado para string e usando o email verificado
-      subject: `Simulação Previdenciária de ${escapeHtml(data.nome_completo)}`,
+      subject: `Planejamento Previdenciário - ${escapeHtml(data.nome_completo)}`,
       text: emailTexto,
     });
 
