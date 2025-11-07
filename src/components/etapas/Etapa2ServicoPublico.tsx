@@ -109,7 +109,7 @@ export const Etapa2ServicoPublico: React.FC<Etapa2Props> = ({
         ]}
         error={errors.origemFuncional}
         required
-        placeholder="Selecione a origem"
+        placeholder="Identifique sua origem funcional ..."
       />
 
       {needsUF && (

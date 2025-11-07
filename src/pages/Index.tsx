@@ -119,6 +119,20 @@ const Index = () => {
           });
         }
       }
+    } else if (etapaAtual === 2) {
+      const sp = formData.servicoPublico;
+      if (!sp.origemFuncional) newErrors.servicoPublico.origemFuncional = 'Campo obrigatório';
+      if ((sp.origemFuncional === 'Estadual' || sp.origemFuncional === 'Municipal') && !sp.uf) {
+        newErrors.servicoPublico.uf = 'Campo obrigatório';
+      }
+      if (sp.origemFuncional === 'Municipal' && !sp.municipio) {
+        newErrors.servicoPublico.municipio = 'Campo obrigatório';
+      }
+      if (!sp.dataIngressoServicoPublico) {
+        newErrors.servicoPublico.dataIngressoServicoPublico = 'Campo obrigatório';
+      } else if (!validarDataBR(sp.dataIngressoServicoPublico)) {
+        newErrors.servicoPublico.dataIngressoServicoPublico = 'Data inválida';
+      }
     }
 
     setErrors(newErrors);
