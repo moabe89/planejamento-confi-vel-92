@@ -60,6 +60,11 @@ const Index = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleRetificar = () => {
+    setEtapaAtual(1);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const validarEtapa = (): boolean => {
     const newErrors: FormularioErrors = {
       dadosPessoais: {},
@@ -186,6 +191,7 @@ const Index = () => {
                 setFormData({ ...formData, consentimentoLGPD: checked })
               }
               errorConsentimento={errors.geral}
+              onRetificar={handleRetificar}
             />
           )}
 

@@ -7,8 +7,9 @@ import { UFS, buscarMunicipiosPorUF, ESTADOS_COMPLETOS } from '@/lib/municipios'
 import type { ServicoPublico, FormularioErrors } from '@/types/formulario';
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/components/ui/command';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { Button } from '@/components/ui/button';
-import { Check, ChevronsUpDown } from 'lucide-react';
+import { Check, ChevronsUpDown, HelpCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Label } from '@/components/ui/label';
 
@@ -27,6 +28,33 @@ export const Etapa2ServicoPublico: React.FC<Etapa2Props> = ({
 }) => {
   const [municipios, setMunicipios] = useState<string[]>([]);
   const [openMunicipio, setOpenMunicipio] = useState(false);
+  const [showTempoFields, setShowTempoFields] = useState(false);
+
+  // Calcular tempo desde a data de ingresso até hoje
+  const calcularTempo = (dataIngresso: string) => {
+    if (!dataIngresso || dataIngresso.length !== 10) return null;
+    
+    const [dia, mes, ano] = dataIngresso.split('/').map(Number);
+    const dataInicio = new Date(ano, mes - 1, dia);
+    const hoje = new Date();
+    
+    let anos = hoje.getFullYear() - dataInicio.getFullYear();
+    let meses = hoje.getMonth() - dataInicio.getMonth();
+    let dias = hoje.getDate() - dataInicio.getDate();
+    
+    if (dias < 0) {
+      meses--;
+      const ultimoDiaMesAnterior = new Date(hoje.getFullYear(), hoje.getMonth(), 0).getDate();
+      dias += ultimoDiaMesAnterior;
+    }
+    
+    if (meses < 0) {
+      anos--;
+      meses += 12;
+    }
+    
+    return { anos, meses, dias };
+  };
 
   useEffect(() => {
     if (data.uf) {
@@ -38,6 +66,18 @@ export const Etapa2ServicoPublico: React.FC<Etapa2Props> = ({
       }
     }
   }, [data.uf]);
+
+  // Calcular automaticamente quando a data de ingresso for preenchida
+  useEffect(() => {
+    if (data.dataIngressoServicoPublico && data.dataIngressoServicoPublico.length === 10) {
+      const tempo = calcularTempo(data.dataIngressoServicoPublico);
+      if (tempo) {
+        onChange('tempoCarreira', tempo);
+        onChange('tempoCargo', tempo);
+        setShowTempoFields(true);
+      }
+    }
+  }, [data.dataIngressoServicoPublico]);
 
   const needsUF = data.origemFuncional === 'Estadual' || data.origemFuncional === 'Municipal';
   const needsMunicipio = data.origemFuncional === 'Municipal';
@@ -134,35 +174,69 @@ export const Etapa2ServicoPublico: React.FC<Etapa2Props> = ({
         </div>
       )}
 
-      <FormField
-        label="Data de Ingresso no Serviço Público"
-        name="dataIngressoServicoPublico"
-        value={data.dataIngressoServicoPublico}
-        onChange={(v) => onChange('dataIngressoServicoPublico', maskData(v))}
-        onBlur={() => onValidate('dataIngressoServicoPublico')}
-        error={errors.dataIngressoServicoPublico}
-        required
-        placeholder="dd/mm/aaaa"
-        maxLength={10}
-      />
+      <div className="space-y-2">
+        <div className="flex items-center gap-2">
+          <Label htmlFor="field-dataIngressoServicoPublico" className="text-sm font-semibold text-foreground">
+            Data de Ingresso no Concurso
+            <span className="text-destructive ml-1" aria-label="obrigatório">*</span>
+          </Label>
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <HelpCircle className="w-4 h-4 text-muted-foreground cursor-help" />
+              </TooltipTrigger>
+              <TooltipContent className="max-w-xs">
+                <p>Se teve mais de um concurso, coloque a <strong>data do primeiro concurso</strong> se <strong>não houve interrupção de trabalho</strong> superior a 02 meses de um concurso para o outro. Se houve interrupção, coloque a data do segundo concurso.</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+        </div>
+        <input
+          id="field-dataIngressoServicoPublico"
+          name="dataIngressoServicoPublico"
+          type="text"
+          value={data.dataIngressoServicoPublico}
+          onChange={(e) => onChange('dataIngressoServicoPublico', maskData(e.target.value))}
+          onBlur={() => onValidate('dataIngressoServicoPublico')}
+          placeholder="dd/mm/aaaa"
+          maxLength={10}
+          className={cn(
+            'flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-all',
+            errors.dataIngressoServicoPublico && 'border-destructive focus-visible:ring-destructive'
+          )}
+        />
+        {errors.dataIngressoServicoPublico && (
+          <p className="text-sm text-destructive animate-slide-in font-medium" role="alert">
+            {errors.dataIngressoServicoPublico}
+          </p>
+        )}
+      </div>
 
-      <TempoInput
-        label="Tempo de Carreira"
-        name="tempoCarreira"
-        value={data.tempoCarreira}
-        onChange={(v) => onChange('tempoCarreira', v)}
-        error={errors.tempoCarreira}
-        required
-      />
+      {showTempoFields && (
+        <div className="space-y-4 p-4 bg-muted/30 rounded-lg border border-border/50">
+          <p className="text-sm text-muted-foreground">
+            O Tempo na Carreira e no Cargo foram presumidos a partir da sua data de ingresso no concurso. Se você mudou carreira ou cargo após o concurso, altere os dados abaixo:
+          </p>
+          
+          <TempoInput
+            label="Tempo na Carreira Atual"
+            name="tempoCarreira"
+            value={data.tempoCarreira}
+            onChange={(v) => onChange('tempoCarreira', v)}
+            error={errors.tempoCarreira}
+            required
+          />
 
-      <TempoInput
-        label="Tempo no Cargo Atual"
-        name="tempoCargo"
-        value={data.tempoCargo}
-        onChange={(v) => onChange('tempoCargo', v)}
-        error={errors.tempoCargo}
-        required
-      />
+          <TempoInput
+            label="Tempo no Cargo Atual"
+            name="tempoCargo"
+            value={data.tempoCargo}
+            onChange={(v) => onChange('tempoCargo', v)}
+            error={errors.tempoCargo}
+            required
+          />
+        </div>
+      )}
 
       <TempoInput
         label="Tempo de Afastamento Não Remunerado (opcional)"

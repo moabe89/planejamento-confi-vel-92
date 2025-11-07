@@ -2,15 +2,18 @@ import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
+import { Button } from '@/components/ui/button';
 import { formatarTempo } from '@/lib/validations';
 import type { FormularioData } from '@/types/formulario';
 import { Separator } from '@/components/ui/separator';
+import { Edit } from 'lucide-react';
 
 interface Etapa4Props {
   data: FormularioData;
   consentimentoLGPD: boolean;
   onConsentimentoChange: (checked: boolean) => void;
   errorConsentimento?: string;
+  onRetificar: () => void;
 }
 
 export const Etapa4Revisao: React.FC<Etapa4Props> = ({
@@ -18,6 +21,7 @@ export const Etapa4Revisao: React.FC<Etapa4Props> = ({
   consentimentoLGPD,
   onConsentimentoChange,
   errorConsentimento,
+  onRetificar,
 }) => {
   const { dadosPessoais, servicoPublico, tempoContribuicao } = data;
   const isServidorPublico = dadosPessoais.vinculo === 'Servidor Público';
@@ -249,6 +253,14 @@ export const Etapa4Revisao: React.FC<Etapa4Props> = ({
           </div>
         </CardContent>
       </Card>
+
+      {/* Botão Retificar */}
+      <div className="flex justify-center">
+        <Button onClick={onRetificar} variant="outline" size="lg" className="rounded-lg">
+          <Edit className="w-4 h-4 mr-2" />
+          Retificar Dados
+        </Button>
+      </div>
     </div>
   );
 };
