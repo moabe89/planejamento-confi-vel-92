@@ -185,7 +185,7 @@ export const Etapa4Revisao: React.FC<Etapa4Props> = ({
             <>
               <Separator />
               <div>
-                <p className="text-sm text-muted-foreground">Tempo de Atividade Policial</p>
+                <p className="text-sm text-muted-foreground">Tempo de contribuição Policial</p>
                 <p className="font-medium">{formatarTempo(tempoContribuicao.policial)}</p>
               </div>
             </>
@@ -195,7 +195,7 @@ export const Etapa4Revisao: React.FC<Etapa4Props> = ({
             <>
               <Separator />
               <div>
-                <p className="text-sm text-muted-foreground">Tempo de Contribuição como Pessoa com Deficiência</p>
+                <p className="text-sm text-muted-foreground">Tempo de contribuição especial – PcD</p>
                 <p className="font-medium">{formatarTempo(tempoContribuicao.pcd)}</p>
               </div>
             </>
