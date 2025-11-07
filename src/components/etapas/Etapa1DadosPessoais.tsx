@@ -4,6 +4,8 @@ import { RadioGroup } from '@/components/RadioGroup';
 import { SelectField } from '@/components/SelectField';
 import { maskCpf, maskData, validarCPF, validarDataBR, validarEmail, validarIdadeMinima } from '@/lib/validations';
 import type { DadosPessoais, FormularioErrors } from '@/types/formulario';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { HelpCircle } from 'lucide-react';
 
 interface Etapa1Props {
   data: DadosPessoais;
@@ -137,18 +139,52 @@ export const Etapa1DadosPessoais: React.FC<Etapa1Props> = ({
         </div>
       )}
 
-      <RadioGroup
-        label="Trabalha ou trabalhou em atividade insalubre ou especial?"
-        name="insalubridadeOuEspecial"
-        value={data.insalubridadeOuEspecial === null ? '' : data.insalubridadeOuEspecial ? 'sim' : 'nao'}
-        onChange={(v) => onChange('insalubridadeOuEspecial', v === 'sim')}
-        options={[
-          { value: 'sim', label: 'Sim' },
-          { value: 'nao', label: 'Não' },
-        ]}
-        error={errors.insalubridadeOuEspecial}
-        required
-      />
+      <div>
+        <div className="flex items-center gap-2 mb-2">
+          <span className="text-sm font-semibold text-foreground">
+            Trabalha ou trabalhou em atividade insalubre ou especial?
+            <span className="text-destructive ml-1" aria-label="obrigatório">*</span>
+          </span>
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <button type="button" className="text-muted-foreground hover:text-foreground transition-colors">
+                  <HelpCircle className="h-4 w-4" />
+                </button>
+              </TooltipTrigger>
+              <TooltipContent className="max-w-sm p-4">
+                <p className="font-semibold mb-2">Atividades insalubres ou especiais</p>
+                <p className="text-sm mb-2">
+                  As atividades insalubres que dão direito à aposentadoria especial ou conversão de tempo são aquelas em que o trabalhador é exposto a agentes físicos, químicos ou biológicos que prejudicam a saúde, como ruído excessivo, temperaturas extremas, substâncias tóxicas, vírus e bactérias.
+                </p>
+                <p className="text-sm font-semibold mb-1">Alguns cargos que geralmente têm esse direito:</p>
+                <ul className="text-sm list-disc list-inside space-y-0.5">
+                  <li>Gari</li>
+                  <li>Enfermeiros</li>
+                  <li>Médicos</li>
+                  <li>Dentistas</li>
+                  <li>Operador de máquinas pesadas</li>
+                  <li>Motorista de caminhão</li>
+                  <li>Motorista de ambulância</li>
+                  <li>Entre outras</li>
+                </ul>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+        </div>
+        <RadioGroup
+          label=""
+          name="insalubridadeOuEspecial"
+          value={data.insalubridadeOuEspecial === null ? '' : data.insalubridadeOuEspecial ? 'sim' : 'nao'}
+          onChange={(v) => onChange('insalubridadeOuEspecial', v === 'sim')}
+          options={[
+            { value: 'sim', label: 'Sim' },
+            { value: 'nao', label: 'Não' },
+          ]}
+          error={errors.insalubridadeOuEspecial}
+          required
+        />
+      </div>
 
       <RadioGroup
         label="É ou foi professor?"
