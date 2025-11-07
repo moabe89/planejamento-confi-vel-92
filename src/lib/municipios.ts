@@ -35,7 +35,7 @@ export function buscarMunicipiosPorUF(uf: string): string[] {
   const municipios = carregarMunicipios();
   return municipios
     .filter(m => m.uf === uf)
-    .map(m => m.municipio)
+    .map(m => `${m.municipio} - ${m.uf}`)
     .sort();
 }
 

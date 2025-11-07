@@ -30,9 +30,10 @@ export const Etapa2ServicoPublico: React.FC<Etapa2Props> = ({
 
   useEffect(() => {
     if (data.uf) {
-      setMunicipios(buscarMunicipiosPorUF(data.uf));
-      // Limpa município se UF mudar
-      if (data.municipio && !buscarMunicipiosPorUF(data.uf).includes(data.municipio)) {
+      const listaMunicipios = buscarMunicipiosPorUF(data.uf);
+      setMunicipios(listaMunicipios);
+      // Limpa município se UF mudar e o município não existir mais na lista
+      if (data.municipio && !listaMunicipios.includes(data.municipio)) {
         onChange('municipio', '');
       }
     }
