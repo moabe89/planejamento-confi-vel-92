@@ -13,6 +13,7 @@ export interface DadosPessoais {
   grauDeficiencia: 'Leve' | 'Moderado' | 'Grave' | '';
   insalubridadeOuEspecial: boolean | null;
   professor: boolean | null;
+  professorTipo: 'fundamental-medio' | 'ensino-superior' | '';
   policial: boolean | null;
   bombeiroMilitar: boolean | null;
   emailCliente: string;
@@ -71,6 +72,7 @@ export const INITIAL_FORM_DATA: FormularioData = {
     grauDeficiencia: '',
     insalubridadeOuEspecial: null,
     professor: null,
+    professorTipo: '',
     policial: null,
     bombeiroMilitar: null,
     emailCliente: '',

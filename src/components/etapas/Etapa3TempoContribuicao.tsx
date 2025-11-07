@@ -5,6 +5,7 @@ import type { TempoContribuicao, FormularioErrors, DadosPessoais } from '@/types
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { HelpCircle, AlertCircle } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
 
 interface Etapa3Props {
   data: TempoContribuicao;
@@ -22,6 +23,7 @@ export const Etapa3TempoContribuicao: React.FC<Etapa3Props> = ({
   onValidate,
 }) => {
   const isProfessor = dadosPessoais.professor === true;
+  const isProfessorFundamentalMedio = dadosPessoais.professorTipo === 'fundamental-medio';
   const isInsalubre = dadosPessoais.insalubridadeOuEspecial === true;
   const isPolicial = dadosPessoais.policial === true;
   const isPcD = dadosPessoais.pessoaComDeficiencia === true;
@@ -42,130 +44,144 @@ export const Etapa3TempoContribuicao: React.FC<Etapa3Props> = ({
         </AlertDescription>
       </Alert>
 
-      <div className="space-y-2">
-        <TempoInput
-          label="Tempo de Contribuição Comum"
-          name="comum"
-          value={data.comum}
-          onChange={(v) => onChange('comum', v)}
-          error={errors.comum}
-          required
-        />
-        <div className="space-y-1 text-sm text-muted-foreground">
-          <p>• Se não tiver, pode deixar em branco.</p>
-          <p>• Inclua apenas tempo comuns.</p>
-          <p>• Some todos os seus tempos comuns que tiver para incluir.</p>
-          <p>• Veja se tem <strong>tempos a averbar</strong> e inclua (INSS, RPPS).</p>
-        </div>
-      </div>
-
-      {isProfessor && (
-        <>
-          <div className="space-y-2">
-            <TempoInput
-              label="Tempo de Contribuição no Magistério"
-              name="magisterio"
-              value={data.magisterio}
-              onChange={(v) => onChange('magisterio', v)}
-              error={errors.magisterio}
-              required
-            />
-            <div className="flex items-center gap-2">
-              <span className="text-sm text-muted-foreground">
-                O que conta e o que não conta como magistério?
-              </span>
-              <TooltipProvider>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <button type="button" className="text-muted-foreground hover:text-foreground transition-colors">
-                      <HelpCircle className="h-4 w-4" />
-                    </button>
-                  </TooltipTrigger>
-                  <TooltipContent className="max-w-md p-4">
-                    <div className="space-y-3">
-                      <div>
-                        <p className="font-semibold mb-1">✓ Conta como tempo de magistério:</p>
-                        <p className="text-sm">
-                          Cargo de coordenador, diretor, assessor pedagógico, dinamizador de biblioteca, desde que exercido na unidade de ensino e para <strong>ensino fundamental e médio</strong> (<strong>Ensino superior não conta como magistério</strong>).
-                        </p>
-                      </div>
-                      <div>
-                        <p className="font-semibold mb-1">✗ Não conta como tempo de magistério:</p>
-                        <p className="text-sm">
-                          Cargos administrativos ou fora da unidade de ensino, exemplo: secretária da escola, cargo comissionado fora da escola, etc.
-                        </p>
-                      </div>
-                    </div>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-            </div>
-          </div>
-          
+      <Card className="border-border/50 shadow-sm">
+        <CardContent className="pt-6 space-y-2">
           <TempoInput
-            label="Tempo Remunerado Fora do Magistério"
-            name="remuneradoForaMagisterio"
-            value={data.remuneradoForaMagisterio}
-            onChange={(v) => onChange('remuneradoForaMagisterio', v)}
-            error={errors.remuneradoForaMagisterio}
+            label="Tempo de Contribuição Comum"
+            name="comum"
+            value={data.comum}
+            onChange={(v) => onChange('comum', v)}
+            error={errors.comum}
+            required
           />
-        </>
+          <div className="space-y-1 text-sm text-muted-foreground mt-2">
+            <p>• Se não tiver, pode deixar em branco.</p>
+            <p>• Inclua apenas tempo comuns.</p>
+            <p>• Some todos os seus tempos comuns que tiver para incluir.</p>
+            <p>• Veja se tem <strong>tempos a averbar</strong> e inclua (INSS, RPPS).</p>
+          </div>
+        </CardContent>
+      </Card>
+
+      {isProfessor && isProfessorFundamentalMedio && (
+        <Card className="border-border/50 shadow-sm">
+          <CardContent className="pt-6 space-y-4">
+            <div className="space-y-2">
+              <TempoInput
+                label="Tempo de Contribuição no Magistério"
+                name="magisterio"
+                value={data.magisterio}
+                onChange={(v) => onChange('magisterio', v)}
+                error={errors.magisterio}
+                required
+              />
+              <div className="flex items-center gap-2 mt-3">
+                <span className="text-sm font-medium text-foreground">
+                  O que conta e o que não conta como magistério?
+                </span>
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <button type="button" className="text-orange-500 hover:text-orange-600 transition-colors">
+                        <HelpCircle className="h-4 w-4" />
+                      </button>
+                    </TooltipTrigger>
+                    <TooltipContent className="max-w-md p-4">
+                      <div className="space-y-3">
+                        <div>
+                          <p className="font-semibold mb-1">✓ Conta como tempo de magistério:</p>
+                          <p className="text-sm">
+                            Cargo de coordenador, diretor, assessor pedagógico, dinamizador de biblioteca, desde que exercido na unidade de ensino e para <strong>ensino fundamental e médio</strong> (<strong>Ensino superior não conta como magistério</strong>).
+                          </p>
+                        </div>
+                        <div>
+                          <p className="font-semibold mb-1">✗ Não conta como tempo de magistério:</p>
+                          <p className="text-sm">
+                            Cargos administrativos ou fora da unidade de ensino, exemplo: secretária da escola, cargo comissionado fora da escola, etc.
+                          </p>
+                        </div>
+                      </div>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
+              </div>
+            </div>
+            
+            <TempoInput
+              label="Tempo Remunerado Fora do Magistério"
+              name="remuneradoForaMagisterio"
+              value={data.remuneradoForaMagisterio}
+              onChange={(v) => onChange('remuneradoForaMagisterio', v)}
+              error={errors.remuneradoForaMagisterio}
+            />
+          </CardContent>
+        </Card>
       )}
 
       {isInsalubre && (
-        <TempoInput
-          label="Tempo de Contribuição Especial/Insalubre"
-          name="especialInsalubre"
-          value={data.especialInsalubre}
-          onChange={(v) => onChange('especialInsalubre', v)}
-          error={errors.especialInsalubre}
-          required
-        />
+        <Card className="border-border/50 shadow-sm">
+          <CardContent className="pt-6">
+            <TempoInput
+              label="Tempo de Contribuição Especial/Insalubre"
+              name="especialInsalubre"
+              value={data.especialInsalubre}
+              onChange={(v) => onChange('especialInsalubre', v)}
+              error={errors.especialInsalubre}
+              required
+            />
+          </CardContent>
+        </Card>
       )}
 
       {isPolicial && (
-        <>
-          <TempoInput
-            label="Tempo de Contribuição como Policial"
-            name="policial"
-            value={data.policial}
-            onChange={(v) => onChange('policial', v)}
-            error={errors.policial}
-            required
-          />
+        <Card className="border-border/50 shadow-sm">
+          <CardContent className="pt-6 space-y-4">
+            <TempoInput
+              label="Tempo de contribuição Policial"
+              name="policial"
+              value={data.policial}
+              onChange={(v) => onChange('policial', v)}
+              error={errors.policial}
+              required
+            />
 
-          <RadioGroup
-            label="Tipo de Carreira Policial"
-            name="tipoPolicial"
-            value={
-              data.policialCivilOuFederal
-                ? 'civil-federal'
-                : data.policialMilitarOuBombeiro
-                ? 'militar-bombeiro'
-                : ''
-            }
-            onChange={(v) => {
-              onChange('policialCivilOuFederal', v === 'civil-federal');
-              onChange('policialMilitarOuBombeiro', v === 'militar-bombeiro');
-            }}
-            options={[
-              { value: 'civil-federal', label: 'Policial Civil ou Federal' },
-              { value: 'militar-bombeiro', label: 'Policial Militar ou Bombeiro' },
-            ]}
-            required
-          />
-        </>
+            <RadioGroup
+              label="Tipo de Carreira Policial"
+              name="tipoPolicial"
+              value={
+                data.policialCivilOuFederal
+                  ? 'civil-federal'
+                  : data.policialMilitarOuBombeiro
+                  ? 'militar-bombeiro'
+                  : ''
+              }
+              onChange={(v) => {
+                onChange('policialCivilOuFederal', v === 'civil-federal');
+                onChange('policialMilitarOuBombeiro', v === 'militar-bombeiro');
+              }}
+              options={[
+                { value: 'civil-federal', label: 'Policial Civil ou Federal' },
+                { value: 'militar-bombeiro', label: 'Policial Militar ou Bombeiro' },
+              ]}
+              required
+            />
+          </CardContent>
+        </Card>
       )}
 
       {isPcD && (
-        <TempoInput
-          label="Tempo de Contribuição como Pessoa com Deficiência (PcD)"
-          name="pcd"
-          value={data.pcd}
-          onChange={(v) => onChange('pcd', v)}
-          error={errors.pcd}
-          required
-        />
+        <Card className="border-border/50 shadow-sm">
+          <CardContent className="pt-6">
+            <TempoInput
+              label="Tempo de contribuição especial – PcD"
+              name="pcd"
+              value={data.pcd}
+              onChange={(v) => onChange('pcd', v)}
+              error={errors.pcd}
+              required
+            />
+          </CardContent>
+        </Card>
       )}
     </div>
   );

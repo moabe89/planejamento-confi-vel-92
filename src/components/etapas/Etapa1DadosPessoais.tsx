@@ -190,7 +190,10 @@ export const Etapa1DadosPessoais: React.FC<Etapa1Props> = ({
         label="É ou foi professor?"
         name="professor"
         value={data.professor === null ? '' : data.professor ? 'sim' : 'nao'}
-        onChange={(v) => onChange('professor', v === 'sim')}
+        onChange={(v) => {
+          onChange('professor', v === 'sim');
+          if (v === 'nao') onChange('professorTipo', '');
+        }}
         options={[
           { value: 'sim', label: 'Sim' },
           { value: 'nao', label: 'Não' },
@@ -198,6 +201,46 @@ export const Etapa1DadosPessoais: React.FC<Etapa1Props> = ({
         error={errors.professor}
         required
       />
+
+      {data.professor && (
+        <div>
+          <div className="flex items-center gap-2 mb-2">
+            <span className="text-sm font-semibold text-foreground">
+              É professor de ensino fundamental e médio ou superior?
+              <span className="text-destructive ml-1" aria-label="obrigatório">*</span>
+            </span>
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <button type="button" className="text-orange-500 hover:text-orange-600 transition-colors">
+                    <HelpCircle className="h-4 w-4" />
+                  </button>
+                </TooltipTrigger>
+                <TooltipContent className="max-w-md p-4">
+                  <p className="text-sm mb-2">
+                    Professor de Instituição de Ensino Superior não tem direito a aposentadoria do magistério, apenas professor de ensino fundamental/médio.
+                  </p>
+                  <p className="text-sm">
+                    Se você exerce os dois cargos ao mesmo tempo, <strong>marque Ensino Fundamental/Médio</strong>, mas considere apenas o tempo de contribuição no cargo de professor de ensino fundamental/médio como sendo do magistério.
+                  </p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          </div>
+          <RadioGroup
+            label=""
+            name="professorTipo"
+            value={data.professorTipo}
+            onChange={(v) => onChange('professorTipo', v)}
+            options={[
+              { value: 'fundamental-medio', label: 'Ensino fundamental/médio' },
+              { value: 'ensino-superior', label: 'Instituição de ensino superior' },
+            ]}
+            error={errors.professorTipo}
+            required
+          />
+        </div>
+      )}
 
       <RadioGroup
         label="É ou foi policial?"
