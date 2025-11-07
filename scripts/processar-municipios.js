@@ -1,24 +1,30 @@
-// Script para processar a planilha de municípios e criar o CSV
-// Este arquivo será executado uma vez para gerar o CSV atualizado
-
+// Script para processar a planilha de municípios e criar o CSV atualizado
+const XLSX = require('xlsx');
 const fs = require('fs');
 const path = require('path');
 
-// Ler o arquivo de documento parseado
-const docContent = `// Colar todo o conteúdo do documento parseado aqui
-// Linhas 6 a 5574 com formato: Município - UF
-`;
+// Ler o arquivo XLSX
+const arquivoXLSX = path.join(__dirname, '../src/data/municipios-completo-novo.xlsx');
+const workbook = XLSX.readFile(arquivoXLSX);
+const sheetName = workbook.SheetNames[0];
+const worksheet = workbook.Sheets[sheetName];
 
-// Processar linhas
-const linhas = docContent.split('\n');
+// Converter para JSON
+const dados = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+
+// Processar os dados
 const municipios = [];
 
-for (const linha of linhas) {
-  const match = linha.match(/^(\d+):\s*(.+)\s+-\s+([A-Z]{2})$/);
-  if (match) {
-    const municipio = match[2].trim();
-    const uf = match[3].trim();
-    municipios.push({ uf, municipio });
+for (let i = 1; i < dados.length; i++) { // Pular a primeira linha (cabeçalho)
+  const linha = dados[i][0]; // A primeira coluna contém "Município - UF"
+  
+  if (linha && typeof linha === 'string') {
+    const match = linha.match(/^(.+?)\s+-\s+([A-Z]{2})$/);
+    if (match) {
+      const municipio = match[1].trim();
+      const uf = match[2].trim();
+      municipios.push({ uf, municipio });
+    }
   }
 }
 
@@ -31,9 +37,22 @@ municipios.sort((a, b) => {
 // Gerar CSV
 let csv = 'uf,municipio\n';
 for (const m of municipios) {
-  csv += `${m.uf},${m.municipio}\n`;
+  // Escapar vírgulas no nome do município
+  const municipioEscapado = m.municipio.includes(',') ? `"${m.municipio}"` : m.municipio;
+  csv += `${m.uf},${municipioEscapado}\n`;
 }
 
-// Salvar
-fs.writeFileSync(path.join(__dirname, '../src/data/municipios.csv'), csv, 'utf-8');
-console.log(`Processados ${municipios.length} municípios`);
+// Salvar o CSV
+const arquivoCSV = path.join(__dirname, '../src/data/municipios.csv');
+fs.writeFileSync(arquivoCSV, csv, 'utf-8');
+
+console.log(`✅ Processados ${municipios.length} municípios`);
+console.log(`📁 CSV salvo em: ${arquivoCSV}`);
+
+// Verificar se Rio Verde - GO está presente
+const rioVerde = municipios.find(m => m.municipio === 'Rio Verde' && m.uf === 'GO');
+if (rioVerde) {
+  console.log('✅ Rio Verde - GO confirmado na base de dados');
+} else {
+  console.log('⚠️  Rio Verde - GO não encontrado!');
+}
