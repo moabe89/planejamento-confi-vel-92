@@ -1,1 +1,4 @@
 project_id = "dpbzveutqsmlvndycqtd"
+
+[functions.enviar-confirmacao-formulario]
+verify_jwt = false

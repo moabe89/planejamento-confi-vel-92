@@ -10,6 +10,7 @@ import { useToast } from '@/hooks/use-toast';
 import type { FormularioData, FormularioErrors } from '@/types/formulario';
 import { INITIAL_FORM_DATA } from '@/types/formulario';
 import { validarCPF, validarDataBR, validarEmail, validarIdadeMinima } from '@/lib/validations';
+import { supabase } from '@/integrations/supabase/client';
 
 const STORAGE_KEY = 'planejamento-previdenciario-draft';
 
@@ -55,8 +56,8 @@ const Index = () => {
 
   const totalEtapas = formData.dadosPessoais.vinculo === 'Servidor Público' ? 4 : 3;
 
-  const handleNext = () => {
-    if (validarEtapa()) {
+  const handleNext = async () => {
+    if (await validarEtapa()) {
       const proximaEtapa = formData.dadosPessoais.vinculo === 'Carteira Assinada (CLT)' && etapaAtual === 1
         ? 3
         : etapaAtual + 1;
@@ -78,7 +79,7 @@ const Index = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const validarEtapa = (): boolean => {
+  const validarEtapa = async (): Promise<boolean> => {
     const newErrors: FormularioErrors = {
       dadosPessoais: {},
       servicoPublico: {},
@@ -111,6 +112,24 @@ const Index = () => {
       if (dp.insalubridadeOuEspecial === null) newErrors.dadosPessoais.insalubridadeOuEspecial = 'Campo obrigatório';
       if (dp.policial === null) newErrors.dadosPessoais.policial = 'Campo obrigatório';
       if (dp.bombeiroMilitar === null) newErrors.dadosPessoais.bombeiroMilitar = 'Campo obrigatório';
+      
+      // Verificar se já existe formulário com esse CPF
+      if (dp.cpf && validarCPF(dp.cpf)) {
+        const { data: existingForm } = await supabase
+          .from('formularios_submetidos')
+          .select('id')
+          .eq('cpf', dp.cpf)
+          .single();
+        
+        if (existingForm) {
+          newErrors.dadosPessoais.cpf = 'Este CPF já possui um formulário enviado';
+          toast({
+            title: 'Formulário já enviado',
+            description: 'Já existe um formulário enviado com este CPF.',
+            variant: 'destructive',
+          });
+        }
+      }
     }
 
     setErrors(newErrors);
@@ -139,17 +158,63 @@ const Index = () => {
     }
 
     setIsSubmitting(true);
-    toast({
-      title: 'Enviando dados...',
-      description: 'Aguarde enquanto processamos suas informações.',
-    });
+    
+    try {
+      // Salvar no banco de dados
+      const { error: dbError } = await supabase
+        .from('formularios_submetidos')
+        .insert([{
+          nome_completo: formData.dadosPessoais.nomeCompleto,
+          cpf: formData.dadosPessoais.cpf,
+          email_cliente: formData.dadosPessoais.emailCliente,
+          dados_completos: formData as any,
+        }]);
 
-    // TODO: Integração real com edge function
-    setTimeout(() => {
-      setIsSubmitting(false);
+      if (dbError) {
+        console.error('Erro ao salvar formulário:', dbError);
+        toast({
+          title: 'Erro ao salvar',
+          description: 'Não foi possível salvar seus dados. Tente novamente.',
+          variant: 'destructive',
+        });
+        setIsSubmitting(false);
+        return;
+      }
+
+      // Enviar emails
+      const { error: emailError } = await supabase.functions.invoke('enviar-confirmacao-formulario', {
+        body: {
+          ...formData.dadosPessoais,
+          servicoPublico: formData.servicoPublico,
+          tempoContribuicao: formData.tempoContribuicao,
+        },
+      });
+
+      if (emailError) {
+        console.error('Erro ao enviar emails:', emailError);
+        toast({
+          title: 'Dados salvos',
+          description: 'Seus dados foram salvos, mas houve um problema ao enviar os emails de confirmação.',
+          variant: 'default',
+        });
+      } else {
+        toast({
+          title: 'Sucesso!',
+          description: 'Seus dados foram enviados e você receberá um email de confirmação.',
+        });
+      }
+
       localStorage.removeItem(STORAGE_KEY);
       window.location.href = '/obrigado';
-    }, 2000);
+    } catch (error) {
+      console.error('Erro ao processar formulário:', error);
+      toast({
+        title: 'Erro',
+        description: 'Ocorreu um erro ao processar seus dados. Tente novamente.',
+        variant: 'destructive',
+      });
+      setIsSubmitting(false);
+    }
   };
 
   return (
