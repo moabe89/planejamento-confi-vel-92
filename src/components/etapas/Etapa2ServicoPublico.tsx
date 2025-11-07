@@ -3,7 +3,7 @@ import { FormField } from '@/components/FormField';
 import { SelectField } from '@/components/SelectField';
 import { TempoInput } from '@/components/TempoInput';
 import { maskData } from '@/lib/validations';
-import { UFS, buscarMunicipiosPorUF } from '@/lib/municipios';
+import { UFS, buscarMunicipiosPorUF, ESTADOS_COMPLETOS } from '@/lib/municipios';
 import type { ServicoPublico, FormularioErrors } from '@/types/formulario';
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/components/ui/command';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
@@ -71,7 +71,7 @@ export const Etapa2ServicoPublico: React.FC<Etapa2Props> = ({
           name="uf"
           value={data.uf}
           onChange={(v) => onChange('uf', v)}
-          options={UFS.map(uf => ({ value: uf, label: uf }))}
+          options={UFS.map(uf => ({ value: uf, label: ESTADOS_COMPLETOS[uf] }))}
           error={errors.uf}
           required
           placeholder="Selecione o estado"

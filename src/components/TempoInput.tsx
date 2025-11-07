@@ -60,7 +60,7 @@ export const TempoInput: React.FC<TempoInputProps> = ({
             id={`${name}-meses`}
             type="number"
             min="0"
-            max="11"
+            max="12"
             value={value.meses}
             onChange={(e) => handleChange('meses', e.target.value)}
             disabled={disabled}
@@ -76,7 +76,7 @@ export const TempoInput: React.FC<TempoInputProps> = ({
             id={`${name}-dias`}
             type="number"
             min="0"
-            max="30"
+            max="31"
             value={value.dias}
             onChange={(e) => handleChange('dias', e.target.value)}
             disabled={disabled}
