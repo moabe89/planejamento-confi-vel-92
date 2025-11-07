@@ -157,7 +157,7 @@ export const Etapa4Revisao: React.FC<Etapa4Props> = ({
         </CardHeader>
         <CardContent className="space-y-3">
           <div>
-            <p className="text-sm text-muted-foreground">Tempo Comum</p>
+            <p className="text-sm text-muted-foreground">Tempo de Contribuição Comum</p>
             <p className="font-medium">{formatarTempo(tempoContribuicao.comum)}</p>
           </div>
           
@@ -165,7 +165,7 @@ export const Etapa4Revisao: React.FC<Etapa4Props> = ({
             <>
               <Separator />
               <div>
-                <p className="text-sm text-muted-foreground">Tempo no Magistério</p>
+                <p className="text-sm text-muted-foreground">Tempo de Contribuição no Magistério</p>
                 <p className="font-medium">{formatarTempo(tempoContribuicao.magisterio)}</p>
               </div>
             </>
@@ -175,7 +175,7 @@ export const Etapa4Revisao: React.FC<Etapa4Props> = ({
             <>
               <Separator />
               <div>
-                <p className="text-sm text-muted-foreground">Tempo Especial/Insalubre</p>
+                <p className="text-sm text-muted-foreground">Tempo de Atividade Especial/Insalubre</p>
                 <p className="font-medium">{formatarTempo(tempoContribuicao.especialInsalubre)}</p>
               </div>
             </>
@@ -185,7 +185,7 @@ export const Etapa4Revisao: React.FC<Etapa4Props> = ({
             <>
               <Separator />
               <div>
-                <p className="text-sm text-muted-foreground">Tempo Policial</p>
+                <p className="text-sm text-muted-foreground">Tempo de Atividade Policial</p>
                 <p className="font-medium">{formatarTempo(tempoContribuicao.policial)}</p>
               </div>
             </>
@@ -195,7 +195,7 @@ export const Etapa4Revisao: React.FC<Etapa4Props> = ({
             <>
               <Separator />
               <div>
-                <p className="text-sm text-muted-foreground">Tempo como PcD</p>
+                <p className="text-sm text-muted-foreground">Tempo de Contribuição como Pessoa com Deficiência</p>
                 <p className="font-medium">{formatarTempo(tempoContribuicao.pcd)}</p>
               </div>
             </>
