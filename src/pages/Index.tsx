@@ -181,12 +181,39 @@ const Index = () => {
         return;
       }
 
-      // Enviar emails
+      // Enviar emails - mapeando para snake_case
       const { error: emailError } = await supabase.functions.invoke('enviar-confirmacao-formulario', {
         body: {
-          ...formData.dadosPessoais,
-          servicoPublico: formData.servicoPublico,
-          tempoContribuicao: formData.tempoContribuicao,
+          nome_completo: formData.dadosPessoais.nomeCompleto,
+          email_cliente: formData.dadosPessoais.emailCliente,
+          sexo: formData.dadosPessoais.sexo,
+          data_nascimento: formData.dadosPessoais.dataNascimento,
+          cpf: formData.dadosPessoais.cpf,
+          vinculo: formData.dadosPessoais.vinculo,
+          uf: formData.servicoPublico?.uf,
+          municipio: formData.servicoPublico?.municipio,
+          professor: formData.dadosPessoais.professor || false,
+          professorTipo: formData.dadosPessoais.professorTipo,
+          pessoaComDeficiencia: formData.dadosPessoais.pessoaComDeficiencia || false,
+          grauDeficiencia: formData.dadosPessoais.grauDeficiencia,
+          insalubridadeOuEspecial: formData.dadosPessoais.insalubridadeOuEspecial || false,
+          policial: formData.dadosPessoais.policial || false,
+          bombeiroMilitar: formData.dadosPessoais.bombeiroMilitar || false,
+          servicoPublico: formData.servicoPublico ? {
+            origem: formData.servicoPublico.origemFuncional,
+            dataIngressoServicoPublico: formData.servicoPublico.dataIngressoServicoPublico,
+            tempoCarreira: formData.servicoPublico.tempoCarreira,
+            tempoCargo: formData.servicoPublico.tempoCargo,
+            tempoAfastamento: formData.servicoPublico.tempoAfastamentoNaoRemunerado,
+          } : undefined,
+          tempoContribuicao: {
+            tempoComum: formData.tempoContribuicao.comum,
+            tempoMagisterio: formData.tempoContribuicao.magisterio,
+            tempoForaMagisterio: formData.tempoContribuicao.remuneradoForaMagisterio,
+            tempoEspecialInsalubre: formData.tempoContribuicao.especialInsalubre,
+            tempoPolicial: formData.tempoContribuicao.policial,
+            tempoPCD: formData.tempoContribuicao.pcd,
+          },
         },
       });
 

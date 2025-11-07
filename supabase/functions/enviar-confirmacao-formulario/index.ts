@@ -211,20 +211,20 @@ const handler = async (req: Request): Promise<Response> => {
     // Email em HTML para o cliente
     const emailHTML = gerarEmailHTML(data);
 
-    // Enviar email para o escritório
+    // Enviar email para o escritório (Resend em modo teste só envia para o email verificado)
     const emailEscritorio = await resend.emails.send({
       from: "Planejamento Previdenciário <onboarding@resend.dev>",
-      to: ["clientealvesefreire@gmail.com"],
+      to: "moabe.a.sousa@gmail.com", // Mudado para string e usando o email verificado
       subject: `Novo Formulário - ${escapeHtml(data.nome_completo)}`,
       text: emailTexto,
     });
 
     console.log("Email para escritório enviado:", emailEscritorio);
 
-    // Enviar email para o cliente
+    // Enviar email para o cliente (também para o email verificado no modo teste)
     const emailCliente = await resend.emails.send({
       from: "Planejamento Previdenciário <onboarding@resend.dev>",
-      to: [data.email_cliente],
+      to: data.email_cliente || "moabe.a.sousa@gmail.com", // Mudado para string com fallback
       subject: "Dados confirmados para o Planejamento",
       html: emailHTML,
     });
