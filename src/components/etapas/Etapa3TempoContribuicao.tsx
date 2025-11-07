@@ -53,6 +53,7 @@ export const Etapa3TempoContribuicao: React.FC<Etapa3Props> = ({
             onChange={(v) => onChange('comum', v)}
             error={errors.comum}
             required
+            className="text-base"
           />
           <div className="space-y-1 text-sm text-muted-foreground mt-2">
             <p>• Se não tiver, pode deixar em branco.</p>
@@ -66,7 +67,7 @@ export const Etapa3TempoContribuicao: React.FC<Etapa3Props> = ({
       {isProfessor && isProfessorFundamentalMedio && (
         <Card className="border-border/50 shadow-sm">
           <CardContent className="pt-6 space-y-4">
-            <div className="space-y-2">
+            <div className="space-y-3">
               <TempoInput
                 label="Tempo de Contribuição no Magistério"
                 name="magisterio"
@@ -74,46 +75,38 @@ export const Etapa3TempoContribuicao: React.FC<Etapa3Props> = ({
                 onChange={(v) => onChange('magisterio', v)}
                 error={errors.magisterio}
                 required
+                className="text-base"
               />
-              <div className="flex items-center gap-2 mt-3">
-                <span className="text-sm font-medium text-foreground">
-                  O que conta e o que não conta como magistério?
-                </span>
-                <TooltipProvider>
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <button type="button" className="text-orange-500 hover:text-orange-600 transition-colors">
-                        <HelpCircle className="h-4 w-4" />
-                      </button>
-                    </TooltipTrigger>
-                    <TooltipContent className="max-w-md p-4">
-                      <div className="space-y-3">
-                        <div>
-                          <p className="font-semibold mb-1">✓ Conta como tempo de magistério:</p>
-                          <p className="text-sm">
-                            Cargo de coordenador, diretor, assessor pedagógico, dinamizador de biblioteca, desde que exercido na unidade de ensino e para <strong>ensino fundamental e médio</strong> (<strong>Ensino superior não conta como magistério</strong>).
-                          </p>
-                        </div>
-                        <div>
-                          <p className="font-semibold mb-1">✗ Não conta como tempo de magistério:</p>
-                          <p className="text-sm">
-                            Cargos administrativos ou fora da unidade de ensino, exemplo: secretária da escola, cargo comissionado fora da escola, etc.
-                          </p>
-                        </div>
-                      </div>
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
+              <div className="space-y-2 text-sm text-muted-foreground mt-3">
+                <p className="text-foreground font-medium">O que conta e o que não conta como magistério?</p>
+                <div>
+                  <p className="font-medium">✓ Conta como tempo de magistério:</p>
+                  <p>
+                    Cargo de coordenador, diretor, assessor pedagógico, dinamizador de biblioteca, desde que exercido na unidade de ensino e para <strong>ensino fundamental e médio</strong> (<strong>Ensino superior não conta como magistério</strong>).
+                  </p>
+                </div>
+                <div>
+                  <p className="font-medium">✗ Não conta como tempo de magistério:</p>
+                  <p>
+                    Cargos administrativos ou fora da unidade de ensino, exemplo: secretária da escola, cargo comissionado fora da escola, etc.
+                  </p>
+                </div>
               </div>
             </div>
             
-            <TempoInput
-              label="Tempo Remunerado Fora do Magistério"
-              name="remuneradoForaMagisterio"
-              value={data.remuneradoForaMagisterio}
-              onChange={(v) => onChange('remuneradoForaMagisterio', v)}
-              error={errors.remuneradoForaMagisterio}
-            />
+            <div className="space-y-2">
+              <TempoInput
+                label="Tempo Fora do Magistério"
+                name="remuneradoForaMagisterio"
+                value={data.remuneradoForaMagisterio}
+                onChange={(v) => onChange('remuneradoForaMagisterio', v)}
+                error={errors.remuneradoForaMagisterio}
+                className="text-base"
+              />
+              <p className="text-sm text-muted-foreground">
+                Preencha o campo apenas se <strong>estava no cargo de professor, mas ficou fora do magistério</strong>.
+              </p>
+            </div>
           </CardContent>
         </Card>
       )}
@@ -128,6 +121,7 @@ export const Etapa3TempoContribuicao: React.FC<Etapa3Props> = ({
               onChange={(v) => onChange('especialInsalubre', v)}
               error={errors.especialInsalubre}
               required
+              className="text-base"
             />
           </CardContent>
         </Card>
@@ -143,6 +137,7 @@ export const Etapa3TempoContribuicao: React.FC<Etapa3Props> = ({
               onChange={(v) => onChange('policial', v)}
               error={errors.policial}
               required
+              className="text-base"
             />
 
             <RadioGroup
@@ -179,6 +174,7 @@ export const Etapa3TempoContribuicao: React.FC<Etapa3Props> = ({
               onChange={(v) => onChange('pcd', v)}
               error={errors.pcd}
               required
+              className="text-base"
             />
           </CardContent>
         </Card>

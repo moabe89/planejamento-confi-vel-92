@@ -143,12 +143,11 @@ export const Etapa1DadosPessoais: React.FC<Etapa1Props> = ({
         <div className="flex items-center gap-2 mb-2">
           <span className="text-sm font-semibold text-foreground">
             Trabalha ou trabalhou em atividade insalubre ou especial?
-            <span className="text-destructive ml-1" aria-label="obrigatório">*</span>
           </span>
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
-                <button type="button" className="text-muted-foreground hover:text-foreground transition-colors">
+                <button type="button" className="text-orange-500 hover:text-orange-600 transition-colors">
                   <HelpCircle className="h-4 w-4" />
                 </button>
               </TooltipTrigger>
@@ -182,7 +181,6 @@ export const Etapa1DadosPessoais: React.FC<Etapa1Props> = ({
             { value: 'nao', label: 'Não' },
           ]}
           error={errors.insalubridadeOuEspecial}
-          required
         />
       </div>
 
@@ -207,7 +205,6 @@ export const Etapa1DadosPessoais: React.FC<Etapa1Props> = ({
           <div className="flex items-center gap-2 mb-2">
             <span className="text-sm font-semibold text-foreground">
               É professor de ensino fundamental e médio ou superior?
-              <span className="text-destructive ml-1" aria-label="obrigatório">*</span>
             </span>
             <TooltipProvider>
               <Tooltip>
@@ -237,7 +234,6 @@ export const Etapa1DadosPessoais: React.FC<Etapa1Props> = ({
               { value: 'ensino-superior', label: 'Instituição de ensino superior' },
             ]}
             error={errors.professorTipo}
-            required
           />
         </div>
       )}
