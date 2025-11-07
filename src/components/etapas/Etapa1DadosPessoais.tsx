@@ -205,6 +205,7 @@ export const Etapa1DadosPessoais: React.FC<Etapa1Props> = ({
           <div className="flex items-center gap-2 mb-2">
             <span className="text-sm font-semibold text-foreground">
               É professor de ensino fundamental e médio ou superior?
+              <span className="text-destructive ml-1" aria-label="obrigatório">*</span>
             </span>
             <TooltipProvider>
               <Tooltip>
@@ -234,6 +235,7 @@ export const Etapa1DadosPessoais: React.FC<Etapa1Props> = ({
               { value: 'ensino-superior', label: 'Instituição de ensino superior' },
             ]}
             error={errors.professorTipo}
+            required
           />
         </div>
       )}

@@ -103,6 +103,14 @@ const Index = () => {
       if (!dp.cpf || !validarCPF(dp.cpf)) {
         newErrors.dadosPessoais.cpf = 'CPF inválido';
       }
+      if (dp.professor === null) newErrors.dadosPessoais.professor = 'Campo obrigatório';
+      if (dp.professor === true && !dp.professorTipo) {
+        newErrors.dadosPessoais.professorTipo = 'Campo obrigatório';
+      }
+      if (dp.pessoaComDeficiencia === null) newErrors.dadosPessoais.pessoaComDeficiencia = 'Campo obrigatório';
+      if (dp.insalubridadeOuEspecial === null) newErrors.dadosPessoais.insalubridadeOuEspecial = 'Campo obrigatório';
+      if (dp.policial === null) newErrors.dadosPessoais.policial = 'Campo obrigatório';
+      if (dp.bombeiroMilitar === null) newErrors.dadosPessoais.bombeiroMilitar = 'Campo obrigatório';
     }
 
     setErrors(newErrors);
