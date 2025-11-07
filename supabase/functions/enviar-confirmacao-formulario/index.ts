@@ -60,8 +60,8 @@ const gerarEmailTexto = (data: FormularioData): string => {
   texto += `Data de Nascimento: ${data.data_nascimento}\n`;
   texto += `Vínculo: ${data.vinculo}\n`;
   
-  if (data.uf) texto += `UF: ${data.uf}\n`;
-  if (data.municipio) texto += `Município: ${data.municipio}\n`;
+  const municipioUf = [data.municipio, data.uf].filter(Boolean).join(' - ');
+  if (municipioUf) texto += `Município: ${municipioUf}\n`;
   
   texto += `\n=== INFORMAÇÕES ESPECÍFICAS ===\n`;
   texto += `É ou foi professor: ${formatarBooleano(data.professor)}\n`;
@@ -146,8 +146,7 @@ const gerarEmailHTML = (data: FormularioData): string => {
           <div class="field"><span class="field-label">Sexo:</span> <span class="field-value">${escapeHtml(data.sexo)}</span></div>
           <div class="field"><span class="field-label">Data de Nascimento:</span> <span class="field-value">${escapeHtml(data.data_nascimento)}</span></div>
           <div class="field"><span class="field-label">Vínculo:</span> <span class="field-value">${escapeHtml(data.vinculo)}</span></div>
-          ${data.uf ? `<div class="field"><span class="field-label">UF:</span> <span class="field-value">${escapeHtml(data.uf)}</span></div>` : ''}
-          ${data.municipio ? `<div class="field"><span class="field-label">Município:</span> <span class="field-value">${escapeHtml(data.municipio)}</span></div>` : ''}
+          ${(data.uf || data.municipio) ? `<div class="field"><span class="field-label">Município:</span> <span class="field-value">${escapeHtml([data.municipio, data.uf].filter(Boolean).join(' - '))}</span></div>` : ''}
         </div>
 
         <div class="section">
