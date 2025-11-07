@@ -1,164 +1,1639 @@
 uf,municipio
-AC,Rio Branco
-AC,Cruzeiro do Sul
-AC,Sena Madureira
-AL,Maceió
-AL,Arapiraca
-AL,Palmeira dos Índios
-AM,Manaus
-AM,Parintins
-AM,Itacoatiara
-AP,Macapá
-AP,Santana
-AP,Laranjal do Jari
-BA,Salvador
-BA,Feira de Santana
-BA,Vitória da Conquista
-BA,Camaçari
-BA,Itabuna
-BA,Juazeiro
-CE,Fortaleza
-CE,Caucaia
-CE,Juazeiro do Norte
-CE,Maracanaú
-CE,Sobral
-DF,Brasília
-ES,Vitória
-ES,Vila Velha
-ES,Serra
-ES,Cariacica
-ES,Cachoeiro de Itapemirim
-GO,Goiânia
-GO,Aparecida de Goiânia
-GO,Anápolis
-GO,Rio Verde
-GO,Luziânia
-MA,São Luís
-MA,Imperatriz
-MA,São José de Ribamar
-MA,Timon
-MA,Caxias
-MG,Belo Horizonte
-MG,Uberlândia
-MG,Contagem
-MG,Juiz de Fora
-MG,Betim
-MG,Montes Claros
-MS,Campo Grande
-MS,Dourados
-MS,Três Lagoas
-MS,Corumbá
-MT,Cuiabá
-MT,Várzea Grande
-MT,Rondonópolis
-MT,Sinop
-PA,Belém
-PA,Ananindeua
-PA,Santarém
-PA,Marabá
-PA,Castanhal
-PB,João Pessoa
-PB,Campina Grande
-PB,Santa Rita
-PB,Patos
-PE,Recife
-PE,Jaboatão dos Guararapes
-PE,Olinda
-PE,Paulista
-PE,Caruaru
-PE,Petrolina
-PI,Teresina
-PI,Parnaíba
-PI,Picos
-PI,Floriano
-PR,Curitiba
-PR,Londrina
-PR,Maringá
-PR,Ponta Grossa
-PR,Cascavel
-PR,São José dos Pinhais
-PR,Foz do Iguaçu
-RJ,Rio de Janeiro
-RJ,São Gonçalo
-RJ,Duque de Caxias
-RJ,Nova Iguaçu
-RJ,Niterói
-RJ,Belford Roxo
-RJ,São João de Meriti
-RJ,Campos dos Goytacazes
-RJ,Petrópolis
-RJ,Volta Redonda
-RN,Natal
-RN,Mossoró
-RN,Parnamirim
-RN,São Gonçalo do Amarante
-RO,Porto Velho
-RO,Ji-Paraná
-RO,Ariquemes
-RO,Vilhena
-RR,Boa Vista
-RR,Rorainópolis
-RR,Caracaraí
-RS,Porto Alegre
-RS,Caxias do Sul
-RS,Pelotas
-RS,Canoas
-RS,Santa Maria
-RS,Gravataí
-RS,Viamão
-RS,Novo Hamburgo
-RS,São Leopoldo
-SC,Florianópolis
-SC,Joinville
-SC,Blumenau
-SC,São José
-SC,Criciúma
-SC,Chapecó
-SC,Itajaí
-SE,Aracaju
-SE,Nossa Senhora do Socorro
-SE,Lagarto
-SE,Itabaiana
-SP,São Paulo
-SP,Guarulhos
-SP,Campinas
-SP,São Bernardo do Campo
-SP,Santo André
-SP,Osasco
-SP,São José dos Campos
-SP,Ribeirão Preto
-SP,Sorocaba
-SP,Santos
-SP,Mauá
-SP,São José do Rio Preto
-SP,Mogi das Cruzes
-SP,Diadema
-SP,Jundiaí
-SP,Carapicuíba
-SP,Piracicaba
-SP,Bauru
-SP,Itaquaquecetuba
-SP,São Vicente
-SP,Franca
-SP,Guarujá
-SP,Taubaté
-SP,Praia Grande
-SP,Limeira
-SP,Suzano
-SP,Taboão da Serra
-SP,Sumaré
-SP,Barueri
-SP,Embu das Artes
-SP,São Carlos
-SP,Marília
-SP,Indaiatuba
-SP,Cotia
+GO,Abadia de Goiás
+MG,Abadia dos Dourados
+GO,Abadiânia
+MG,Abaeté
+PA,Abaetetuba
+CE,Abaiara
+BA,Abaíra
+BA,Abaré
+PR,Abatiá
+SC,Abdon Batista
+PA,Abel Figueiredo
+SC,Abelardo Luz
+MG,Abre Campo
+PE,Abreu e Lima
+TO,Abreulândia
+MG,Acaiaca
+MA,Açailândia
+BA,Acajutiba
+PA,Acará
+CE,Acarape
+CE,Acaraú
+RN,Acari
+PI,Acauã
+RS,Aceguá
+CE,Acopiara
+MT,Acorizal
+AC,Acrelândia
+GO,Acreúna
+RN,Açu
+MG,Açucena
+SP,Adamantina
+GO,Adelândia
+SP,Adolfo
+PR,Adrianópolis
+BA,Adustina
+PE,Afogados da Ingazeira
+RN,Afonso Bezerra
+ES,Afonso Cláudio
+MA,Afonso Cunha
+PE,Afrânio
+PA,Afuá
+PE,Agrestina
+PI,Agricolândia
+SC,Agrolândia
+SC,Agronômica
+PA,Água Azul do Norte
+MG,Água Boa
+MT,Água Boa
+AL,Água Branca
+PB,Água Branca
+PI,Água Branca
+MS,Água Clara
+MG,Água Comprida
+SC,Água Doce
+MA,Água Doce do Maranhão
+ES,Água Doce do Norte
+BA,Água Fria
+GO,Água Fria de Goiás
+GO,Água Limpa
+RN,Água Nova
+PE,Água Preta
+RS,Água Santa
+SP,Aguaí
+MG,Aguanil
+PE,Águas Belas
+SP,Águas da Prata
+SC,Águas de Chapecó
+SP,Águas de Lindóia
+SP,Águas de Santa Bárbara
+SP,Águas de São Pedro
+MG,Águas Formosas
+SC,Águas Frias
+GO,Águas Lindas de Goiás
+SC,Águas Mornas
+MG,Águas Vermelhas
+RS,Agudo
+SP,Agudos
+PR,Agudos do Sul
+ES,Águia Branca
+PB,Aguiar
+TO,Aguiarnópolis
+MG,Aimorés
+BA,Aiquara
+CE,Aiuaba
+MG,Aiuruoca
+RS,Ajuricaba
+MG,Alagoa
+PB,Alagoa Grande
+PB,Alagoa Nova
+PB,Alagoinha
+PE,Alagoinha
+PI,Alagoinha do Piauí
+BA,Alagoinhas
+SP,Alambari
+MG,Albertina
+MA,Alcântara
+CE,Alcântaras
+PB,Alcantil
+MS,Alcinópolis
+BA,Alcobaça
+MA,Aldeias Altas
+RS,Alecrim
+ES,Alegre
+RS,Alegrete
+PI,Alegrete do Piauí
+RS,Alegria
+MG,Além Paraíba
+PA,Alenquer
+RN,Alexandria
+GO,Alexânia
+MG,Alfenas
+ES,Alfredo Chaves
+SP,Alfredo Marcondes
+MG,Alfredo Vasconcelos
+SC,Alfredo Wagner
+PB,Algodão de Jandaíra
+PB,Alhandra
+PE,Aliança
+TO,Aliança do Tocantins
+BA,Almadina
+TO,Almas
+PA,Almeirim
+MG,Almenara
+RN,Almino Afonso
+PR,Almirante Tamandaré
+RS,Almirante Tamandaré do Sul
+GO,Aloândia
+MG,Alpercata
+RS,Alpestre
+MG,Alpinópolis
+MT,Alta Floresta
+RO,Alta Floresta D'Oeste
+SP,Altair
+PA,Altamira
+MA,Altamira do Maranhão
+PR,Altamira do Paraná
+CE,Altaneira
+MG,Alterosa
+PE,Altinho
+SP,Altinópolis
+RR,Alto Alegre
+RS,Alto Alegre
+SP,Alto Alegre
+MA,Alto Alegre do Maranhão
+MA,Alto Alegre do Pindaré
+RO,Alto Alegre dos Parecis
+MT,Alto Araguaia
+SC,Alto Bela Vista
+MT,Alto Boa Vista
+MG,Alto Caparaó
+RN,Alto do Rodrigues
+RS,Alto Feliz
+MT,Alto Garças
+GO,Alto Horizonte
+MG,Alto Jequitibá
+PI,Alto Longá
+MT,Alto Paraguai
+PR,Alto Paraíso
+RO,Alto Paraíso
+GO,Alto Paraíso de Goiás
+PR,Alto Paraná
+MA,Alto Parnaíba
+PR,Alto Piquiri
+MG,Alto Rio Doce
+ES,Alto Rio Novo
+CE,Alto Santo
+MT,Alto Taquari
+PR,Altônia
+PI,Altos
+SP,Alumínio
+AM,Alvarães
+MG,Alvarenga
+SP,Álvares Florence
+SP,Álvares Machado
+SP,Álvaro de Carvalho
+SP,Alvinlândia
+MG,Alvinópolis
+RS,Alvorada
+TO,Alvorada
+RO,Alvorada D'Oeste
+MG,Alvorada de Minas
+PI,Alvorada do Gurguéia
+GO,Alvorada do Norte
+PR,Alvorada do Sul
+RR,Amajari
+MS,Amambai
+AP,Amapá
+MA,Amapá do Maranhão
+PR,Amaporã
+PE,Amaraji
+RS,Amaral Ferrador
+GO,Amaralina
+PI,Amarante
+MA,Amarante do Maranhão
+BA,Amargosa
+AM,Amaturá
+BA,Amélia Rodrigues
+BA,América Dourada
 SP,Americana
-SP,Jacareí
-SP,Araraquara
-SP,Presidente Prudente
-SP,Rio Claro
-TO,Palmas
+GO,Americano do Brasil
+SP,Américo Brasiliense
+SP,Américo de Campos
+RS,Ametista do Sul
+CE,Amontada
+GO,Amorinópolis
+PB,Amparo
+SP,Amparo
+SE,Amparo do São Francisco
+MG,Amparo do Serra
+PR,Ampére
+AL,Anadia
+BA,Anagé
+PR,Anahy
+PA,Anajás
+MA,Anajatuba
+SP,Analândia
+AM,Anamã
+TO,Ananás
+PA,Ananindeua
+GO,Anápolis
+PA,Anapu
+MA,Anapurus
+MS,Anastácio
+MS,Anaurilândia
+ES,Anchieta
+SC,Anchieta
+BA,Andaraí
+PR,Andirá
+BA,Andorinha
+MG,Andradas
+SP,Andradina
+RS,André da Rocha
+MG,Andrelândia
+SP,Angatuba
+MG,Angelândia
+MS,Angélica
+PE,Angelim
+SC,Angelina
+BA,Angical
+PI,Angical do Piauí
+TO,Angico
+RN,Angicos
+RJ,Angra dos Reis
+BA,Anguera
+PR,Ângulo
+GO,Anhanguera
+SP,Anhembi
+SP,Anhumas
+GO,Anicuns
+PI,Anísio de Abreu
+SC,Anita Garibaldi
+SC,Anitápolis
+AM,Anori
+RS,Anta Gorda
+BA,Antas
+PR,Antonina
+CE,Antonina do Norte
+PI,Antônio Almeida
+BA,Antônio Cardoso
+MG,Antônio Carlos
+SC,Antônio Carlos
+MG,Antônio Dias
+BA,Antônio Gonçalves
+MS,Antônio João
+RN,Antônio Martins
+PR,Antônio Olinto
+RS,Antônio Prado
+MG,Antônio Prado de Minas
+PB,Aparecida
+SP,Aparecida
+SP,Aparecida d'Oeste
+GO,Aparecida de Goiânia
+GO,Aparecida do Rio Doce
+TO,Aparecida do Rio Negro
+MS,Aparecida do Taboado
+RJ,Aperibé
+ES,Apiacá
+MT,Apiacás
+SP,Apiaí
+MA,Apicum-Açu
+SC,Apiúna
+RN,Apodi
+BA,Aporá
+GO,Aporé
+BA,Apuarema
+PR,Apucarana
+AM,Apuí
+CE,Apuiarés
+SE,Aquidabã
+MS,Aquidauana
+CE,Aquiraz
+SC,Arabutã
+PB,Araçagi
+MG,Araçaí
+SE,Aracaju
+SP,Araçariguama
+BA,Araçás
+CE,Aracati
+BA,Aracatu
+SP,Araçatuba
+BA,Araci
+MG,Aracitaba
+CE,Aracoiaba
+PE,Araçoiaba
+SP,Araçoiaba da Serra
+ES,Aracruz
+GO,Araçu
+MG,Araçuaí
+GO,Aragarças
+GO,Aragoiânia
+TO,Aragominas
+TO,Araguacema
+TO,Araguaçu
+MT,Araguaiana
 TO,Araguaína
-TO,Gurupi
-TO,Porto Nacional
+MT,Araguainha
+MA,Araguanã
+TO,Araguanã
+GO,Araguapaz
+MG,Araguari
+TO,Araguatins
+MA,Araioses
+MS,Aral Moreira
+BA,Aramari
+RS,Arambaré
+MA,Arame
+SP,Aramina
+SP,Arandu
+MG,Arantina
+SP,Arapeí
+AL,Arapiraca
+TO,Arapoema
+MG,Araponga
+PR,Arapongas
+MG,Araporã
+PR,Arapoti
+MG,Arapuá
+PR,Arapuã
+MT,Araputanga
+SC,Araquari
+PB,Arara
+SC,Araranguá
+SP,Araraquara
+SP,Araras
+CE,Ararendá
+MA,Arari
+RS,Araricá
+CE,Araripe
+PE,Araripina
+RJ,Araruama
+PB,Araruna
+PR,Araruna
+BA,Arataca
+RS,Aratiba
+CE,Aratuba
+BA,Aratuípe
+SE,Arauá
+PR,Araucária
+MG,Araújos
+MG,Araxá
+MG,Arceburgo
+SP,Arco-Íris
+MG,Arcos
+PE,Arcoverde
+MG,Areado
+RJ,Areal
+SP,Arealva
+PB,Areia
+RN,Areia Branca
+SE,Areia Branca
+PB,Areia de Baraúnas
+PB,Areial
+SP,Areias
+SP,Areiópolis
+MT,Arenápolis
+GO,Arenópolis
+RN,Arês
+MG,Argirita
+MG,Aricanduva
+MG,Arinos
+MT,Aripuanã
+RO,Ariquemes
+SP,Ariranha
+PR,Ariranha do Ivaí
+RJ,Armação dos Búzios
+SC,Armazém
+CE,Arneiroz
+PI,Aroazes
+PB,Aroeiras
+PI,Aroeiras do Itaim
+PI,Arraial
+RJ,Arraial do Cabo
+TO,Arraias
+RS,Arroio do Meio
+RS,Arroio do Padre
+RS,Arroio do Sal
+RS,Arroio do Tigre
+RS,Arroio dos Ratos
+RS,Arroio Grande
+SC,Arroio Trinta
+SP,Artur Nogueira
+GO,Aruanã
+SP,Arujá
+SC,Arvoredo
+RS,Arvorezinha
+SC,Ascurra
+SP,Aspásia
+PR,Assaí
+CE,Assaré
+SP,Assis
+AC,Assis Brasil
+PR,Assis Chateaubriand
+PB,Assunção
+PI,Assunção do Piauí
+MG,Astolfo Dutra
+PR,Astorga
+AL,Atalaia
+PR,Atalaia
+AM,Atalaia do Norte
+SC,Atalanta
+MG,Ataléia
+SP,Atibaia
+ES,Atílio Vivácqua
+TO,Augustinópolis
+PA,Augusto Corrêa
+MG,Augusto de Lima
+RS,Augusto Pestana
+RS,Áurea
+BA,Aurelino Leal
+SP,Auriflama
+GO,Aurilândia
+CE,Aurora
+SC,Aurora
+PA,Aurora do Pará
+TO,Aurora do Tocantins
+AM,Autazes
+SP,Avaí
+SP,Avanhandava
+SP,Avaré
+PA,Aveiro
+PI,Avelino Lopes
+GO,Avelinópolis
+MA,Axixá
+TO,Axixá do Tocantins
+TO,Babaçulândia
+MA,Bacabal
+MA,Bacabeira
+MA,Bacuri
+MA,Bacurituba
+SP,Bady Bassitt
+MG,Baependi
+RS,Bagé
+PA,Bagre
+PB,Baía da Traição
+RN,Baía Formosa
+BA,Baianópolis
+PA,Baião
+BA,Baixa Grande
+PI,Baixa Grande do Ribeiro
+CE,Baixio
+ES,Baixo Guandu
+SP,Balbinos
+MG,Baldim
+GO,Baliza
+SC,Balneário Arroio do Silva
+SC,Balneário Barra do Sul
+SC,Balneário Camboriú
+SC,Balneário Gaivota
+SC,Balneário Piçarras
+RS,Balneário Pinhal
+SC,Balneário Rincão
+PR,Balsa Nova
+SP,Bálsamo
+MA,Balsas
+MG,Bambuí
+CE,Banabuiú
+SP,Bananal
+PB,Bananeiras
+MG,Bandeira
+MG,Bandeira do Sul
+SC,Bandeirante
+MS,Bandeirantes
+PR,Bandeirantes
+TO,Bandeirantes do Tocantins
+PA,Bannach
+BA,Banzaê
+RS,Barão
+SP,Barão de Antonina
+MG,Barão de Cocais
+RS,Barão de Cotegipe
+MA,Barão de Grajaú
+MT,Barão de Melgaço
+MG,Barão de Monte Alto
+RS,Barão do Triunfo
+PB,Baraúna
+RN,Baraúna
+MG,Barbacena
+CE,Barbalha
+SP,Barbosa
+PR,Barbosa Ferraz
+PA,Barcarena
+RN,Barcelona
+AM,Barcelos
+SP,Bariri
+BA,Barra
+SC,Barra Bonita
+SP,Barra Bonita
+PI,Barra D'Alcântara
+BA,Barra da Estiva
+PE,Barra de Guabiraba
+PB,Barra de Santa Rosa
+PB,Barra de Santana
+AL,Barra de Santo Antônio
+ES,Barra de São Francisco
+AL,Barra de São Miguel
+PB,Barra de São Miguel
+MT,Barra do Bugres
+SP,Barra do Chapéu
+BA,Barra do Choça
+MA,Barra do Corda
+MT,Barra do Garças
+RS,Barra do Guarita
+PR,Barra do Jacaré
+BA,Barra do Mendes
+TO,Barra do Ouro
+RJ,Barra do Piraí
+RS,Barra do Quaraí
+RS,Barra do Ribeiro
+RS,Barra do Rio Azul
+BA,Barra do Rocha
+SP,Barra do Turvo
+SE,Barra dos Coqueiros
+RS,Barra Funda
+MG,Barra Longa
+RJ,Barra Mansa
+SC,Barra Velha
+PR,Barracão
+RS,Barracão
+PI,Barras
+CE,Barreira
+BA,Barreiras
+PI,Barreiras do Piauí
+AM,Barreirinha
+MA,Barreirinhas
+PE,Barreiros
+SP,Barretos
+SP,Barrinha
+CE,Barro
+BA,Barro Alto
+GO,Barro Alto
+PI,Barro Duro
+BA,Barro Preto
+BA,Barrocas
+TO,Barrolândia
+CE,Barroquinha
+RS,Barros Cassal
+MG,Barroso
+SP,Barueri
+SP,Bastos
+MS,Bataguassu
+AL,Batalha
+PI,Batalha
+SP,Batatais
+MS,Batayporã
+CE,Baturité
+SP,Bauru
+PB,Bayeux
+SP,Bebedouro
+CE,Beberibe
+CE,Bela Cruz
+MS,Bela Vista
+PR,Bela Vista da Caroba
+GO,Bela Vista de Goiás
+MG,Bela Vista de Minas
+MA,Bela Vista do Maranhão
+PR,Bela Vista do Paraíso
+PI,Bela Vista do Piauí
+SC,Bela Vista do Toldo
+MA,Belágua
+AL,Belém
+PA,Belém
+PB,Belém
+PE,Belém de Maria
+PB,Belém do Brejo do Cruz
+PI,Belém do Piauí
+PE,Belém do São Francisco
+RJ,Belford Roxo
+MG,Belmiro Braga
+BA,Belmonte
+SC,Belmonte
+BA,Belo Campo
+MG,Belo Horizonte
+PE,Belo Jardim
+AL,Belo Monte
+MG,Belo Oriente
+MG,Belo Vale
+PA,Belterra
+PI,Beneditinos
+MA,Benedito Leite
+SC,Benedito Novo
+PA,Benevides
+AM,Benjamin Constant
+RS,Benjamin Constant do Sul
+SP,Bento de Abreu
+RN,Bento Fernandes
+RS,Bento Gonçalves
+MA,Bequimão
+MG,Berilo
+MG,Berizal
+PB,Bernardino Batista
+SP,Bernardino de Campos
+MA,Bernardo do Mearim
+TO,Bernardo Sayão
+SP,Bertioga
+PI,Bertolínia
+MG,Bertópolis
+AM,Beruri
+PE,Betânia
+PI,Betânia do Piauí
+MG,Betim
+PE,Bezerros
+MG,Bias Fortes
+MG,Bicas
+SC,Biguaçu
+SP,Bilac
+MG,Biquinhas
+SP,Birigui
+SP,Biritiba Mirim
+BA,Biritinga
+PR,Bituruna
+SC,Blumenau
+ES,Boa Esperança
+MG,Boa Esperança
+PR,Boa Esperança
+PR,Boa Esperança do Iguaçu
+SP,Boa Esperança do Sul
+PI,Boa Hora
+BA,Boa Nova
+PB,Boa Ventura
+PR,Boa Ventura de São Roque
+CE,Boa Viagem
+PB,Boa Vista
+RR,Boa Vista
+PR,Boa Vista da Aparecida
+RS,Boa Vista das Missões
+RS,Boa Vista do Buricá
+RS,Boa Vista do Cadeado
+MA,Boa Vista do Gurupi
+RS,Boa Vista do Incra
+AM,Boa Vista do Ramos
+RS,Boa Vista do Sul
+BA,Boa Vista do Tupim
+AL,Boca da Mata
+AM,Boca do Acre
+PI,Bocaina
+SP,Bocaina
+MG,Bocaina de Minas
+SC,Bocaina do Sul
+MG,Bocaiúva
+PR,Bocaiúva do Sul
+RN,Bodó
+PE,Bodocó
+MS,Bodoquena
+SP,Bofete
+SP,Boituva
+PE,Bom Conselho
+MG,Bom Despacho
+MA,Bom Jardim
+PE,Bom Jardim
+RJ,Bom Jardim
+SC,Bom Jardim da Serra
+GO,Bom Jardim de Goiás
+MG,Bom Jardim de Minas
+PB,Bom Jesus
+PI,Bom Jesus
+RN,Bom Jesus
+RS,Bom Jesus
+SC,Bom Jesus
+BA,Bom Jesus da Lapa
+MG,Bom Jesus da Penha
+BA,Bom Jesus da Serra
+MA,Bom Jesus das Selvas
+GO,Bom Jesus de Goiás
+MG,Bom Jesus do Amparo
+MT,Bom Jesus do Araguaia
+MG,Bom Jesus do Galho
+RJ,Bom Jesus do Itabapoana
+ES,Bom Jesus do Norte
+SC,Bom Jesus do Oeste
+PR,Bom Jesus do Sul
+PA,Bom Jesus do Tocantins
+TO,Bom Jesus do Tocantins
+SP,Bom Jesus dos Perdões
+MA,Bom Lugar
+RS,Bom Princípio
+PI,Bom Princípio do Piauí
+RS,Bom Progresso
+MG,Bom Repouso
+SC,Bom Retiro
+RS,Bom Retiro do Sul
+MG,Bom Sucesso
+PB,Bom Sucesso
+PR,Bom Sucesso
+SP,Bom Sucesso de Itararé
+PR,Bom Sucesso do Sul
+SC,Bombinhas
+MG,Bonfim
+RR,Bonfim
+PI,Bonfim do Piauí
+GO,Bonfinópolis
+MG,Bonfinópolis de Minas
+BA,Boninal
+BA,Bonito
+MS,Bonito
+PA,Bonito
+PE,Bonito
+MG,Bonito de Minas
+PB,Bonito de Santa Fé
+GO,Bonópolis
+PB,Boqueirão
+RS,Boqueirão do Leão
+PI,Boqueirão do Piauí
+SE,Boquim
+BA,Boquira
+SP,Borá
+SP,Boracéia
+AM,Borba
+PB,Borborema
+SP,Borborema
+MG,Borda da Mata
+SP,Borebi
+PR,Borrazópolis
+RS,Bossoroca
+MG,Botelhos
+SP,Botucatu
+MG,Botumirim
+BA,Botuporã
+SC,Botuverá
+RS,Bozano
+SC,Braço do Norte
+SC,Braço do Trombudo
+RS,Braga
+PA,Bragança
+SP,Bragança Paulista
+PR,Braganey
+AL,Branquinha
+MG,Brás Pires
+PA,Brasil Novo
+MS,Brasilândia
+MG,Brasilândia de Minas
+PR,Brasilândia do Sul
+TO,Brasilândia do Tocantins
+AC,Brasiléia
+PI,Brasileira
+DF,Brasília
+MG,Brasília de Minas
+MT,Brasnorte
+SP,Braúna
+MG,Braúnas
+GO,Brazabrantes
+MG,Brazópolis
+PE,Brejão
+ES,Brejetuba
+PE,Brejinho
+RN,Brejinho
+TO,Brejinho de Nazaré
+MA,Brejo
+SP,Brejo Alegre
+PE,Brejo da Madre de Deus
+MA,Brejo de Areia
+PB,Brejo do Cruz
+PI,Brejo do Piauí
+PB,Brejo dos Santos
+SE,Brejo Grande
+PA,Brejo Grande do Araguaia
+CE,Brejo Santo
+BA,Brejões
+BA,Brejolândia
+PA,Breu Branco
+PA,Breves
+GO,Britânia
+RS,Brochier
+SP,Brodowski
+SP,Brotas
+BA,Brotas de Macaúbas
+MG,Brumadinho
+BA,Brumado
+SC,Brunópolis
+SC,Brusque
+MG,Bueno Brandão
+MG,Buenópolis
+PE,Buenos Aires
+BA,Buerarema
+MG,Bugre
+PE,Buíque
+AC,Bujari
+PA,Bujaru
+SP,Buri
+SP,Buritama
+MA,Buriti
+GO,Buriti Alegre
+MA,Buriti Bravo
+GO,Buriti de Goiás
+TO,Buriti do Tocantins
+PI,Buriti dos Lopes
+PI,Buriti dos Montes
+MA,Buriticupu
+GO,Buritinópolis
+BA,Buritirama
+MA,Buritirana
+MG,Buritis
+RO,Buritis
+SP,Buritizal
+MG,Buritizeiro
+RS,Butiá
+AM,Caapiranga
+PB,Caaporã
+MS,Caarapó
+BA,Caatiba
+PB,Cabaceiras
+BA,Cabaceiras do Paraguaçu
+MG,Cabeceira Grande
+GO,Cabeceiras
+PI,Cabeceiras do Piauí
+PB,Cabedelo
+RO,Cabixi
+PE,Cabo de Santo Agostinho
+RJ,Cabo Frio
+MG,Cabo Verde
+SP,Cabrália Paulista
+SP,Cabreúva
+PE,Cabrobó
+SC,Caçador
+SP,Caçapava
+RS,Caçapava do Sul
+RO,Cacaulândia
+RS,Cacequi
+MT,Cáceres
+BA,Cachoeira
+GO,Cachoeira Alta
+MG,Cachoeira da Prata
+GO,Cachoeira de Goiás
+MG,Cachoeira de Minas
+MG,Cachoeira de Pajeú
+PA,Cachoeira do Arari
+PA,Cachoeira do Piriá
+RS,Cachoeira do Sul
+PB,Cachoeira dos Índios
+GO,Cachoeira Dourada
+MG,Cachoeira Dourada
+MA,Cachoeira Grande
+SP,Cachoeira Paulista
+RJ,Cachoeiras de Macacu
+PE,Cachoeirinha
+RS,Cachoeirinha
+TO,Cachoeirinha
+ES,Cachoeiro de Itapemirim
+PB,Cacimba de Areia
+PB,Cacimba de Dentro
+PB,Cacimbas
+AL,Cacimbinhas
+RS,Cacique Doble
+RO,Cacoal
+SP,Caconde
+GO,Caçu
+BA,Caculé
+BA,Caém
+MG,Caetanópolis
+BA,Caetanos
+MG,Caeté
+PE,Caetés
+BA,Caetité
+BA,Cafarnaum
+PR,Cafeara
+PR,Cafelândia
+SP,Cafelândia
+PR,Cafezal do Sul
+SP,Caiabu
+MG,Caiana
+GO,Caiapônia
+RS,Caibaté
+SC,Caibi
+PB,Caiçara
+RS,Caiçara
+RN,Caiçara do Norte
+RN,Caiçara do Rio do Vento
+RN,Caicó
+SP,Caieiras
+BA,Cairu
+SP,Caiuá
+SP,Cajamar
+MA,Cajapió
+MA,Cajari
+SP,Cajati
+PB,Cajazeiras
+PI,Cajazeiras do Piauí
+PB,Cajazeirinhas
+SP,Cajobi
+AL,Cajueiro
+PI,Cajueiro da Praia
+MG,Cajuri
+SP,Cajuru
+PE,Calçado
+AP,Calçoene
+MG,Caldas
+PB,Caldas Brandão
+GO,Caldas Novas
+GO,Caldazinha
+BA,Caldeirão Grande
+PI,Caldeirão Grande do Piauí
+PR,Califórnia
+SC,Calmon
+PE,Calumbi
+BA,Camacan
+BA,Camaçari
+MG,Camacho
+PB,Camalaú
+BA,Camamu
+MG,Camanducaia
+MS,Camapuã
+RS,Camaquã
+PE,Camaragibe
+RS,Camargo
+PR,Cambará
+RS,Cambará do Sul
+PR,Cambé
+PR,Cambira
+SC,Camboriú
+RJ,Cambuci
+MG,Cambuí
+MG,Cambuquira
+PA,Cametá
+CE,Camocim
+PE,Camocim de São Félix
+MG,Campanário
+MG,Campanha
+AL,Campestre
+MG,Campestre
+RS,Campestre da Serra
+GO,Campestre de Goiás
+MA,Campestre do Maranhão
+PR,Campina da Lagoa
+RS,Campina das Missões
+SP,Campina do Monte Alegre
+PR,Campina do Simão
+PB,Campina Grande
+PR,Campina Grande do Sul
+MG,Campina Verde
+GO,Campinaçu
+MT,Campinápolis
+SP,Campinas
+PI,Campinas do Piauí
+RS,Campinas do Sul
+GO,Campinorte
+AL,Campo Alegre
+SC,Campo Alegre
+GO,Campo Alegre de Goiás
+BA,Campo Alegre de Lourdes
+PI,Campo Alegre do Fidalgo
+MG,Campo Azul
+MG,Campo Belo
+SC,Campo Belo do Sul
+RS,Campo Bom
+PR,Campo Bonito
+SE,Campo do Brito
+MG,Campo do Meio
+PR,Campo do Tenente
+SC,Campo Erê
+MG,Campo Florido
+BA,Campo Formoso
+AL,Campo Grande
+MS,Campo Grande
+RN,Campo Grande
+PI,Campo Grande do Piauí
+PR,Campo Largo
+PI,Campo Largo do Piauí
+GO,Campo Limpo de Goiás
+SP,Campo Limpo Paulista
+PR,Campo Magro
+PI,Campo Maior
+PR,Campo Mourão
+RS,Campo Novo
+RO,Campo Novo de Rondônia
+MT,Campo Novo do Parecis
+RN,Campo Redondo
+MT,Campo Verde
+MG,Campos Altos
+GO,Campos Belos
+RS,Campos Borges
+MT,Campos de Júlio
+SP,Campos do Jordão
+RJ,Campos dos Goytacazes
+MG,Campos Gerais
+TO,Campos Lindos
+SC,Campos Novos
+SP,Campos Novos Paulista
+CE,Campos Sales
+GO,Campos Verdes
+PE,Camutanga
+MG,Cana Verde
+MG,Canaã
+PA,Canaã dos Carajás
+MT,Canabrava do Norte
+SP,Cananéia
+AL,Canapi
+BA,Canápolis
+MG,Canápolis
+BA,Canarana
+MT,Canarana
+SP,Canas
+PI,Canavieira
+BA,Canavieiras
+BA,Candeal
+BA,Candeias
+MG,Candeias
+RO,Candeias do Jamari
+RS,Candelária
+BA,Candiba
+PR,Cândido de Abreu
+RS,Cândido Godói
+MA,Cândido Mendes
+SP,Cândido Mota
+SP,Cândido Rodrigues
+BA,Cândido Sales
+RS,Candiota
+PR,Candói
+RS,Canela
+SC,Canelinha
+RN,Canguaretama
+RS,Canguçu
+SE,Canhoba
+PE,Canhotinho
+CE,Canindé
+SE,Canindé de São Francisco
+SP,Canitar
+RS,Canoas
+SC,Canoinhas
+BA,Cansanção
+RR,Cantá
+MG,Cantagalo
+PR,Cantagalo
+RJ,Cantagalo
+MA,Cantanhede
+PI,Canto do Buriti
+BA,Canudos
+RS,Canudos do Vale
+AM,Canutama
+PA,Capanema
+PR,Capanema
+SC,Capão Alto
+SP,Capão Bonito
+RS,Capão Bonito do Sul
+RS,Capão da Canoa
+RS,Capão do Cipó
+RS,Capão do Leão
+MG,Caparaó
+AL,Capela
+SE,Capela
+RS,Capela de Santana
+SP,Capela do Alto
+BA,Capela do Alto Alegre
+MG,Capela Nova
+MG,Capelinha
+MG,Capetinga
+PB,Capim
+MG,Capim Branco
+BA,Capim Grosso
+MG,Capinópolis
+SC,Capinzal
+MA,Capinzal do Norte
+CE,Capistrano
+RS,Capitão
+MG,Capitão Andrade
+PI,Capitão de Campos
+MG,Capitão Enéas
+PI,Capitão Gervásio Oliveira
+PR,Capitão Leônidas Marques
+PA,Capitão Poço
+MG,Capitólio
+SP,Capivari
+SC,Capivari de Baixo
+RS,Capivari do Sul
+AC,Capixaba
+PE,Capoeiras
+MG,Caputira
+RS,Caraá
+RR,Caracaraí
+MS,Caracol
+PI,Caracol
+SP,Caraguatatuba
+MG,Caraí
+BA,Caraíbas
+PR,Carambeí
+MG,Caranaíba
+MG,Carandaí
+MG,Carangola
+RJ,Carapebus
+SP,Carapicuíba
+MG,Caratinga
+AM,Carauari
+PB,Caraúbas
+RN,Caraúbas
+PI,Caraúbas do Piauí
+BA,Caravelas
+RS,Carazinho
+MG,Carbonita
+BA,Cardeal da Silva
+SP,Cardoso
+RJ,Cardoso Moreira
+MG,Careaçu
+AM,Careiro
+AM,Careiro da Várzea
+ES,Cariacica
+CE,Caridade
+PI,Caridade do Piauí
+BA,Carinhanha
+SE,Carira
+CE,Cariré
+TO,Cariri do Tocantins
+CE,Caririaçu
+CE,Cariús
+MT,Carlinda
+PR,Carlópolis
+RS,Carlos Barbosa
+MG,Carlos Chagas
+RS,Carlos Gomes
+MG,Carmésia
+RJ,Carmo
+MG,Carmo da Cachoeira
+MG,Carmo da Mata
+MG,Carmo de Minas
+MG,Carmo do Cajuru
+MG,Carmo do Paranaíba
+MG,Carmo do Rio Claro
+GO,Carmo do Rio Verde
+TO,Carmolândia
+SE,Carmópolis
+MG,Carmópolis de Minas
+PE,Carnaíba
+RN,Carnaúba dos Dantas
+RN,Carnaubais
+CE,Carnaubal
+PE,Carnaubeira da Penha
+MG,Carneirinho
+AL,Carneiros
+RR,Caroebe
+MA,Carolina
+PE,Carpina
+MG,Carrancas
+PB,Carrapateira
+TO,Carrasco Bonito
+PE,Caruaru
+MA,Carutapera
+MG,Carvalhópolis
+MG,Carvalhos
+SP,Casa Branca
+MG,Casa Grande
+BA,Casa Nova
+RS,Casca
+MG,Cascalho Rico
+CE,Cascavel
+PR,Cascavel
+TO,Caseara
+RS,Caseiros
+RJ,Casimiro de Abreu
+PE,Casinhas
+PB,Casserengue
+MG,Cássia
+SP,Cássia dos Coqueiros
+MS,Cassilândia
+PA,Castanhal
+MT,Castanheira
+RO,Castanheiras
+GO,Castelândia
+ES,Castelo
+PI,Castelo do Piauí
+SP,Castilho
+PR,Castro
+BA,Castro Alves
+MG,Cataguases
+GO,Catalão
+SP,Catanduva
+PR,Catanduvas
+SC,Catanduvas
+CE,Catarina
+MG,Catas Altas
+MG,Catas Altas da Noruega
+PE,Catende
+SP,Catiguá
+PB,Catingueira
+BA,Catolândia
+PB,Catolé do Rocha
+BA,Catu
+RS,Catuípe
+MG,Catuji
+CE,Catunda
+GO,Caturaí
+BA,Caturama
+PB,Caturité
+MG,Catuti
+CE,Caucaia
+GO,Cavalcante
+MG,Caxambu
+SC,Caxambu do Sul
+MA,Caxias
+RS,Caxias do Sul
+PI,Caxingó
+RN,Ceará-Mirim
+MA,Cedral
+SP,Cedral
+CE,Cedro
+PE,Cedro
+SE,Cedro de São João
+MG,Cedro do Abaeté
+SC,Celso Ramos
+RS,Centenário
+TO,Centenário
+PR,Centenário do Sul
+BA,Central
+MG,Central de Minas
+MA,Central do Maranhão
+MG,Centralina
+MA,Centro do Guilherme
+MA,Centro Novo do Maranhão
+RO,Cerejeiras
+GO,Ceres
+SP,Cerqueira César
+SP,Cerquilho
+RS,Cerrito
+PR,Cerro Azul
+RS,Cerro Branco
+RN,Cerro Corá
+RS,Cerro Grande
+RS,Cerro Grande do Sul
+RS,Cerro Largo
+SC,Cerro Negro
+SP,Cesário Lange
+PR,Céu Azul
+GO,Cezarina
+PE,Chã de Alegria
+PE,Chã Grande
+AL,Chã Preta
+MG,Chácara
+MG,Chalé
+RS,Chapada
+TO,Chapada da Natividade
+TO,Chapada de Areia
+MG,Chapada do Norte
+MT,Chapada dos Guimarães
+MG,Chapada Gaúcha
+GO,Chapadão do Céu
+SC,Chapadão do Lageado
+MS,Chapadão do Sul
+MA,Chapadinha
+SC,Chapecó
+SP,Charqueada
+RS,Charqueadas
+RS,Charrua
+CE,Chaval
+SP,Chavantes
+PA,Chaves
+MG,Chiador
+RS,Chiapetta
+PR,Chopinzinho
+CE,Choró
+CE,Chorozinho
+BA,Chorrochó
+RS,Chuí
+RO,Chupinguaia
+RS,Chuvisca
+PR,Cianorte
+BA,Cícero Dantas
+PR,Cidade Gaúcha
+GO,Cidade Ocidental
+MA,Cidelândia
+RS,Cidreira
+BA,Cipó
+MG,Cipotânea
+RS,Ciríaco
+MG,Claraval
+MG,Claro dos Poções
+MT,Cláudia
+MG,Cláudio
+SP,Clementina
+PR,Clevelândia
+BA,Coaraci
+AM,Coari
+PI,Cocal
+PI,Cocal de Telha
+SC,Cocal do Sul
+PI,Cocal dos Alves
+MT,Cocalinho
+GO,Cocalzinho de Goiás
+BA,Cocos
+AM,Codajás
+MA,Codó
+MA,Coelho Neto
+MG,Coimbra
+AL,Coité do Nóia
+PI,Coivaras
+PA,Colares
+ES,Colatina
+MT,Colíder
+SP,Colina
+MA,Colinas
+RS,Colinas
+GO,Colinas do Sul
+TO,Colinas do Tocantins
+TO,Colméia
+MT,Colniza
+SP,Colômbia
+PR,Colombo
+PI,Colônia do Gurguéia
+PI,Colônia do Piauí
+AL,Colônia Leopoldina
+PR,Colorado
+RS,Colorado
+RO,Colorado do Oeste
+MG,Coluna
+TO,Combinado
+MG,Comendador Gomes
+RJ,Comendador Levy Gasparian
+MG,Comercinho
+MT,Comodoro
+PB,Conceição
+MG,Conceição da Aparecida
+ES,Conceição da Barra
+MG,Conceição da Barra de Minas
+BA,Conceição da Feira
+MG,Conceição das Alagoas
+MG,Conceição das Pedras
+MG,Conceição de Ipanema
+RJ,Conceição de Macabu
+BA,Conceição do Almeida
+PA,Conceição do Araguaia
+PI,Conceição do Canindé
+ES,Conceição do Castelo
+BA,Conceição do Coité
+BA,Conceição do Jacuípe
+MA,Conceição do Lago-Açu
+MG,Conceição do Mato Dentro
+MG,Conceição do Pará
+MG,Conceição do Rio Verde
+TO,Conceição do Tocantins
+MG,Conceição dos Ouros
+SP,Conchal
+SP,Conchas
+SC,Concórdia
+PA,Concórdia do Pará
+PB,Condado
+PE,Condado
+BA,Conde
+PB,Conde
+BA,Condeúba
+RS,Condor
+MG,Cônego Marinho
+MG,Confins
+MT,Confresa
+PB,Congo
+MG,Congonhal
+MG,Congonhas
+MG,Congonhas do Norte
+PR,Congonhinhas
+MG,Conquista
+MT,Conquista D'Oeste
+MG,Conselheiro Lafaiete
+PR,Conselheiro Mairinck
+MG,Conselheiro Pena
+MG,Consolação
+RS,Constantina
+MG,Contagem
+PR,Contenda
+BA,Contendas do Sincorá
+MG,Coqueiral
+RS,Coqueiro Baixo
+AL,Coqueiro Seco
+RS,Coqueiros do Sul
+MG,Coração de Jesus
+BA,Coração de Maria
+PR,Corbélia
+RJ,Cordeiro
+SP,Cordeirópolis
+BA,Cordeiros
+SC,Cordilheira Alta
+MG,Cordisburgo
+MG,Cordislândia
+CE,Coreaú
+PB,Coremas
+MS,Corguinho
+BA,Coribe
+MG,Corinto
+PR,Cornélio Procópio
+MG,Coroaci
+SP,Coroados
+MA,Coroatá
+MG,Coromandel
+RS,Coronel Barros
+RS,Coronel Bicaco
+PR,Coronel Domingos Soares
+RN,Coronel Ezequiel
+MG,Coronel Fabriciano
+SC,Coronel Freitas
+RN,Coronel João Pessoa
+BA,Coronel João Sá
+PI,Coronel José Dias
+SP,Coronel Macedo
+SC,Coronel Martins
+MG,Coronel Murta
+MG,Coronel Pacheco
+RS,Coronel Pilar
+PR,Coronel Vivida
+MG,Coronel Xavier Chaves
+MG,Córrego Danta
+MG,Córrego do Bom Jesus
+GO,Córrego do Ouro
+MG,Córrego Fundo
+MG,Córrego Novo
+SC,Correia Pinto
+PI,Corrente
+PE,Correntes
+BA,Correntina
+PE,Cortês
+MS,Corumbá
+GO,Corumbá de Goiás
+GO,Corumbaíba
+SP,Corumbataí
+PR,Corumbataí do Sul
+RO,Corumbiara
+SC,Corupá
+AL,Coruripe
+SP,Cosmópolis
+SP,Cosmorama
+RO,Costa Marques
+MS,Costa Rica
+BA,Cotegipe
+SP,Cotia
+RS,Cotiporã
+MT,Cotriguaçu
+MG,Couto de Magalhães de Minas
+TO,Couto Magalhães
+RS,Coxilha
+MS,Coxim
+PB,Coxixola
+AL,Craíbas
+CE,Crateús
+CE,Crato
+SP,Cravinhos
+BA,Cravolândia
+SC,Criciúma
+MG,Crisólita
+BA,Crisópolis
+RS,Crissiumal
+MG,Cristais
+SP,Cristais Paulista
+RS,Cristal
+RS,Cristal do Sul
+TO,Cristalândia
+PI,Cristalândia do Piauí
+MG,Cristália
+GO,Cristalina
+MG,Cristiano Otoni
+GO,Cristianópolis
+MG,Cristina
+SE,Cristinápolis
+PI,Cristino Castro
+BA,Cristópolis
+GO,Crixás
+TO,Crixás do Tocantins
+CE,Croatá
+GO,Cromínia
+MG,Crucilândia
+CE,Cruz
+RS,Cruz Alta
+BA,Cruz das Almas
+PB,Cruz do Espírito Santo
+PR,Cruz Machado
+SP,Cruzália
+RS,Cruzaltense
+SP,Cruzeiro
+MG,Cruzeiro da Fortaleza
+PR,Cruzeiro do Iguaçu
+PR,Cruzeiro do Oeste
+AC,Cruzeiro do Sul
+PR,Cruzeiro do Sul
+RS,Cruzeiro do Sul
+RN,Cruzeta
+MG,Cruzília
+PR,Cruzmaltina
+SP,Cubatão
+PB,Cubati
+MT,Cuiabá
+PB,Cuité
+PB,Cuité de Mamanguape
+PB,Cuitegi
+RO,Cujubim
+GO,Cumari
+PE,Cumaru
+PA,Cumaru do Norte
+SE,Cumbe
+SP,Cunha
+SC,Cunha Porã
+SC,Cunhataí
+MG,Cuparaque
+PE,Cupira
+BA,Curaçá
+PI,Curimatá
+PA,Curionópolis
+PR,Curitiba
+SC,Curitibanos
+PR,Curiúva
+PI,Currais
+RN,Currais Novos
+PB,Curral de Cima
+MG,Curral de Dentro
+PI,Curral Novo do Piauí
+PB,Curral Velho
+PA,Curralinho
+PI,Curralinhos
+PA,Curuá
+PA,Curuçá
+MA,Cururupu
+MT,Curvelândia
+MG,Curvelo
+PE,Custódia
+AP,Cutias
+GO,Damianópolis
+PB,Damião
+GO,Damolândia
+TO,Darcinópolis
+BA,Dário Meira
+MG,Datas
+RS,David Canabarro
+GO,Davinópolis
+MA,Davinópolis
+MG,Delfim Moreira
+MG,Delfinópolis
+AL,Delmiro Gouveia
+MG,Delta
+PI,Demerval Lobão
+MT,Denise
+MS,Deodápolis
+CE,Deputado Irapuan Pinheiro
+RS,Derrubadas
+SP,Descalvado
+SC,Descanso
+MG,Descoberto
+PB,Desterro
+MG,Desterro de Entre Rios
+MG,Desterro do Melo
+RS,Dezesseis de Novembro
+SP,Diadema
+PB,Diamante
+PR,Diamante D'Oeste
+PR,Diamante do Norte
+PR,Diamante do Sul
+MG,Diamantina
+MT,Diamantino
+TO,Dianópolis
+BA,Dias d'Ávila
+RS,Dilermando de Aguiar
+MG,Diogo de Vasconcelos
+MG,Dionísio
+SC,Dionísio Cerqueira
+GO,Diorama
+SP,Dirce Reis
+PI,Dirceu Arcoverde
+SE,Divina Pastora
+MG,Divinésia
+MG,Divino
+MG,Divino das Laranjeiras
+ES,Divino de São Lourenço
+SP,Divinolândia
+MG,Divinolândia de Minas
+MG,Divinópolis
+GO,Divinópolis de Goiás
+TO,Divinópolis do Tocantins
+MG,Divisa Alegre
+MG,Divisa Nova
+MG,Divisópolis
+SP,Dobrada
+SP,Dois Córregos
+RS,Dois Irmãos
+RS,Dois Irmãos das Missões
+MS,Dois Irmãos do Buriti
+TO,Dois Irmãos do Tocantins
+RS,Dois Lajeados
+AL,Dois Riachos
+PR,Dois Vizinhos
+SP,Dolcinópolis
+MT,Dom Aquino
+BA,Dom Basílio
+MG,Dom Bosco
+MG,Dom Cavati
+PA,Dom Eliseu
+PI,Dom Expedito Lopes
+RS,Dom Feliciano
+PI,Dom Inocêncio
+MG,Dom Joaquim
+BA,Dom Macedo Costa
+RS,Dom Pedrito
+MA,Dom Pedro
+RS,Dom Pedro de Alcântara
+MG,Dom Silvério
+MG,Dom Viçoso
+ES,Domingos Martins
+PI,Domingos Mourão
+SC,Dona Emma
+MG,Dona Euzébia
+RS,Dona Francisca
+PB,Dona Inês
+MG,Dores de Campos
+MG,Dores de Guanhães
+MG,Dores do Indaiá
+ES,Dores do Rio Preto
+MG,Dores do Turvo
+MG,Doresópolis
+PE,Dormentes
+MS,Douradina
+PR,Douradina
+SP,Dourado
+MG,Douradoquara
+MS,Dourados
+PR,Doutor Camargo
+RS,Doutor Maurício Cardoso
+SC,Doutor Pedrinho
+RS,Doutor Ricardo
+RN,Doutor Severiano
+PR,Doutor Ulysses
+GO,Doverlândia
+SP,Dracena
+SP,Duartina
+RJ,Duas Barras
+PB,Duas Estradas
+TO,Dueré
+SP,Dumont
+MA,Duque Bacelar
+RJ,Duque de Caxias
+MG,Durandé
