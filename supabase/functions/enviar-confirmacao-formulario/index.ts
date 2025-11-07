@@ -87,23 +87,23 @@ const gerarEmailTexto = (data: FormularioData): string => {
 
   if (data.tempoContribuicao) {
     texto += `\n=== TEMPO DE CONTRIBUIÇÃO ===\n`;
-    texto += `Tempo Comum: ${formatarTempo(data.tempoContribuicao.tempoComum)}\n`;
+    texto += `Tempo de Contribuição Comum: ${formatarTempo(data.tempoContribuicao.tempoComum)}\n`;
     
     if (data.professor) {
-      texto += `Tempo no Magistério: ${formatarTempo(data.tempoContribuicao.tempoMagisterio)}\n`;
-      texto += `Tempo Fora do Magistério: ${formatarTempo(data.tempoContribuicao.tempoForaMagisterio)}\n`;
+      texto += `Tempo de Contribuição no Magistério: ${formatarTempo(data.tempoContribuicao.tempoMagisterio)}\n`;
+      texto += `Tempo de Contribuição Fora do Magistério: ${formatarTempo(data.tempoContribuicao.tempoForaMagisterio)}\n`;
     }
     
     if (data.insalubridadeOuEspecial) {
-      texto += `Tempo Especial/Insalubre: ${formatarTempo(data.tempoContribuicao.tempoEspecialInsalubre)}\n`;
+      texto += `Tempo de Contribuição Especial/Insalubre: ${formatarTempo(data.tempoContribuicao.tempoEspecialInsalubre)}\n`;
     }
     
     if (data.policial) {
-      texto += `Tempo como Policial: ${formatarTempo(data.tempoContribuicao.tempoPolicial)}\n`;
+      texto += `Tempo de Contribuição como Policial: ${formatarTempo(data.tempoContribuicao.tempoPolicial)}\n`;
     }
     
     if (data.pessoaComDeficiencia) {
-      texto += `Tempo como PcD: ${formatarTempo(data.tempoContribuicao.tempoPCD)}\n`;
+      texto += `Tempo de Contribuição como PcD: ${formatarTempo(data.tempoContribuicao.tempoPCD)}\n`;
     }
   }
 
@@ -174,14 +174,14 @@ const gerarEmailHTML = (data: FormularioData): string => {
         ${data.tempoContribuicao ? `
           <div class="section">
             <div class="section-title">Tempo de Contribuição</div>
-            <div class="field"><span class="field-label">Tempo Comum:</span> <span class="field-value">${formatarTempo(data.tempoContribuicao.tempoComum)}</span></div>
+            <div class="field"><span class="field-label">Tempo de Contribuição Comum:</span> <span class="field-value">${formatarTempo(data.tempoContribuicao.tempoComum)}</span></div>
             ${data.professor ? `
-              <div class="field"><span class="field-label">Tempo no Magistério:</span> <span class="field-value">${formatarTempo(data.tempoContribuicao.tempoMagisterio)}</span></div>
-              <div class="field"><span class="field-label">Tempo Fora do Magistério:</span> <span class="field-value">${formatarTempo(data.tempoContribuicao.tempoForaMagisterio)}</span></div>
+              <div class="field"><span class="field-label">Tempo de Contribuição no Magistério:</span> <span class="field-value">${formatarTempo(data.tempoContribuicao.tempoMagisterio)}</span></div>
+              <div class="field"><span class="field-label">Tempo de Contribuição Fora do Magistério:</span> <span class="field-value">${formatarTempo(data.tempoContribuicao.tempoForaMagisterio)}</span></div>
             ` : ''}
-            ${data.insalubridadeOuEspecial ? `<div class="field"><span class="field-label">Tempo Especial/Insalubre:</span> <span class="field-value">${formatarTempo(data.tempoContribuicao.tempoEspecialInsalubre)}</span></div>` : ''}
-            ${data.policial ? `<div class="field"><span class="field-label">Tempo como Policial:</span> <span class="field-value">${formatarTempo(data.tempoContribuicao.tempoPolicial)}</span></div>` : ''}
-            ${data.pessoaComDeficiencia ? `<div class="field"><span class="field-label">Tempo como PcD:</span> <span class="field-value">${formatarTempo(data.tempoContribuicao.tempoPCD)}</span></div>` : ''}
+            ${data.insalubridadeOuEspecial ? `<div class="field"><span class="field-label">Tempo de Contribuição Especial/Insalubre:</span> <span class="field-value">${formatarTempo(data.tempoContribuicao.tempoEspecialInsalubre)}</span></div>` : ''}
+            ${data.policial ? `<div class="field"><span class="field-label">Tempo de Contribuição como Policial:</span> <span class="field-value">${formatarTempo(data.tempoContribuicao.tempoPolicial)}</span></div>` : ''}
+            ${data.pessoaComDeficiencia ? `<div class="field"><span class="field-label">Tempo de Contribuição como PcD:</span> <span class="field-value">${formatarTempo(data.tempoContribuicao.tempoPCD)}</span></div>` : ''}
           </div>
         ` : ''}
 
@@ -214,7 +214,7 @@ const handler = async (req: Request): Promise<Response> => {
     const emailEscritorio = await resend.emails.send({
       from: "Planejamento Previdenciário <onboarding@resend.dev>",
       to: "moabe.a.sousa@gmail.com", // Mudado para string e usando o email verificado
-      subject: `Novo Formulário - ${escapeHtml(data.nome_completo)}`,
+      subject: `Simulação Previdenciária de ${escapeHtml(data.nome_completo)}`,
       text: emailTexto,
     });
 

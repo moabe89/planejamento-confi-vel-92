@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ProgressBar } from '@/components/ProgressBar';
 import { Etapa1DadosPessoais } from '@/components/etapas/Etapa1DadosPessoais';
@@ -15,6 +16,7 @@ import { supabase } from '@/integrations/supabase/client';
 const STORAGE_KEY = 'planejamento-previdenciario-draft';
 
 const Index = () => {
+  const navigate = useNavigate();
   const [etapaAtual, setEtapaAtual] = useState(1);
   const [formData, setFormData] = useState<FormularioData>(INITIAL_FORM_DATA);
   const [errors, setErrors] = useState<FormularioErrors>({
@@ -234,8 +236,11 @@ const Index = () => {
         });
       }
 
-      localStorage.removeItem(STORAGE_KEY);
-      window.location.href = '/obrigado';
+      // Não remover do localStorage antes de redirecionar para a página de agradecimento
+      // pois ela precisa do nome do usuário
+      setTimeout(() => {
+        navigate('/obrigado');
+      }, 500);
     } catch (error) {
       console.error('Erro ao processar formulário:', error);
       toast({
