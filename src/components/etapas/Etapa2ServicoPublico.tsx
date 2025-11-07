@@ -75,6 +75,12 @@ export const Etapa2ServicoPublico: React.FC<Etapa2Props> = ({
         onChange('tempoCarreira', tempo);
         onChange('tempoCargo', tempo);
         setShowTempoFields(true);
+        
+        // Disparar evento para atualizar tempo de contribuição comum na etapa 3
+        const event = new CustomEvent('dataIngressoCalculada', { 
+          detail: { tempo, dataIngresso: data.dataIngressoServicoPublico } 
+        });
+        window.dispatchEvent(event);
       }
     }
   }, [data.dataIngressoServicoPublico]);

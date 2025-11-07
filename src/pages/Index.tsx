@@ -25,18 +25,7 @@ const Index = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  // AutoSave
-  useEffect(() => {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) {
-      try {
-        setFormData(JSON.parse(saved));
-      } catch (e) {
-        console.error('Erro ao carregar rascunho', e);
-      }
-    }
-  }, []);
-
+  // AutoSave apenas entre etapas, limpa no refresh
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
   }, [formData]);

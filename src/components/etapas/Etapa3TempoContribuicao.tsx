@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { TempoInput } from '@/components/TempoInput';
 import { RadioGroup } from '@/components/RadioGroup';
 import type { TempoContribuicao, FormularioErrors, DadosPessoais } from '@/types/formulario';
@@ -27,6 +27,27 @@ export const Etapa3TempoContribuicao: React.FC<Etapa3Props> = ({
   const isInsalubre = dadosPessoais.insalubridadeOuEspecial === true;
   const isPolicial = dadosPessoais.policial === true;
   const isPcD = dadosPessoais.pessoaComDeficiencia === true;
+
+  // Escutar evento de data de ingresso calculada da Etapa 2
+  useEffect(() => {
+    const handleDataIngresso = (event: CustomEvent) => {
+      const { tempo } = event.detail;
+      
+      // Preencher automaticamente o tempo de contribuição comum
+      onChange('comum', tempo);
+      
+      // Se for professor de fundamental/médio, preencher também o tempo de magistério
+      if (isProfessor && isProfessorFundamentalMedio) {
+        onChange('magisterio', tempo);
+      }
+    };
+
+    window.addEventListener('dataIngressoCalculada', handleDataIngresso as EventListener);
+    
+    return () => {
+      window.removeEventListener('dataIngressoCalculada', handleDataIngresso as EventListener);
+    };
+  }, [isProfessor, isProfessorFundamentalMedio, onChange]);
 
   return (
     <div className="space-y-6 animate-fade-in">

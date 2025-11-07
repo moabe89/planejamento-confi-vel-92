@@ -26,7 +26,12 @@ export const TempoInput: React.FC<TempoInputProps> = ({
   className,
 }) => {
   const handleChange = (field: keyof TempoNormalizado, val: string) => {
-    const numValue = Math.max(0, parseInt(val) || 0);
+    let numValue = Math.max(0, parseInt(val) || 0);
+    
+    // Limitar meses a 12 e dias a 31
+    if (field === 'meses' && numValue > 12) numValue = 12;
+    if (field === 'dias' && numValue > 31) numValue = 31;
+    
     onChange({ ...value, [field]: numValue });
   };
 
