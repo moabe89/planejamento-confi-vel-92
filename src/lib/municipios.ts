@@ -2,7 +2,8 @@
  * Utilitário para busca de municípios por UF
  */
 
-import municipiosData from '@/data/municipios.csv?raw';
+import Cidades from '@/data/Cidades.json';
+import Estados from '@/data/Estados.json';
 
 export interface Municipio {
   uf: string;
@@ -48,36 +49,21 @@ function splitCsvLine(line: string): string[] {
 function carregarMunicipios(): Municipio[] {
   if (municipiosCache) return municipiosCache;
 
-  // Remove BOM se existir e normaliza quebras de linha
-  const conteudo = municipiosData.replace(/^\uFEFF/, '').replace(/\r\n?/g, '\n');
-  const linhas = conteudo.split('\n');
-
-  // Detecta e remove cabeçalho
-  const startIndex = linhas[0]?.toLowerCase().startsWith('uf,municipio') ? 1 : 0;
+  // Mapear ID de estado -> Sigla (UF)
+  const ufByEstadoId = new Map<string, string>();
+  (Estados as Array<{ ID: string; Sigla: string; Nome: string }>).forEach((e) => {
+    ufByEstadoId.set(String(e.ID), e.Sigla);
+  });
 
   const itens: Municipio[] = [];
-  for (let i = startIndex; i < linhas.length; i++) {
-    const linhaBruta = linhas[i];
-    if (!linhaBruta || !linhaBruta.trim()) continue;
-
-    const cols = splitCsvLine(linhaBruta.trim());
-    if (cols.length < 2) continue;
-
-    const ufRaw = (cols[0] || '').trim();
-    let municipioRaw = (cols[1] || '').trim();
-
-    // Remove aspas ao redor se houver
-    if (municipioRaw.startsWith('"') && municipioRaw.endsWith('"')) {
-      municipioRaw = municipioRaw.slice(1, -1);
-    }
-    // Converte aspas duplas escapadas
-    municipioRaw = municipioRaw.replace(/""/g, '"');
-
-    // Valida UF
-    if (!/^[A-Z]{2}$/.test(ufRaw)) continue;
-
-    itens.push({ uf: ufRaw, municipio: municipioRaw });
-  }
+  (Cidades as Array<{ ID: string; Nome: string; Estado: string }>).forEach((c) => {
+    const uf = ufByEstadoId.get(String(c.Estado));
+    const nome = String(c.Nome || '').trim();
+    if (!uf || !nome) return;
+    // Valida UF em formato de 2 letras
+    if (!/^[A-Z]{2}$/.test(uf)) return;
+    itens.push({ uf, municipio: nome });
+  });
 
   // Remover duplicados e ordenar
   const unico = new Map<string, Municipio>();
@@ -100,8 +86,8 @@ export function buscarMunicipiosPorUF(uf: string): string[] {
   const municipios = carregarMunicipios();
   return municipios
     .filter(m => m.uf === uf)
-    .map(m => `${m.municipio} - ${m.uf}`)
-    .sort();
+    .map(m => m.municipio)
+    .sort((a, b) => a.localeCompare(b));
 }
 
 /**
