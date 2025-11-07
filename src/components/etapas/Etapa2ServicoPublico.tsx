@@ -9,7 +9,7 @@ import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, Command
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { Button } from '@/components/ui/button';
-import { Check, ChevronsUpDown, HelpCircle } from 'lucide-react';
+import { Check, ChevronsUpDown, HelpCircle, AlertTriangle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Label } from '@/components/ui/label';
 
@@ -72,8 +72,12 @@ export const Etapa2ServicoPublico: React.FC<Etapa2Props> = ({
     if (data.dataIngressoServicoPublico && data.dataIngressoServicoPublico.length === 10) {
       const tempo = calcularTempo(data.dataIngressoServicoPublico);
       if (tempo) {
-        onChange('tempoCarreira', tempo);
-        onChange('tempoCargo', tempo);
+        // Atualizar ambos os campos com o mesmo valor calculado
+        const novoTempo = { anos: tempo.anos, meses: tempo.meses, dias: tempo.dias };
+        onChange('tempoCarreira', novoTempo);
+        setTimeout(() => {
+          onChange('tempoCargo', { ...novoTempo });
+        }, 0);
         setShowTempoFields(true);
       }
     }
@@ -214,9 +218,12 @@ export const Etapa2ServicoPublico: React.FC<Etapa2Props> = ({
 
       {showTempoFields && (
         <div className="space-y-4 p-4 bg-muted/30 rounded-lg border border-border/50">
-          <p className="text-sm text-muted-foreground">
-            O Tempo na Carreira e no Cargo foram presumidos a partir da sua data de ingresso no concurso. Se você mudou carreira ou cargo após o concurso, altere os dados abaixo:
-          </p>
+          <div className="flex items-start gap-2">
+            <AlertTriangle className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
+            <p className="text-sm text-muted-foreground">
+              O Tempo na Carreira e no Cargo foram presumidos a partir da sua data de ingresso no concurso. Se você mudou carreira ou cargo após o concurso, altere os dados abaixo:
+            </p>
+          </div>
           
           <TempoInput
             label="Tempo na Carreira Atual"
