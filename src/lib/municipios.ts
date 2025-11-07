@@ -12,19 +12,84 @@ export interface Municipio {
 let municipiosCache: Municipio[] | null = null;
 
 /**
+ * Divide uma linha CSV respeitando aspas
+ */
+function splitCsvLine(line: string): string[] {
+  const result: string[] = [];
+  let current = '';
+  let inQuotes = false;
+
+  for (let i = 0; i < line.length; i++) {
+    const char = line[i];
+
+    if (char === '"') {
+      // Trata aspas duplas escapadas "" como uma aspas literal
+      if (inQuotes && line[i + 1] === '"') {
+        current += '"';
+        i++; // pular a próxima aspas
+      } else {
+        inQuotes = !inQuotes;
+      }
+    } else if (char === ',' && !inQuotes) {
+      result.push(current);
+      current = '';
+    } else {
+      current += char;
+    }
+  }
+
+  result.push(current);
+  return result;
+}
+
+/**
  * Carrega e parseia a lista de municípios do CSV
  */
 function carregarMunicipios(): Municipio[] {
   if (municipiosCache) return municipiosCache;
-  
-  const linhas = municipiosData.split('\n').slice(1); // Remove header
-  municipiosCache = linhas
-    .filter(linha => linha.trim())
-    .map(linha => {
-      const [uf, municipio] = linha.split(',');
-      return { uf: uf.trim(), municipio: municipio.trim() };
-    });
-  
+
+  // Remove BOM se existir e normaliza quebras de linha
+  const conteudo = municipiosData.replace(/^\uFEFF/, '').replace(/\r\n?/g, '\n');
+  const linhas = conteudo.split('\n');
+
+  // Detecta e remove cabeçalho
+  const startIndex = linhas[0]?.toLowerCase().startsWith('uf,municipio') ? 1 : 0;
+
+  const itens: Municipio[] = [];
+  for (let i = startIndex; i < linhas.length; i++) {
+    const linhaBruta = linhas[i];
+    if (!linhaBruta || !linhaBruta.trim()) continue;
+
+    const cols = splitCsvLine(linhaBruta.trim());
+    if (cols.length < 2) continue;
+
+    const ufRaw = (cols[0] || '').trim();
+    let municipioRaw = (cols[1] || '').trim();
+
+    // Remove aspas ao redor se houver
+    if (municipioRaw.startsWith('"') && municipioRaw.endsWith('"')) {
+      municipioRaw = municipioRaw.slice(1, -1);
+    }
+    // Converte aspas duplas escapadas
+    municipioRaw = municipioRaw.replace(/""/g, '"');
+
+    // Valida UF
+    if (!/^[A-Z]{2}$/.test(ufRaw)) continue;
+
+    itens.push({ uf: ufRaw, municipio: municipioRaw });
+  }
+
+  // Remover duplicados e ordenar
+  const unico = new Map<string, Municipio>();
+  for (const m of itens) {
+    unico.set(`${m.uf}|${m.municipio}`, m);
+  }
+
+  municipiosCache = Array.from(unico.values()).sort((a, b) => {
+    if (a.uf !== b.uf) return a.uf.localeCompare(b.uf);
+    return a.municipio.localeCompare(b.municipio);
+  });
+
   return municipiosCache;
 }
 
