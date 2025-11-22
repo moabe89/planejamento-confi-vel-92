@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
@@ -34,7 +34,26 @@ export const PeriodoContribuicao: React.FC<PeriodoContribuicaoProps> = ({
     { id: '1', dataInicio: '', dataFim: '' },
   ]);
   const [errosPeriodos, setErrosPeriodos] = useState<Record<string, string>>({});
-  const [mostrarConfirmacao, setMostrarConfirmacao] = useState(false);
+  const [resultado, setResultado] = useState<ReturnType<typeof calcularPeriodos> | null>(null);
+
+  // Calcular automaticamente quando os períodos mudarem
+  useEffect(() => {
+    if (metodoEntrada === 'periodos') {
+      // Verificar se todos os períodos estão preenchidos e válidos
+      const todosPreenchidos = periodos.every(p => 
+        p.dataInicio && p.dataFim && 
+        validarDataBR(p.dataInicio) && validarDataBR(p.dataFim)
+      );
+
+      if (todosPreenchidos && validarPeriodos()) {
+        const calc = calcularPeriodos(periodos);
+        setResultado(calc);
+        onChange(calc.total);
+      } else {
+        setResultado(null);
+      }
+    }
+  }, [periodos, metodoEntrada]);
 
   const adicionarPeriodo = () => {
     setPeriodos([
@@ -63,7 +82,6 @@ export const PeriodoContribuicao: React.FC<PeriodoContribuicaoProps> = ({
     const novosErros = { ...errosPeriodos };
     delete novosErros[`${id}-${campo === 'dataInicio' ? 'inicio' : 'fim'}`];
     setErrosPeriodos(novosErros);
-    setMostrarConfirmacao(false);
   };
 
   const validarPeriodos = (): boolean => {
@@ -105,15 +123,6 @@ export const PeriodoContribuicao: React.FC<PeriodoContribuicaoProps> = ({
     return valido;
   };
 
-  const calcularEMostrar = () => {
-    if (!validarPeriodos()) return;
-
-    const resultado = calcularPeriodos(periodos);
-    onChange(resultado.total);
-    setMostrarConfirmacao(true);
-  };
-
-  const resultado = mostrarConfirmacao ? calcularPeriodos(periodos) : null;
 
   if (metodoEntrada === '') {
     return (
@@ -128,7 +137,7 @@ export const PeriodoContribuicao: React.FC<PeriodoContribuicaoProps> = ({
           </div>
 
           <div className="space-y-3">
-            <Label className="text-base font-medium">Como deseja informar?</Label>
+            <Label className="text-base font-medium">Como deseja informar seu tempo?</Label>
             <RadioGroup
               value={metodoEntrada}
               onValueChange={(v) => setMetodoEntrada(v as 'manual' | 'periodos')}
@@ -136,13 +145,13 @@ export const PeriodoContribuicao: React.FC<PeriodoContribuicaoProps> = ({
               <div className="flex items-center space-x-2 p-3 rounded-lg border border-border hover:bg-accent/50 transition-colors cursor-pointer">
                 <RadioGroupItem value="periodos" id={`${titulo}-periodos`} />
                 <Label htmlFor={`${titulo}-periodos`} className="cursor-pointer flex-1 font-normal">
-                  Informar <strong>data de início e fim</strong> da contribuição
+                  <strong>Data de início e de fim</strong> de cada período
                 </Label>
               </div>
               <div className="flex items-center space-x-2 p-3 rounded-lg border border-border hover:bg-accent/50 transition-colors cursor-pointer">
                 <RadioGroupItem value="manual" id={`${titulo}-manual`} />
                 <Label htmlFor={`${titulo}-manual`} className="cursor-pointer flex-1 font-normal">
-                  Informar o total de anos, meses e dias
+                  Total de contribuição em <strong>anos, meses e dias</strong>
                 </Label>
               </div>
             </RadioGroup>
@@ -201,7 +210,7 @@ export const PeriodoContribuicao: React.FC<PeriodoContribuicaoProps> = ({
             size="sm"
             onClick={() => {
               setMetodoEntrada('');
-              setMostrarConfirmacao(false);
+              setResultado(null);
             }}
           >
             Alterar método
@@ -283,14 +292,6 @@ export const PeriodoContribuicao: React.FC<PeriodoContribuicaoProps> = ({
             <Plus className="h-4 w-4 mr-2" />
             Adicionar outro período
           </Button>
-
-          <Button
-            type="button"
-            onClick={calcularEMostrar}
-            className="w-full"
-          >
-            Calcular tempo total
-          </Button>
         </div>
 
         {resultado && resultado.periodosSimultaneos.length > 0 && (
@@ -302,7 +303,7 @@ export const PeriodoContribuicao: React.FC<PeriodoContribuicaoProps> = ({
           </Alert>
         )}
 
-        {mostrarConfirmacao && resultado && (
+        {resultado && (
           <Card className="border-primary/50 bg-primary/5">
             <CardContent className="pt-4 space-y-2">
               <Label className="text-sm font-medium">Tempo calculado:</Label>
