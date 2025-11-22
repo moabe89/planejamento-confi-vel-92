@@ -74,6 +74,7 @@ export const Etapa1DadosPessoais: React.FC<Etapa1Props> = ({
         options={[
           { value: 'Masculino', label: 'Masculino' },
           { value: 'Feminino', label: 'Feminino' },
+          { value: 'Outro/Prefiro não informar', label: 'Outro/Prefiro não informar' },
         ]}
         error={errors.sexo}
         required

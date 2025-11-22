@@ -168,19 +168,8 @@ export const Etapa4Revisao: React.FC<Etapa4Props> = ({
                 <p className="text-sm text-muted-foreground">Tempo de Contribuição no Magistério</p>
                 <p className="font-medium">{formatarTempo(tempoContribuicao.magisterio)}</p>
               </div>
-              <Separator />
-              <div>
-                <p className="text-sm text-muted-foreground">Tempo Fora do Magistério</p>
-                <p className="font-medium">{formatarTempo(tempoContribuicao.remuneradoForaMagisterio)}</p>
-              </div>
             </>
           )}
-          
-          <Separator />
-          <div>
-            <p className="text-sm text-muted-foreground">Tempo de Afastamento não Remunerado</p>
-            <p className="font-medium">{formatarTempo(servicoPublico.tempoAfastamentoNaoRemunerado)}</p>
-          </div>
           
           {dadosPessoais.insalubridadeOuEspecial && (
             <>
