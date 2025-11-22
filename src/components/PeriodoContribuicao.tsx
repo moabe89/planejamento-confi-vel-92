@@ -20,6 +20,7 @@ interface PeriodoContribuicaoProps {
   required?: boolean;
   helpText?: string;
   noCard?: boolean; // Se true, não renderiza o Card wrapper
+  labelManual?: React.ReactNode; // Label customizado para o método manual
 }
 
 export const PeriodoContribuicao: React.FC<PeriodoContribuicaoProps> = ({
@@ -30,6 +31,7 @@ export const PeriodoContribuicao: React.FC<PeriodoContribuicaoProps> = ({
   required = false,
   helpText,
   noCard = false,
+  labelManual,
 }) => {
   const [metodoEntrada, setMetodoEntrada] = useState<'manual' | 'periodos' | ''>('');
   const [periodos, setPeriodos] = useState<Periodo[]>([
@@ -154,7 +156,9 @@ export const PeriodoContribuicao: React.FC<PeriodoContribuicaoProps> = ({
             <div className="flex items-center space-x-2 p-3 rounded-lg border border-border hover:bg-accent/50 transition-colors cursor-pointer">
               <RadioGroupItem value="manual" id={`${titulo}-manual`} />
               <Label htmlFor={`${titulo}-manual`} className="cursor-pointer flex-1 font-normal">
-                Total de contribuição em <strong>anos, meses e dias</strong>
+                {labelManual || (
+                  <>Total de contribuição em <strong>anos, meses e dias</strong></>
+                )}
               </Label>
             </div>
           </RadioGroup>
