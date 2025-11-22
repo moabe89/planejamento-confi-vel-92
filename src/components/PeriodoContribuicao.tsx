@@ -193,6 +193,7 @@ export const PeriodoContribuicao: React.FC<PeriodoContribuicaoProps> = ({
               variant="ghost"
               size="sm"
               onClick={() => setMetodoEntrada('')}
+              className="border border-border bg-muted/30"
             >
               Alterar método
             </Button>
@@ -242,6 +243,7 @@ export const PeriodoContribuicao: React.FC<PeriodoContribuicaoProps> = ({
               setMetodoEntrada('');
               setResultado(null);
             }}
+            className="border border-border bg-muted/30"
           >
             Alterar método
           </Button>

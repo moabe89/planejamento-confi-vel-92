@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils';
 import type { TempoNormalizado } from '@/lib/validations';
 
 interface TempoInputProps {
-  label: string;
+  label: React.ReactNode;
   name: string;
   value: TempoNormalizado;
   onChange: (value: TempoNormalizado) => void;
