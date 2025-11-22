@@ -212,7 +212,7 @@ export const Etapa2ServicoPublico: React.FC<Etapa2Props> = ({
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
-                <HelpCircle className="w-4 h-4 text-amber-600 hover:text-amber-700 cursor-help" />
+                <HelpCircle className="w-4 h-4 text-amber-600 hover:text-amber-700 cursor-help animate-subtle-pulse" />
               </TooltipTrigger>
               <TooltipContent className="max-w-xs">
                 <p>Se teve mais de um concurso e <strong>não houve interrupção</strong> de trabalho superior a 2 meses de um concurso para o outro, coloque a <strong>data do primeiro concurso</strong>. Se houve interrupção, coloque a data do segundo concurso.</p>
@@ -225,8 +225,8 @@ export const Etapa2ServicoPublico: React.FC<Etapa2Props> = ({
       {showTempoFields && (
         <div className="space-y-4 p-4 bg-muted/30 rounded-lg border border-border/50">
           <div className="flex items-start gap-2">
-            <AlertTriangle className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
-            <p className="text-sm text-amber-700">
+            <AlertTriangle className="w-5 h-5 text-amber-600 dark:text-amber-500 flex-shrink-0 mt-0.5 animate-subtle-pulse" />
+            <p className="text-sm text-amber-900 dark:text-amber-100">
               O Tempo na Carreira e no Cargo foram presumidos a partir da sua data de ingresso no concurso. Se você mudou carreira ou cargo após o concurso, altere os dados abaixo:
             </p>
           </div>
@@ -260,7 +260,7 @@ export const Etapa2ServicoPublico: React.FC<Etapa2Props> = ({
             onChange={(v) => onChange('tempoAfastamentoNaoRemunerado', v)}
           />
           <div className="flex items-start gap-2 text-sm">
-            <AlertCircle className="h-4 w-4 mt-0.5 flex-shrink-0 text-amber-600 dark:text-amber-500" />
+            <AlertCircle className="h-4 w-4 mt-0.5 flex-shrink-0 text-amber-600 dark:text-amber-500 animate-subtle-pulse" />
             <p className="text-amber-900 dark:text-amber-100">
               Exemplo: licença por interesse particular e licença não remunerada. OBS: <strong>Licença médica e auxílio-doença é considerado remunerado</strong>, se esse for o caso, <strong>não preencha</strong>.
             </p>
