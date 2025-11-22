@@ -240,31 +240,35 @@ export const Etapa1DadosPessoais: React.FC<Etapa1Props> = ({
         </div>
       )}
 
-      <RadioGroup
-        label="É ou foi policial?"
-        name="policial"
-        value={data.policial === null ? '' : data.policial ? 'sim' : 'nao'}
-        onChange={(v) => onChange('policial', v === 'sim')}
-        options={[
-          { value: 'sim', label: 'Sim' },
-          { value: 'nao', label: 'Não' },
-        ]}
-        error={errors.policial}
-        required
-      />
+      {data.vinculo === 'Servidor Público' && (
+        <>
+          <RadioGroup
+            label="É ou foi policial?"
+            name="policial"
+            value={data.policial === null ? '' : data.policial ? 'sim' : 'nao'}
+            onChange={(v) => onChange('policial', v === 'sim')}
+            options={[
+              { value: 'sim', label: 'Sim' },
+              { value: 'nao', label: 'Não' },
+            ]}
+            error={errors.policial}
+            required
+          />
 
-      <RadioGroup
-        label="É ou foi bombeiro militar?"
-        name="bombeiroMilitar"
-        value={data.bombeiroMilitar === null ? '' : data.bombeiroMilitar ? 'sim' : 'nao'}
-        onChange={(v) => onChange('bombeiroMilitar', v === 'sim')}
-        options={[
-          { value: 'sim', label: 'Sim' },
-          { value: 'nao', label: 'Não' },
-        ]}
-        error={errors.bombeiroMilitar}
-        required
-      />
+          <RadioGroup
+            label="É ou foi bombeiro militar?"
+            name="bombeiroMilitar"
+            value={data.bombeiroMilitar === null ? '' : data.bombeiroMilitar ? 'sim' : 'nao'}
+            onChange={(v) => onChange('bombeiroMilitar', v === 'sim')}
+            options={[
+              { value: 'sim', label: 'Sim' },
+              { value: 'nao', label: 'Não' },
+            ]}
+            error={errors.bombeiroMilitar}
+            required
+          />
+        </>
+      )}
     </div>
   );
 };
