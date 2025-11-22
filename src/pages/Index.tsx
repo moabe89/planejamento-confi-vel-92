@@ -45,7 +45,7 @@ const Index = () => {
     }
   }, [formData.dadosPessoais.pessoaComDeficiencia]);
 
-  const totalEtapas = formData.dadosPessoais.vinculo === 'Servidor Público' ? 4 : 3;
+  const totalEtapas = 4;
 
   const handleNext = async () => {
     if (await validarEtapa()) {
