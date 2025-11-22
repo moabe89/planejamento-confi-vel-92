@@ -208,7 +208,7 @@ export const Etapa2ServicoPublico: React.FC<Etapa2Props> = ({
           </p>
         )}
         <div className="flex items-center gap-2 text-sm text-muted-foreground mt-1">
-          <span>Teve mais de um concurso? Saiba ao lado</span>
+          <span>Teve mais de um concurso?</span>
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
@@ -218,7 +218,7 @@ export const Etapa2ServicoPublico: React.FC<Etapa2Props> = ({
                 </button>
               </TooltipTrigger>
               <TooltipContent className="max-w-xs">
-                <p>Se teve mais de um concurso e <strong>não houve interrupção</strong> de trabalho superior a 2 meses de um concurso para o outro, coloque a <strong>data do primeiro concurso</strong>. Se houve interrupção, coloque a data do segundo concurso.</p>
+                <p>Se não houve interrupção de trabalho um concurso para o outro (saiu de um e já entrou no outro), informe a data do primeiro concurso. Se houve interrupção superior a 2 meses de um para o outro, coloque a data do segundo concurso.</p>
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
@@ -265,7 +265,7 @@ export const Etapa2ServicoPublico: React.FC<Etapa2Props> = ({
           <div className="flex items-start gap-2 text-sm">
             <AlertCircle className="h-4 w-4 mt-0.5 flex-shrink-0 text-amber-600 dark:text-amber-500 animate-subtle-pulse" />
             <p className="text-amber-900 dark:text-amber-100">
-              Exemplo: licença por interesse particular e licença não remunerada. OBS: <strong>Licença médica e auxílio-doença é considerado remunerado</strong>, se esse for o caso, <strong>não preencha</strong>.
+              Exemplo: <strong>licença por interesse particular</strong> e licença não remunerada. <span className="underline font-semibold">OBS Importante:</span> <em>Não preencha se recebeu licença remunerada</em>, por exemplo: Licença médica, auxílio-doença, licença aprimoramento remunerada, licença prêmio, e outras licenças remuneradas.
             </p>
           </div>
         </CardContent>
