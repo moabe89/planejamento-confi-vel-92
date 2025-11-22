@@ -170,6 +170,19 @@ export const Etapa4Revisao: React.FC<Etapa4Props> = ({
               </div>
             </>
           )}
+
+          {dadosPessoais.professor && tempoContribuicao.remuneradoForaMagisterio && 
+           (tempoContribuicao.remuneradoForaMagisterio.anos > 0 || 
+            tempoContribuicao.remuneradoForaMagisterio.meses > 0 || 
+            tempoContribuicao.remuneradoForaMagisterio.dias > 0) && (
+            <>
+              <Separator />
+              <div>
+                <p className="text-sm text-muted-foreground">Tempo Fora do Magistério</p>
+                <p className="font-medium">{formatarTempo(tempoContribuicao.remuneradoForaMagisterio)}</p>
+              </div>
+            </>
+          )}
           
           {dadosPessoais.insalubridadeOuEspecial && (
             <>
@@ -197,6 +210,19 @@ export const Etapa4Revisao: React.FC<Etapa4Props> = ({
               <div>
                 <p className="text-sm text-muted-foreground">Tempo de contribuição especial – PcD</p>
                 <p className="font-medium">{formatarTempo(tempoContribuicao.pcd)}</p>
+              </div>
+            </>
+          )}
+
+          {isServidorPublico && servicoPublico.tempoAfastamentoNaoRemunerado && 
+           (servicoPublico.tempoAfastamentoNaoRemunerado.anos > 0 || 
+            servicoPublico.tempoAfastamentoNaoRemunerado.meses > 0 || 
+            servicoPublico.tempoAfastamentoNaoRemunerado.dias > 0) && (
+            <>
+              <Separator />
+              <div>
+                <p className="text-sm text-muted-foreground">Tempo de Afastamento Não Remunerado</p>
+                <p className="font-medium">{formatarTempo(servicoPublico.tempoAfastamentoNaoRemunerado)}</p>
               </div>
             </>
           )}
