@@ -212,9 +212,9 @@ export const Etapa2ServicoPublico: React.FC<Etapa2Props> = ({
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
-                <button type="button" className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-500 hover:bg-amber-200 dark:hover:bg-amber-900/50 hover:text-amber-700 dark:hover:text-amber-400 transition-all shadow-sm">
-                  <span className="text-xs font-medium animate-subtle-pulse">Saiba mais</span>
-                  <HelpCircle className="h-3.5 w-3.5 animate-subtle-pulse" />
+                <button type="button" className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md border border-amber-500/30 dark:border-amber-500/20 text-amber-600 dark:text-amber-500 hover:border-amber-500/50 dark:hover:border-amber-500/40 hover:bg-amber-500/5 transition-all animate-subtle-pulse">
+                  <span className="text-xs font-medium">Saiba mais</span>
+                  <HelpCircle className="h-3.5 w-3.5" />
                 </button>
               </TooltipTrigger>
               <TooltipContent className="max-w-xs">
