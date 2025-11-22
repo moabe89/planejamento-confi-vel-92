@@ -236,7 +236,6 @@ export const Etapa1DadosPessoais: React.FC<Etapa1Props> = ({
                 { value: 'ensino-superior', label: 'Professor de instituição de ensino superior' },
               ]}
               error={errors.professorTipo}
-              required
             />
         </div>
       )}
