@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { TempoInput } from '@/components/TempoInput';
+import { PeriodoContribuicao } from '@/components/PeriodoContribuicao';
 import { RadioGroup } from '@/components/RadioGroup';
 import type { TempoContribuicao, FormularioErrors, DadosPessoais } from '@/types/formulario';
 import { Alert, AlertDescription } from '@/components/ui/alert';
@@ -65,38 +65,26 @@ export const Etapa3TempoContribuicao: React.FC<Etapa3Props> = ({
         </AlertDescription>
       </Alert>
 
-      <Card className="border-border/50 shadow-sm">
-        <CardContent className="pt-6 space-y-2">
-          <TempoInput
-            label="Tempo de Contribuição Comum"
-            name="comum"
-            value={data.comum}
-            onChange={(v) => onChange('comum', v)}
-            error={errors.comum}
-            required
-            className="text-base"
-          />
-          <div className="space-y-1 text-sm text-muted-foreground mt-2">
-            <p>• Se não tiver, pode deixar em branco.</p>
-            <p>• Inclua apenas tempo comuns.</p>
-            <p>• Some todos os seus tempos comuns, inclusive os <strong>anteriores ao concurso</strong>.</p>
-            <p>• Veja se tem <strong>tempos para averbar</strong> (INSS, RPPS) inclusive os <em>anteriores ao concurso</em>.</p>
-          </div>
-        </CardContent>
-      </Card>
+      <PeriodoContribuicao
+        titulo="Tempo de Contribuição Comum"
+        valor={data.comum}
+        onChange={(v) => onChange('comum', v)}
+        required
+        helpText="Inclua todos os seus tempos comuns, inclusive anteriores ao concurso. Verifique se há tempos para averbar (INSS, RPPS)."
+      />
 
       {isProfessor && isProfessorFundamentalMedio && (
-        <Card className="border-border/50 shadow-sm">
-          <CardContent className="pt-6 space-y-4">
-            <div className="space-y-3">
-              <div className="flex items-center gap-2">
+        <>
+          <Card className="border-border/50 shadow-sm bg-amber-50/30 dark:bg-amber-950/10">
+            <CardContent className="pt-6">
+              <div className="flex items-center gap-2 mb-3">
                 <label className="text-base font-medium text-foreground">
-                  Tempo de Contribuição no Magistério <span className="text-destructive">*</span>
+                  Informações sobre Magistério
                 </label>
                 <TooltipProvider>
                   <Tooltip>
                     <TooltipTrigger asChild>
-                      <button type="button" className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md border border-amber-500/30 dark:border-amber-500/20 text-amber-600 dark:text-amber-500 hover:border-amber-500/50 dark:hover:border-amber-500/40 hover:bg-amber-500/5 transition-all animate-subtle-pulse">
+                      <button type="button" className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md border border-amber-500/30 dark:border-amber-500/20 text-amber-600 dark:text-amber-500 hover:border-amber-500/50 dark:hover:border-amber-500/40 hover:bg-amber-500/5 transition-all">
                         <span className="text-xs font-medium">Saiba mais</span>
                         <HelpCircle className="h-3.5 w-3.5" />
                       </button>
@@ -131,131 +119,85 @@ export const Etapa3TempoContribuicao: React.FC<Etapa3Props> = ({
                   </Tooltip>
                 </TooltipProvider>
               </div>
-              <TempoInput
-                label=""
-                name="magisterio"
-                value={data.magisterio}
-                onChange={(v) => onChange('magisterio', v)}
-                error={errors.magisterio}
-                className="text-base"
-              />
-            </div>
-            
-            <Card className="border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/20 shadow-sm">
-              <CardContent className="pt-6 space-y-2">
-                <div className="flex items-center gap-2">
-                  <label className="text-base font-medium text-foreground">
-                    Tempo Fora do Magistério <span className="text-destructive">*</span>
-                  </label>
-                  <TooltipProvider>
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <button type="button" className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md border border-amber-500/30 dark:border-amber-500/20 text-amber-600 dark:text-amber-500 hover:border-amber-500/50 dark:hover:border-amber-500/40 hover:bg-amber-500/5 transition-all animate-subtle-pulse">
-                          <span className="text-xs font-medium">Saiba mais</span>
-                          <HelpCircle className="h-3.5 w-3.5" />
-                        </button>
-                      </TooltipTrigger>
-                      <TooltipContent className="max-w-md p-4">
-                        <p className="font-semibold mb-2">Quando preencher este campo?</p>
-                        <p className="text-sm">
-                          Preencha o campo apenas se estava no cargo de professor, mas ficou fora do magistério exercendo funções de <strong>coordenador</strong>, <strong>diretor</strong>, <strong>assessor pedagógico</strong> ou <strong>dinamizador de biblioteca</strong> fora da unidade de ensino ou em outras atividades não relacionadas ao magistério.
-                        </p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                </div>
-                <TempoInput
-                  label=""
-                  name="remuneradoForaMagisterio"
-                  value={data.remuneradoForaMagisterio}
-                  onChange={(v) => onChange('remuneradoForaMagisterio', v)}
-                  error={errors.remuneradoForaMagisterio}
-                  className="text-base"
-                />
-                <div className="flex items-start gap-2 text-sm text-amber-900 dark:text-amber-100">
-                  <AlertCircle className="h-4 w-4 mt-0.5 flex-shrink-0 text-amber-600 dark:text-amber-500 animate-subtle-pulse" />
-                  <p>
-                    Preencha o campo apenas se <strong>estava no cargo de professor, mas ficou fora do magistério</strong>.
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
+
+          <PeriodoContribuicao
+            titulo="Tempo de Contribuição no Magistério"
+            descricao="Tempo exercido em funções de magistério no ensino fundamental e médio"
+            valor={data.magisterio}
+            onChange={(v) => onChange('magisterio', v)}
+            required
+          />
+
+          <PeriodoContribuicao
+            titulo="Tempo Fora do Magistério"
+            descricao="Tempo em que estava no cargo de professor, mas exerceu outras funções fora da unidade de ensino"
+            valor={data.remuneradoForaMagisterio}
+            onChange={(v) => onChange('remuneradoForaMagisterio', v)}
+            required
+            helpText="Preencha apenas se estava no cargo de professor, mas exerceu funções de coordenador, diretor, assessor pedagógico ou dinamizador de biblioteca fora da unidade de ensino."
+          />
+        </>
       )}
 
       {isInsalubre && (
-        <Card className="border-border/50 shadow-sm">
-          <CardContent className="pt-6">
-            <TempoInput
-              label="Tempo de Contribuição Especial/Insalubre"
-              name="especialInsalubre"
-              value={data.especialInsalubre}
-              onChange={(v) => onChange('especialInsalubre', v)}
-              error={errors.especialInsalubre}
-              required
-              className="text-base"
-            />
-          </CardContent>
-        </Card>
+        <PeriodoContribuicao
+          titulo="Tempo de Contribuição Especial/Insalubre"
+          valor={data.especialInsalubre}
+          onChange={(v) => onChange('especialInsalubre', v)}
+          required
+        />
       )}
 
       {isPolicial && (
-        <Card className="border-border/50 shadow-sm">
-          <CardContent className="pt-6 space-y-4">
-            <TempoInput
-              label="Tempo de contribuição Policial"
-              name="policial"
-              value={data.policial}
-              onChange={(v) => onChange('policial', v)}
-              error={errors.policial}
-              required
-              className="text-base"
-            />
+        <>
+          <PeriodoContribuicao
+            titulo="Tempo de Contribuição Policial"
+            valor={data.policial}
+            onChange={(v) => onChange('policial', v)}
+            required
+          />
 
-            <RadioGroup
-              label="Tipo de Carreira Policial"
-              name="tipoCarreiraPolicial"
-              value={
-                data.policialCivilOuFederal === true
-                  ? 'civil-federal'
-                  : data.policialMilitarOuBombeiro === true
-                  ? 'militar-bombeiro'
-                  : ''
-              }
-              onChange={(v) => {
-                if (v === 'civil-federal') {
-                  onChange('policialCivilOuFederal', true);
-                  onChange('policialMilitarOuBombeiro', false);
-                } else if (v === 'militar-bombeiro') {
-                  onChange('policialCivilOuFederal', false);
-                  onChange('policialMilitarOuBombeiro', true);
+          <Card className="border-border/50 shadow-sm">
+            <CardContent className="pt-6">
+              <RadioGroup
+                label="Tipo de Carreira Policial"
+                name="tipoCarreiraPolicial"
+                value={
+                  data.policialCivilOuFederal === true
+                    ? 'civil-federal'
+                    : data.policialMilitarOuBombeiro === true
+                    ? 'militar-bombeiro'
+                    : ''
                 }
-              }}
-              options={[
-                { value: 'civil-federal', label: 'Policial Civil ou Federal' },
-                { value: 'militar-bombeiro', label: 'Policial Militar ou Bombeiro' },
-              ]}
-              required
-            />
-          </CardContent>
-        </Card>
+                onChange={(v) => {
+                  if (v === 'civil-federal') {
+                    onChange('policialCivilOuFederal', true);
+                    onChange('policialMilitarOuBombeiro', false);
+                  } else if (v === 'militar-bombeiro') {
+                    onChange('policialCivilOuFederal', false);
+                    onChange('policialMilitarOuBombeiro', true);
+                  }
+                }}
+                options={[
+                  { value: 'civil-federal', label: 'Policial Civil ou Federal' },
+                  { value: 'militar-bombeiro', label: 'Policial Militar ou Bombeiro' },
+                ]}
+                required
+              />
+            </CardContent>
+          </Card>
+        </>
       )}
 
       {isPcD && (
-        <Card className="border-border/50 shadow-sm">
-          <CardContent className="pt-6">
-            <TempoInput
-              label="Tempo de contribuição especial – PcD"
-              name="pcd"
-              value={data.pcd}
-              onChange={(v) => onChange('pcd', v)}
-              error={errors.pcd}
-              required
-              className="text-base"
-            />
-          </CardContent>
-        </Card>
+        <PeriodoContribuicao
+          titulo="Tempo de Contribuição Especial – PcD"
+          valor={data.pcd}
+          onChange={(v) => onChange('pcd', v)}
+          required
+        />
       )}
     </div>
   );
