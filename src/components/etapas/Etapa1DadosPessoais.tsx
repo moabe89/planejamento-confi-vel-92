@@ -154,7 +154,7 @@ export const Etapa1DadosPessoais: React.FC<Etapa1Props> = ({
               <TooltipContent className="max-w-sm p-4">
                 <p className="font-semibold mb-2">Atividades insalubres ou especiais</p>
                 <p className="text-sm mb-2">
-                  As atividades insalubres que dão direito à aposentadoria especial ou conversão de tempo são aquelas em que o trabalhador é exposto a agentes físicos, químicos ou biológicos que prejudicam a saúde, como ruído excessivo, temperaturas extremas, substâncias tóxicas, vírus e bactérias.
+                  Atividades insalubres são aquelas em que o trabalhador é exposto a agentes físicos, químicos ou biológicos que prejudicam a saúde, como ruído excessivo, temperaturas extremas, substâncias tóxicas, vírus e bactérias.
                 </p>
                 <p className="text-sm font-semibold mb-1">Alguns cargos que geralmente têm esse direito:</p>
                 <ul className="text-sm list-disc list-inside space-y-0.5">
