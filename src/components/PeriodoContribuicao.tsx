@@ -298,7 +298,19 @@ export const PeriodoContribuicao: React.FC<PeriodoContribuicaoProps> = ({
           <Alert className="bg-amber-50 dark:bg-amber-950/20 border-amber-200 dark:border-amber-800">
             <AlertCircle className="h-4 w-4 text-amber-600 dark:text-amber-500" />
             <AlertDescription className="text-amber-900 dark:text-amber-100">
-              <strong>Atenção:</strong> Foram detectados períodos simultâneos. Apenas o tempo não concomitante foi considerado no cálculo.
+              <strong>Atenção:</strong> Foram detectados períodos simultâneos (concomitantes). Apenas o tempo não concomitante foi considerado no cálculo.
+              <div className="mt-2 space-y-1 text-sm">
+                {resultado.periodosSimultaneos.map((sobreposicao, index) => (
+                  <div key={index} className="pl-2 border-l-2 border-amber-400">
+                    <strong>Períodos simultâneos:</strong>
+                    <div>• {sobreposicao.periodo1.dataInicio} a {sobreposicao.periodo1.dataFim}</div>
+                    <div>• {sobreposicao.periodo2.dataInicio} a {sobreposicao.periodo2.dataFim}</div>
+                    <div className="text-amber-700 dark:text-amber-300">
+                      Desconsiderados {sobreposicao.diasSimultaneos} {sobreposicao.diasSimultaneos === 1 ? 'dia' : 'dias'} por concomitância
+                    </div>
+                  </div>
+                ))}
+              </div>
             </AlertDescription>
           </Alert>
         )}
