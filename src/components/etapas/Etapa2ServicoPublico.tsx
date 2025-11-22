@@ -212,7 +212,10 @@ export const Etapa2ServicoPublico: React.FC<Etapa2Props> = ({
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
-                <HelpCircle className="w-4 h-4 text-amber-600 hover:text-amber-700 cursor-help animate-subtle-pulse" />
+                <button type="button" className="inline-flex items-center gap-1 text-amber-600 dark:text-amber-500 hover:text-amber-700 dark:hover:text-amber-400 transition-colors">
+                  <span className="text-xs font-medium animate-subtle-pulse">Saiba mais</span>
+                  <HelpCircle className="h-4 w-4 animate-subtle-pulse" />
+                </button>
               </TooltipTrigger>
               <TooltipContent className="max-w-xs">
                 <p>Se teve mais de um concurso e <strong>não houve interrupção</strong> de trabalho superior a 2 meses de um concurso para o outro, coloque a <strong>data do primeiro concurso</strong>. Se houve interrupção, coloque a data do segundo concurso.</p>
