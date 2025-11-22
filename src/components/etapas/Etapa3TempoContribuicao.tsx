@@ -58,13 +58,6 @@ export const Etapa3TempoContribuicao: React.FC<Etapa3Props> = ({
         </p>
       </div>
 
-      <Alert className="bg-amber-50 dark:bg-amber-950/20 border-amber-200 dark:border-amber-800">
-        <AlertCircle className="h-4 w-4 text-amber-600 dark:text-amber-500 animate-subtle-pulse" />
-        <AlertDescription className="text-amber-900 dark:text-amber-100">
-          <strong>Atenção</strong>: Se você trabalhou em dois locais na mesma época, considere apenas um dos vínculos neste campo. O tempo de contribuição segue o calendário: 1 ano de trabalho vale 1 ano de tempo, mesmo que você tenha tido 2 ou 3 empregos naquele ano.
-        </AlertDescription>
-      </Alert>
-
       <PeriodoContribuicao
         titulo="Tempo de Contribuição Comum"
         valor={data.comum}

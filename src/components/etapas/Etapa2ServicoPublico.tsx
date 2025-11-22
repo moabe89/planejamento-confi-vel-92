@@ -208,7 +208,7 @@ export const Etapa2ServicoPublico: React.FC<Etapa2Props> = ({
           </p>
         )}
         <div className="flex items-center gap-2 text-sm text-muted-foreground mt-1">
-          <span>Teve mais de um concurso?</span>
+          <span className="italic text-destructive">Teve mais de um concurso?</span>
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
@@ -257,7 +257,7 @@ export const Etapa2ServicoPublico: React.FC<Etapa2Props> = ({
       <Card className="border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/20 shadow-sm">
         <CardContent className="pt-6 space-y-2">
           <TempoInput
-            label="Tempo de Afastamento Não Remunerado (opcional)"
+            label={<>Tempo de Licença <strong>Não Remunerado</strong> <em className="text-destructive">(opcional)</em></>}
             name="tempoAfastamentoNaoRemunerado"
             value={data.tempoAfastamentoNaoRemunerado}
             onChange={(v) => onChange('tempoAfastamentoNaoRemunerado', v)}
