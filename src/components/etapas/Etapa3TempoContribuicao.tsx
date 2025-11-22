@@ -59,7 +59,7 @@ export const Etapa3TempoContribuicao: React.FC<Etapa3Props> = ({
       </div>
 
       <Alert className="bg-amber-50 dark:bg-amber-950/20 border-amber-200 dark:border-amber-800">
-        <AlertCircle className="h-4 w-4 text-amber-600 dark:text-amber-500" />
+        <AlertCircle className="h-4 w-4 text-amber-600 dark:text-amber-500 animate-subtle-pulse" />
         <AlertDescription className="text-amber-900 dark:text-amber-100">
           Não inclua <strong>tempos concomitantes</strong> (tempos de trabalho no mesmo período). <em>Por exemplo: entre 2000 e 2004 você tinha 2 trabalhos e contribuiu para o INSS e o Município/Estado, nesse caso, considere o tempo de apenas 1 dos trabalhos para fins de planejamento (o outro tempo você poderá considerar para outra aposentadoria)</em>.
         </AlertDescription>
@@ -95,11 +95,11 @@ export const Etapa3TempoContribuicao: React.FC<Etapa3Props> = ({
                 </label>
                 <TooltipProvider>
                   <Tooltip>
-                    <TooltipTrigger asChild>
-                      <button type="button" className="inline-flex items-center justify-center">
-                        <HelpCircle className="h-4 w-4 text-muted-foreground hover:text-foreground transition-colors" />
-                      </button>
-                    </TooltipTrigger>
+                <TooltipTrigger asChild>
+                  <button type="button" className="inline-flex items-center justify-center">
+                    <HelpCircle className="h-4 w-4 text-amber-600 dark:text-amber-500 hover:text-amber-700 dark:hover:text-amber-400 transition-colors animate-subtle-pulse" />
+                  </button>
+                </TooltipTrigger>
                     <TooltipContent className="max-w-md p-4">
                       <p className="font-semibold mb-2">O que conta e o que não conta como magistério?</p>
                       <div className="space-y-2 text-sm">
@@ -143,7 +143,7 @@ export const Etapa3TempoContribuicao: React.FC<Etapa3Props> = ({
                   className="text-base"
                 />
                 <div className="flex items-start gap-2 text-sm text-amber-900 dark:text-amber-100">
-                  <AlertCircle className="h-4 w-4 mt-0.5 flex-shrink-0 text-amber-600 dark:text-amber-500" />
+                  <AlertCircle className="h-4 w-4 mt-0.5 flex-shrink-0 text-amber-600 dark:text-amber-500 animate-subtle-pulse" />
                   <p>
                     Preencha o campo apenas se <strong>estava no cargo de professor, mas ficou fora do magistério</strong>.
                   </p>

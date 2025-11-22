@@ -147,8 +147,8 @@ export const Etapa1DadosPessoais: React.FC<Etapa1Props> = ({
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
-                <button type="button" className="text-orange-500 hover:text-orange-600 transition-colors">
-                  <HelpCircle className="h-4 w-4" />
+                <button type="button" className="text-amber-600 hover:text-amber-700 transition-colors">
+                  <HelpCircle className="h-4 w-4 animate-subtle-pulse" />
                 </button>
               </TooltipTrigger>
               <TooltipContent className="max-w-sm p-4">
@@ -209,9 +209,9 @@ export const Etapa1DadosPessoais: React.FC<Etapa1Props> = ({
             </span>
             <TooltipProvider>
               <Tooltip>
-                <TooltipTrigger asChild>
-                  <button type="button" className="text-orange-500 hover:text-orange-600 transition-colors">
-                    <HelpCircle className="h-4 w-4" />
+              <TooltipTrigger asChild>
+                  <button type="button" className="text-amber-600 hover:text-amber-700 transition-colors">
+                    <HelpCircle className="h-4 w-4 animate-subtle-pulse" />
                   </button>
                 </TooltipTrigger>
                 <TooltipContent className="max-w-md p-4">
