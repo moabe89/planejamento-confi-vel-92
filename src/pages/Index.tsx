@@ -304,7 +304,10 @@ const Index = () => {
               dadosPessoais={formData.dadosPessoais}
               errors={errors.tempoContribuicao}
               onChange={(field, value) =>
-                setFormData({ ...formData, tempoContribuicao: { ...formData.tempoContribuicao, [field]: value } })
+                setFormData((prev) => ({
+                  ...prev,
+                  tempoContribuicao: { ...prev.tempoContribuicao, [field]: value },
+                }))
               }
               onValidate={() => {}}
             />
