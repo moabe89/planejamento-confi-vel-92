@@ -89,8 +89,39 @@ export const Etapa3TempoContribuicao: React.FC<Etapa3Props> = ({
         <Card className="border-border/50 shadow-sm">
           <CardContent className="pt-6 space-y-4">
             <div className="space-y-3">
+              <div className="flex items-center gap-2">
+                <label className="text-base font-medium text-foreground">
+                  Tempo de Contribuição no Magistério <span className="text-destructive">*</span>
+                </label>
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <button type="button" className="inline-flex items-center justify-center">
+                        <HelpCircle className="h-4 w-4 text-muted-foreground hover:text-foreground transition-colors" />
+                      </button>
+                    </TooltipTrigger>
+                    <TooltipContent className="max-w-md p-4">
+                      <p className="font-semibold mb-2">O que conta e o que não conta como magistério?</p>
+                      <div className="space-y-2 text-sm">
+                        <div>
+                          <p className="font-medium">✓ Conta como tempo de magistério:</p>
+                          <p>
+                            Cargo de coordenador, diretor, assessor pedagógico, dinamizador de biblioteca, desde que exercido na unidade de ensino e para <strong>ensino fundamental e médio</strong> (<strong>Ensino superior não conta como magistério</strong>).
+                          </p>
+                        </div>
+                        <div>
+                          <p className="font-medium">✗ Não conta como tempo de magistério:</p>
+                          <p>
+                            Cargos administrativos ou fora da unidade de ensino, exemplo: secretária da escola, cargo comissionado fora da escola, etc.
+                          </p>
+                        </div>
+                      </div>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
+              </div>
               <TempoInput
-                label="Tempo de Contribuição no Magistério"
+                label=""
                 name="magisterio"
                 value={data.magisterio}
                 onChange={(v) => onChange('magisterio', v)}
@@ -98,39 +129,27 @@ export const Etapa3TempoContribuicao: React.FC<Etapa3Props> = ({
                 required
                 className="text-base"
               />
-              <div className="space-y-2 text-sm text-muted-foreground mt-3">
-                <p className="text-foreground font-medium">O que conta e o que não conta como magistério?</p>
-                <div>
-                  <p className="font-medium">✓ Conta como tempo de magistério:</p>
-                  <p>
-                    Cargo de coordenador, diretor, assessor pedagógico, dinamizador de biblioteca, desde que exercido na unidade de ensino e para <strong>ensino fundamental e médio</strong> (<strong>Ensino superior não conta como magistério</strong>).
-                  </p>
-                </div>
-                <div>
-                  <p className="font-medium">✗ Não conta como tempo de magistério:</p>
-                  <p>
-                    Cargos administrativos ou fora da unidade de ensino, exemplo: secretária da escola, cargo comissionado fora da escola, etc.
-                  </p>
-                </div>
-              </div>
             </div>
             
-            <div className="space-y-2">
-              <TempoInput
-                label="Tempo Fora do Magistério"
-                name="remuneradoForaMagisterio"
-                value={data.remuneradoForaMagisterio}
-                onChange={(v) => onChange('remuneradoForaMagisterio', v)}
-                error={errors.remuneradoForaMagisterio}
-                className="text-base"
-              />
-              <div className="flex items-start gap-2 text-sm text-muted-foreground">
-                <AlertCircle className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                <p>
-                  Preencha o campo apenas se <strong>estava no cargo de professor, mas ficou fora do magistério</strong>.
-                </p>
-              </div>
-            </div>
+            <Card className="border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/20 shadow-sm">
+              <CardContent className="pt-6 space-y-2">
+                <TempoInput
+                  label="Tempo Fora do Magistério"
+                  name="remuneradoForaMagisterio"
+                  value={data.remuneradoForaMagisterio}
+                  onChange={(v) => onChange('remuneradoForaMagisterio', v)}
+                  error={errors.remuneradoForaMagisterio}
+                  required={isProfessor && isProfessorFundamentalMedio}
+                  className="text-base"
+                />
+                <div className="flex items-start gap-2 text-sm text-amber-900 dark:text-amber-100">
+                  <AlertCircle className="h-4 w-4 mt-0.5 flex-shrink-0 text-amber-600 dark:text-amber-500" />
+                  <p>
+                    Preencha o campo apenas se <strong>estava no cargo de professor, mas ficou fora do magistério</strong>.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
           </CardContent>
         </Card>
       )}
@@ -166,17 +185,22 @@ export const Etapa3TempoContribuicao: React.FC<Etapa3Props> = ({
 
             <RadioGroup
               label="Tipo de Carreira Policial"
-              name="tipoPolicial"
+              name="tipoCarreiraPolicial"
               value={
-                data.policialCivilOuFederal
+                data.policialCivilOuFederal === true
                   ? 'civil-federal'
-                  : data.policialMilitarOuBombeiro
+                  : data.policialMilitarOuBombeiro === true
                   ? 'militar-bombeiro'
                   : ''
               }
               onChange={(v) => {
-                onChange('policialCivilOuFederal', v === 'civil-federal');
-                onChange('policialMilitarOuBombeiro', v === 'militar-bombeiro');
+                if (v === 'civil-federal') {
+                  onChange('policialCivilOuFederal', true);
+                  onChange('policialMilitarOuBombeiro', false);
+                } else if (v === 'militar-bombeiro') {
+                  onChange('policialCivilOuFederal', false);
+                  onChange('policialMilitarOuBombeiro', true);
+                }
               }}
               options={[
                 { value: 'civil-federal', label: 'Policial Civil ou Federal' },
