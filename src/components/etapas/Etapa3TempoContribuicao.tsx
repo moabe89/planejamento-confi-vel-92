@@ -65,9 +65,7 @@ export const Etapa3TempoContribuicao: React.FC<Etapa3Props> = ({
         required
         helpText={
           <>
-            Inclua <strong>APENAS tempos comuns</strong>, inclusive anteriores ao concurso. Outros tempos devem ser colocados abaixo.
-            <br />
-            Verifique se há tempos para averbar (INSS, RPPS).
+            Inclua <strong>APENAS tempos comuns</strong>, inclusive anteriores ao concurso. Outros tempos devem ser colocados abaixo. Verifique se há tempos para averbar (INSS, RPPS).
           </>
         }
       />
