@@ -142,12 +142,13 @@ export const Etapa1DadosPessoais: React.FC<Etapa1Props> = ({
       <div>
         <div className="flex items-center gap-2 mb-2">
           <span className="text-sm font-semibold text-foreground">
-            Trabalha ou trabalhou em atividade insalubre ou especial?
+            Trabalhou em atividade insalubre?
           </span>
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
-                <button type="button" className="text-amber-600 hover:text-amber-700 transition-colors">
+                <button type="button" className="inline-flex items-center gap-1 text-amber-600 dark:text-amber-500 hover:text-amber-700 dark:hover:text-amber-400 transition-colors">
+                  <span className="text-xs font-medium animate-subtle-pulse">Saiba mais</span>
                   <HelpCircle className="h-4 w-4 animate-subtle-pulse" />
                 </button>
               </TooltipTrigger>
@@ -165,7 +166,7 @@ export const Etapa1DadosPessoais: React.FC<Etapa1Props> = ({
                   <li>Operador de máquinas pesadas</li>
                   <li>Motorista de caminhão</li>
                   <li>Motorista de ambulância</li>
-                  <li>Entre outras</li>
+                  <li className="italic">Entre outras</li>
                 </ul>
               </TooltipContent>
             </Tooltip>
@@ -210,7 +211,8 @@ export const Etapa1DadosPessoais: React.FC<Etapa1Props> = ({
             <TooltipProvider>
               <Tooltip>
               <TooltipTrigger asChild>
-                  <button type="button" className="text-amber-600 hover:text-amber-700 transition-colors">
+                  <button type="button" className="inline-flex items-center gap-1 text-amber-600 dark:text-amber-500 hover:text-amber-700 dark:hover:text-amber-400 transition-colors">
+                    <span className="text-xs font-medium animate-subtle-pulse">Saiba mais</span>
                     <HelpCircle className="h-4 w-4 animate-subtle-pulse" />
                   </button>
                 </TooltipTrigger>

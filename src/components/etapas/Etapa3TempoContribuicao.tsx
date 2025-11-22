@@ -95,11 +95,12 @@ export const Etapa3TempoContribuicao: React.FC<Etapa3Props> = ({
                 </label>
                 <TooltipProvider>
                   <Tooltip>
-                <TooltipTrigger asChild>
-                  <button type="button" className="inline-flex items-center justify-center">
-                    <HelpCircle className="h-4 w-4 text-amber-600 dark:text-amber-500 hover:text-amber-700 dark:hover:text-amber-400 transition-colors animate-subtle-pulse" />
-                  </button>
-                </TooltipTrigger>
+                    <TooltipTrigger asChild>
+                      <button type="button" className="inline-flex items-center gap-1 text-amber-600 dark:text-amber-500 hover:text-amber-700 dark:hover:text-amber-400 transition-colors">
+                        <span className="text-xs font-medium animate-subtle-pulse">Saiba mais</span>
+                        <HelpCircle className="h-4 w-4 animate-subtle-pulse" />
+                      </button>
+                    </TooltipTrigger>
                     <TooltipContent className="max-w-md p-4">
                       <p className="font-semibold mb-2">O que conta e o que não conta como magistério?</p>
                       <div className="space-y-2 text-sm">
