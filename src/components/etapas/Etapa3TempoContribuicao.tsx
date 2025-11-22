@@ -137,7 +137,6 @@ export const Etapa3TempoContribuicao: React.FC<Etapa3Props> = ({
                 value={data.magisterio}
                 onChange={(v) => onChange('magisterio', v)}
                 error={errors.magisterio}
-                required
                 className="text-base"
               />
             </div>
@@ -146,7 +145,7 @@ export const Etapa3TempoContribuicao: React.FC<Etapa3Props> = ({
               <CardContent className="pt-6 space-y-2">
                 <div className="flex items-center gap-2">
                   <label className="text-base font-medium text-foreground">
-                    Tempo Fora do Magistério
+                    Tempo Fora do Magistério <span className="text-destructive">*</span>
                   </label>
                   <TooltipProvider>
                     <Tooltip>
@@ -171,7 +170,6 @@ export const Etapa3TempoContribuicao: React.FC<Etapa3Props> = ({
                   value={data.remuneradoForaMagisterio}
                   onChange={(v) => onChange('remuneradoForaMagisterio', v)}
                   error={errors.remuneradoForaMagisterio}
-                  required={isProfessor && isProfessorFundamentalMedio}
                   className="text-base"
                 />
                 <div className="flex items-start gap-2 text-sm text-amber-900 dark:text-amber-100">
