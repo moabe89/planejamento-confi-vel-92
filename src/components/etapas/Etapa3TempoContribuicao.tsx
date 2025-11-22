@@ -149,6 +149,7 @@ export const Etapa3TempoContribuicao: React.FC<Etapa3Props> = ({
                 onChange={(v) => onChange('remuneradoForaMagisterio', v)}
                 required={false}
                 noCard={true}
+                labelManual={<>Total de fora em <strong>anos, meses e dias</strong></>}
                 helpText="Preencha apenas se estava no cargo de professor, mas exerceu funções de coordenador, diretor, assessor pedagógico ou dinamizador de biblioteca fora da unidade de ensino."
               />
             </div>
@@ -166,16 +167,24 @@ export const Etapa3TempoContribuicao: React.FC<Etapa3Props> = ({
       )}
 
       {isPolicial && (
-        <>
-          <PeriodoContribuicao
-            titulo="Tempo de Contribuição Policial"
-            valor={data.policial}
-            onChange={(v) => onChange('policial', v)}
-            required
-          />
+        <Card className="border-border/50 shadow-sm">
+          <CardContent className="pt-6 space-y-6">
+            <div>
+              <h3 className="text-lg font-semibold text-foreground mb-1">
+                Tempo de Contribuição Policial
+                <span className="text-destructive ml-1">*</span>
+              </h3>
+            </div>
 
-          <Card className="border-border/50 shadow-sm">
-            <CardContent className="pt-6">
+            <PeriodoContribuicao
+              titulo=""
+              valor={data.policial}
+              onChange={(v) => onChange('policial', v)}
+              required={false}
+              noCard={true}
+            />
+
+            <div className="border-t border-border/50 pt-6">
               <RadioGroup
                 label="Tipo de Carreira Policial"
                 name="tipoCarreiraPolicial"
@@ -201,9 +210,9 @@ export const Etapa3TempoContribuicao: React.FC<Etapa3Props> = ({
                 ]}
                 required
               />
-            </CardContent>
-          </Card>
-        </>
+            </div>
+          </CardContent>
+        </Card>
       )}
 
       {isPcD && (
