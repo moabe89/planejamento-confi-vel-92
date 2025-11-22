@@ -144,8 +144,29 @@ export const Etapa3TempoContribuicao: React.FC<Etapa3Props> = ({
             
             <Card className="border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/20 shadow-sm">
               <CardContent className="pt-6 space-y-2">
+                <div className="flex items-center gap-2">
+                  <label className="text-base font-medium text-foreground">
+                    Tempo Fora do Magistério
+                  </label>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <button type="button" className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md border border-amber-500/30 dark:border-amber-500/20 text-amber-600 dark:text-amber-500 hover:border-amber-500/50 dark:hover:border-amber-500/40 hover:bg-amber-500/5 transition-all animate-subtle-pulse">
+                          <span className="text-xs font-medium">Saiba mais</span>
+                          <HelpCircle className="h-3.5 w-3.5" />
+                        </button>
+                      </TooltipTrigger>
+                      <TooltipContent className="max-w-md p-4">
+                        <p className="font-semibold mb-2">Quando preencher este campo?</p>
+                        <p className="text-sm">
+                          Preencha o campo apenas se estava no cargo de professor, mas ficou fora do magistério exercendo funções de <strong>coordenador</strong>, <strong>diretor</strong>, <strong>assessor pedagógico</strong> ou <strong>dinamizador de biblioteca</strong> fora da unidade de ensino ou em outras atividades não relacionadas ao magistério.
+                        </p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </div>
                 <TempoInput
-                  label="Tempo Fora do Magistério"
+                  label=""
                   name="remuneradoForaMagisterio"
                   value={data.remuneradoForaMagisterio}
                   onChange={(v) => onChange('remuneradoForaMagisterio', v)}

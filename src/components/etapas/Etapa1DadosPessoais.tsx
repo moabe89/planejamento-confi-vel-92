@@ -227,18 +227,18 @@ export const Etapa1DadosPessoais: React.FC<Etapa1Props> = ({
               </Tooltip>
             </TooltipProvider>
           </div>
-          <RadioGroup
-            label=""
-            name="professorTipo"
-            value={data.professorTipo}
-            onChange={(v) => onChange('professorTipo', v)}
-            options={[
-              { value: 'fundamental-medio', label: 'Ensino fundamental/médio' },
-              { value: 'ensino-superior', label: 'Instituição de ensino superior' },
-            ]}
-            error={errors.professorTipo}
-            required
-          />
+            <RadioGroup
+              label=""
+              name="professorTipo"
+              value={data.professorTipo}
+              onChange={(v) => onChange('professorTipo', v)}
+              options={[
+                { value: 'fundamental-medio', label: 'Ensino fundamental/médio' },
+                { value: 'ensino-superior', label: 'Professor de instituição de ensino superior' },
+              ]}
+              error={errors.professorTipo}
+              required
+            />
         </div>
       )}
 
