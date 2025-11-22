@@ -34,10 +34,18 @@ const detectarSobreposicao = (p1: Periodo, p2: Periodo): number => {
 
 // Converter dias totais em anos, meses e dias
 export const diasParaTempo = (totalDias: number): TempoCalculado => {
-  const anos = Math.floor(totalDias / 365);
-  const diasRestantes = totalDias % 365;
+  // Calcular usando aproximação mais precisa
+  let diasRestantes = totalDias;
+  
+  // 1 ano = 365 dias
+  const anos = Math.floor(diasRestantes / 365);
+  diasRestantes = diasRestantes - (anos * 365);
+  
+  // 1 mês = 30 dias
   const meses = Math.floor(diasRestantes / 30);
-  const dias = diasRestantes % 30;
+  diasRestantes = diasRestantes - (meses * 30);
+  
+  const dias = diasRestantes;
 
   return { anos, meses, dias };
 };

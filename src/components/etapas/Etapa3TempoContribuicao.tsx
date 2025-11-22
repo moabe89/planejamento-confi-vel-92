@@ -75,60 +75,62 @@ export const Etapa3TempoContribuicao: React.FC<Etapa3Props> = ({
 
       {isProfessor && isProfessorFundamentalMedio && (
         <>
-          <Card className="border-border/50 shadow-sm bg-amber-50/30 dark:bg-amber-950/10">
-            <CardContent className="pt-6">
-              <div className="flex items-center gap-2 mb-3">
-                <label className="text-base font-medium text-foreground">
-                  Informações sobre Magistério
-                </label>
-                <TooltipProvider>
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <button type="button" className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md border border-amber-500/30 dark:border-amber-500/20 text-amber-600 dark:text-amber-500 hover:border-amber-500/50 dark:hover:border-amber-500/40 hover:bg-amber-500/5 transition-all">
-                        <span className="text-xs font-medium">Saiba mais</span>
-                        <HelpCircle className="h-3.5 w-3.5" />
-                      </button>
-                    </TooltipTrigger>
-                    <TooltipContent className="max-w-md p-4">
-                      <p className="font-semibold mb-2">O que conta e o que não conta como magistério?</p>
-                      <div className="space-y-2 text-sm">
-                        <div>
-                          <p className="font-medium">
-                            <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-green-100 dark:bg-green-900/30 mr-1">
-                              <span className="text-green-700 dark:text-green-400 font-bold">✓</span>
-                            </span>
-                            <span className="bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 px-1 rounded">Conta como tempo de magistério:</span>
-                          </p>
-                          <p className="ml-6 mt-1">
-                            Cargo de coordenador, diretor, assessor pedagógico, dinamizador de biblioteca, desde que exercido na unidade de ensino e para <strong>ensino fundamental e médio</strong> (<strong>Ensino superior não conta como magistério</strong>).
-                          </p>
-                        </div>
-                        <div>
-                          <p className="font-medium">
-                            <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-red-100 dark:bg-red-900/30 mr-1">
-                              <span className="text-red-700 dark:text-red-400 font-bold">✗</span>
-                            </span>
-                            <span className="bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300 px-1 rounded">Não conta como tempo de magistério:</span>
-                          </p>
-                          <p className="ml-6 mt-1">
-                            Cargos administrativos ou fora da unidade de ensino, exemplo: secretária da escola, cargo comissionado fora da escola, etc.
-                          </p>
-                        </div>
-                      </div>
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
+          <div className="space-y-3">
+            <div className="flex items-start justify-between">
+              <div>
+                <h3 className="text-lg font-semibold text-foreground">
+                  Tempo de Contribuição no Magistério
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  Tempo exercido em funções de magistério no ensino fundamental e médio
+                </p>
               </div>
-            </CardContent>
-          </Card>
-
-          <PeriodoContribuicao
-            titulo="Tempo de Contribuição no Magistério"
-            descricao="Tempo exercido em funções de magistério no ensino fundamental e médio"
-            valor={data.magisterio}
-            onChange={(v) => onChange('magisterio', v)}
-            required
-          />
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <button type="button" className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md border border-amber-500/30 dark:border-amber-500/20 text-amber-600 dark:text-amber-500 hover:border-amber-500/50 dark:hover:border-amber-500/40 hover:bg-amber-500/5 transition-all whitespace-nowrap">
+                      <span className="text-xs font-medium">Saiba mais</span>
+                      <HelpCircle className="h-3.5 w-3.5" />
+                    </button>
+                  </TooltipTrigger>
+                  <TooltipContent className="max-w-md p-4">
+                    <p className="font-semibold mb-2">O que conta e o que não conta como magistério?</p>
+                    <div className="space-y-2 text-sm">
+                      <div>
+                        <p className="font-medium">
+                          <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-green-100 dark:bg-green-900/30 mr-1">
+                            <span className="text-green-700 dark:text-green-400 font-bold">✓</span>
+                          </span>
+                          <span className="bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 px-1 rounded">Conta como tempo de magistério:</span>
+                        </p>
+                        <p className="ml-6 mt-1">
+                          Cargo de coordenador, diretor, assessor pedagógico, dinamizador de biblioteca, desde que exercido na unidade de ensino e para <strong>ensino fundamental e médio</strong> (<strong>Ensino superior não conta como magistério</strong>).
+                        </p>
+                      </div>
+                      <div>
+                        <p className="font-medium">
+                          <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-red-100 dark:bg-red-900/30 mr-1">
+                            <span className="text-red-700 dark:text-red-400 font-bold">✗</span>
+                          </span>
+                          <span className="bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300 px-1 rounded">Não conta como tempo de magistério:</span>
+                        </p>
+                        <p className="ml-6 mt-1">
+                          Cargos administrativos ou fora da unidade de ensino, exemplo: secretária da escola, cargo comissionado fora da escola, etc.
+                        </p>
+                      </div>
+                    </div>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            </div>
+            
+            <PeriodoContribuicao
+              titulo=""
+              valor={data.magisterio}
+              onChange={(v) => onChange('magisterio', v)}
+              required
+            />
+          </div>
 
           <PeriodoContribuicao
             titulo="Tempo Fora do Magistério"
