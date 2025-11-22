@@ -104,14 +104,24 @@ export const Etapa3TempoContribuicao: React.FC<Etapa3Props> = ({
                       <p className="font-semibold mb-2">O que conta e o que não conta como magistério?</p>
                       <div className="space-y-2 text-sm">
                         <div>
-                          <p className="font-medium">✓ Conta como tempo de magistério:</p>
-                          <p>
+                          <p className="font-medium">
+                            <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-green-100 dark:bg-green-900/30 mr-1">
+                              <span className="text-green-700 dark:text-green-400 font-bold">✓</span>
+                            </span>
+                            <span className="bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 px-1 rounded">Conta como tempo de magistério:</span>
+                          </p>
+                          <p className="ml-6 mt-1">
                             Cargo de coordenador, diretor, assessor pedagógico, dinamizador de biblioteca, desde que exercido na unidade de ensino e para <strong>ensino fundamental e médio</strong> (<strong>Ensino superior não conta como magistério</strong>).
                           </p>
                         </div>
                         <div>
-                          <p className="font-medium">✗ Não conta como tempo de magistério:</p>
-                          <p>
+                          <p className="font-medium">
+                            <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-red-100 dark:bg-red-900/30 mr-1">
+                              <span className="text-red-700 dark:text-red-400 font-bold">✗</span>
+                            </span>
+                            <span className="bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300 px-1 rounded">Não conta como tempo de magistério:</span>
+                          </p>
+                          <p className="ml-6 mt-1">
                             Cargos administrativos ou fora da unidade de ensino, exemplo: secretária da escola, cargo comissionado fora da escola, etc.
                           </p>
                         </div>
