@@ -63,7 +63,13 @@ export const Etapa3TempoContribuicao: React.FC<Etapa3Props> = ({
         valor={data.comum}
         onChange={(v) => onChange('comum', v)}
         required
-        helpText="Inclua todos os seus tempos comuns, inclusive anteriores ao concurso. Verifique se há tempos para averbar (INSS, RPPS)."
+        helpText={
+          <>
+            Inclua <strong>APENAS tempos comuns</strong>, inclusive anteriores ao concurso. Outros tempos devem ser colocados abaixo.
+            <br />
+            Verifique se há tempos para averbar (INSS, RPPS).
+          </>
+        }
       />
 
       {isProfessor && isProfessorFundamentalMedio && (

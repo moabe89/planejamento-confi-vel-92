@@ -18,7 +18,7 @@ interface PeriodoContribuicaoProps {
   valor: TempoCalculado;
   onChange: (valor: TempoCalculado) => void;
   required?: boolean;
-  helpText?: string;
+  helpText?: React.ReactNode;
   noCard?: boolean; // Se true, não renderiza o Card wrapper
   labelManual?: React.ReactNode; // Label customizado para o método manual
 }
