@@ -298,18 +298,18 @@ export const PeriodoContribuicao: React.FC<PeriodoContribuicaoProps> = ({
           <Alert className="bg-amber-50 dark:bg-amber-950/20 border-amber-200 dark:border-amber-800">
             <AlertCircle className="h-4 w-4 text-amber-600 dark:text-amber-500" />
             <AlertDescription className="text-amber-900 dark:text-amber-100">
-              <strong>Atenção:</strong> Foram detectados períodos simultâneos (concomitantes). Apenas o tempo não concomitante foi considerado no cálculo.
+              <div>
+                <strong>Períodos simultâneos:</strong>
+              </div>
               <div className="mt-2 space-y-1 text-sm">
                 {resultado.periodosSimultaneos.map((sobreposicao, index) => (
-                  <div key={index} className="pl-2 border-l-2 border-amber-400">
-                    <strong>Períodos simultâneos:</strong>
-                    <div>• {sobreposicao.periodo1.dataInicio} a {sobreposicao.periodo1.dataFim}</div>
-                    <div>• {sobreposicao.periodo2.dataInicio} a {sobreposicao.periodo2.dataFim}</div>
-                    <div className="text-amber-700 dark:text-amber-300">
-                      Desconsiderados {sobreposicao.diasSimultaneos} {sobreposicao.diasSimultaneos === 1 ? 'dia' : 'dias'} por concomitância
-                    </div>
+                  <div key={index}>
+                    • {sobreposicao.diasSimultaneos} {sobreposicao.diasSimultaneos === 1 ? 'dia' : 'dias'} de {sobreposicao.periodo1.dataInicio} a {sobreposicao.periodo1.dataFim}
                   </div>
                 ))}
+                <div className="text-amber-700 dark:text-amber-300 mt-2">
+                  Desconsiderados por concomitância
+                </div>
               </div>
             </AlertDescription>
           </Alert>
@@ -320,10 +320,7 @@ export const PeriodoContribuicao: React.FC<PeriodoContribuicaoProps> = ({
             <CardContent className="pt-4 space-y-2">
               <Label className="text-sm font-medium">Tempo calculado:</Label>
               <div className="text-2xl font-bold text-primary">
-                {resultado.total.anos > 0 && `${resultado.total.anos} ${resultado.total.anos === 1 ? 'ano' : 'anos'}`}
-                {resultado.total.meses > 0 && `, ${resultado.total.meses} ${resultado.total.meses === 1 ? 'mês' : 'meses'}`}
-                {resultado.total.dias > 0 && `, ${resultado.total.dias} ${resultado.total.dias === 1 ? 'dia' : 'dias'}`}
-                {resultado.total.anos === 0 && resultado.total.meses === 0 && resultado.total.dias === 0 && '0 dias'}
+                {resultado.total.anos} {resultado.total.anos === 1 ? 'ano' : 'anos'}, {resultado.total.meses} {resultado.total.meses === 1 ? 'mês' : 'meses'}, {resultado.total.dias} {resultado.total.dias === 1 ? 'dia' : 'dias'}
               </div>
               <p className="text-xs text-muted-foreground">
                 Total de dias não concomitantes: {resultado.diasNaoConcomitantes}
