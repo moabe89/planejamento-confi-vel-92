@@ -1,5 +1,6 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { Resend } from "https://esm.sh/resend@2.0.0";
+import { z } from "https://deno.land/x/zod@v3.22.4/mod.ts";
 
 const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
 
@@ -8,25 +9,51 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
-interface FormularioData {
-  nome_completo: string;
-  email_cliente: string;
-  sexo: string;
-  data_nascimento: string;
-  cpf: string;
-  vinculo: string;
-  uf?: string;
-  municipio?: string;
-  professor: boolean;
-  professorTipo?: string;
-  pessoaComDeficiencia: boolean;
-  grauDeficiencia?: string;
-  insalubridadeOuEspecial: boolean;
-  policial: boolean;
-  bombeiroMilitar: boolean;
-  servicoPublico?: any;
-  tempoContribuicao?: any;
-}
+// Schema validation for incoming form data
+const TempoSchema = z.object({
+  anos: z.number().min(0).max(100).default(0),
+  meses: z.number().min(0).max(11).default(0),
+  dias: z.number().min(0).max(30).default(0),
+}).optional();
+
+const ServicoPublicoSchema = z.object({
+  origem: z.string().max(200).optional(),
+  dataIngressoServicoPublico: z.string().max(10).optional(),
+  tempoCarreira: TempoSchema,
+  tempoCargo: TempoSchema,
+  tempoAfastamento: TempoSchema,
+}).optional();
+
+const TempoContribuicaoSchema = z.object({
+  tempoComum: TempoSchema,
+  tempoMagisterio: TempoSchema,
+  tempoForaMagisterio: TempoSchema,
+  tempoEspecialInsalubre: TempoSchema,
+  tempoPolicial: TempoSchema,
+  tempoPCD: TempoSchema,
+}).optional();
+
+const FormularioSchema = z.object({
+  nome_completo: z.string().trim().min(1).max(200),
+  email_cliente: z.string().email().max(255),
+  sexo: z.enum(['Masculino', 'Feminino']),
+  data_nascimento: z.string().regex(/^\d{2}\/\d{2}\/\d{4}$/),
+  cpf: z.string().regex(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/),
+  vinculo: z.string().max(100),
+  uf: z.string().max(2).optional(),
+  municipio: z.string().max(200).optional(),
+  professor: z.boolean(),
+  professorTipo: z.string().max(100).optional(),
+  pessoaComDeficiencia: z.boolean(),
+  grauDeficiencia: z.string().max(100).optional(),
+  insalubridadeOuEspecial: z.boolean(),
+  policial: z.boolean(),
+  bombeiroMilitar: z.boolean(),
+  servicoPublico: ServicoPublicoSchema,
+  tempoContribuicao: TempoContribuicaoSchema,
+});
+
+type FormularioData = z.infer<typeof FormularioSchema>;
 
 const escapeHtml = (unsafe: string | undefined): string => {
   if (!unsafe) return '';
@@ -201,8 +228,27 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
-    const data: FormularioData = await req.json();
-    console.log("Enviando emails de confirmação para:", data.email_cliente);
+    // Parse and validate incoming data
+    const rawData = await req.json();
+    const validationResult = FormularioSchema.safeParse(rawData);
+    
+    if (!validationResult.success) {
+      console.error("Validation failed:", validationResult.error.issues);
+      return new Response(
+        JSON.stringify({ 
+          error: "Invalid form data",
+          success: false,
+          details: validationResult.error.issues 
+        }),
+        {
+          status: 400,
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        }
+      );
+    }
+    
+    const data = validationResult.data;
+    console.log("Processing form submission - validation passed");
 
     // Email em texto para o escritório
     const emailTexto = gerarEmailTexto(data);
